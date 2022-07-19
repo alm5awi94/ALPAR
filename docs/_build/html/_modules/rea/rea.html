@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rea.rea &#8212; REA 2022 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+          <div class="body" role="main">
+
+  <h1>Source code for rea.rea</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">REA - Rule Extraction Assistant</span>
+
+<span class="sd">A pipeline for evaluating rule extraction algorithms for (feed-forward) neural</span>
+<span class="sd">networks.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">rea.configuration</span> <span class="kn">import</span> <span class="n">ConfKeys</span><span class="p">,</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">GlobalKeys</span>
+<span class="kn">from</span> <span class="nn">rea.data.data</span> <span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">from</span> <span class="nn">rea.evaluation.evaluation</span> <span class="kn">import</span> <span class="n">Evaluation</span>
+<span class="kn">from</span> <span class="nn">rea.extraction.extraction</span> <span class="kn">import</span> <span class="n">Extraction</span>
+<span class="kn">from</span> <span class="nn">rea.model.model</span> <span class="kn">import</span> <span class="n">Model</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="REA"><a class="viewcode-back" href="../../rea.html#rea.rea.REA">[docs]</a><span class="k">class</span> <span class="nc">REA</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main class of the rule extraction assistant to load the configuration and</span>
+<span class="sd">    run the pipeline.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf_paths</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span class="n">Configuration</span><span class="p">(</span><span class="n">conf_paths</span><span class="p">)</span>
+
+<div class="viewcode-block" id="REA.run"><a class="viewcode-back" href="../../rea.html#rea.rea.REA.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">do_data_flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">do_model_flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">do_extraction_flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">do_eval_flag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Executes the specified pipeline modules.</span>
+<span class="sd">        The specification of which modules to run can be done by using the cli</span>
+<span class="sd">        flags or gets inferred from the given configurations.</span>
+
+<span class="sd">        :param do_data_flag: CLI flag to execute `Data` module.</span>
+<span class="sd">        :param do_model_flag: CLI flag to execute `Model` module.</span>
+<span class="sd">        :param do_extraction_flag: CLI flag to execute `Extraction` module.</span>
+<span class="sd">        :param do_eval_flag: CLI flag to execute `Evaluation` module.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">globl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get_global_params</span><span class="p">()</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">getLevelName</span><span class="p">(</span>
+            <span class="n">globl</span><span class="p">[</span><span class="n">GlobalKeys</span><span class="o">.</span><span class="n">LOGGING</span><span class="p">]))</span>
+
+        <span class="k">if</span> <span class="nb">any</span><span class="p">((</span>
+                <span class="n">do_data_flag</span><span class="p">,</span> <span class="n">do_model_flag</span><span class="p">,</span> <span class="n">do_extraction_flag</span><span class="p">,</span>
+                <span class="n">do_eval_flag</span><span class="p">)):</span>
+            <span class="c1"># only execute specified modules</span>
+            <span class="c1"># throw an error if cli flag is passed but config is missing</span>
+            <span class="n">do_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cli_module_check</span><span class="p">(</span><span class="n">do_data_flag</span><span class="p">,</span> <span class="n">ConfKeys</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+            <span class="n">do_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cli_module_check</span><span class="p">(</span><span class="n">do_model_flag</span><span class="p">,</span> <span class="n">ConfKeys</span><span class="o">.</span><span class="n">MODEL</span><span class="p">)</span>
+            <span class="n">do_extraction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cli_module_check</span><span class="p">(</span><span class="n">do_extraction_flag</span><span class="p">,</span>
+                                                   <span class="n">ConfKeys</span><span class="o">.</span><span class="n">EXTRACTION</span><span class="p">)</span>
+            <span class="n">do_eval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cli_module_check</span><span class="p">(</span><span class="n">do_eval_flag</span><span class="p">,</span> <span class="n">ConfKeys</span><span class="o">.</span><span class="n">EVALUATION</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># only try to run the modules</span>
+            <span class="c1"># that are actually specified in the config</span>
+            <span class="n">do_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">has_module</span><span class="p">(</span><span class="n">ConfKeys</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+            <span class="n">do_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">has_module</span><span class="p">(</span><span class="n">ConfKeys</span><span class="o">.</span><span class="n">MODEL</span><span class="p">)</span>
+            <span class="n">do_extraction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">has_module</span><span class="p">(</span>
+                <span class="n">ConfKeys</span><span class="o">.</span><span class="n">EXTRACTION</span><span class="p">)</span>
+            <span class="n">do_eval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">has_module</span><span class="p">(</span>
+                <span class="n">ConfKeys</span><span class="o">.</span><span class="n">EVALUATION</span><span class="p">)</span>
+
+        <span class="c1"># validate necessary configuration</span>
+        <span class="k">for</span> <span class="n">flag</span><span class="p">,</span> <span class="n">validator</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">do_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">validate_data</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">do_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">validate_model</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">do_extraction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">validate_rule_ex</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">do_eval</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">validate_evaluation</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
+                <span class="n">validator</span><span class="p">()</span>
+
+        <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Data</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># modules create instance if necessary</span>
+        <span class="k">if</span> <span class="n">do_data</span><span class="p">:</span>
+            <span class="c1"># load common data instance for modules</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get_data_params</span><span class="p">(),</span>
+                        <span class="n">seed</span><span class="o">=</span><span class="n">globl</span><span class="p">[</span><span class="n">GlobalKeys</span><span class="o">.</span><span class="n">SEED</span><span class="p">])</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+        <span class="c1"># run the pipeline</span>
+        <span class="k">if</span> <span class="n">do_model</span><span class="p">:</span>
+            <span class="n">model</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get_model_params</span><span class="p">(),</span>
+                                 <span class="n">seed</span><span class="o">=</span><span class="n">globl</span><span class="p">[</span><span class="n">GlobalKeys</span><span class="o">.</span><span class="n">SEED</span><span class="p">])</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">do_extraction</span><span class="p">:</span>
+            <span class="n">extraction</span><span class="p">:</span> <span class="n">Extraction</span> <span class="o">=</span> <span class="n">Extraction</span><span class="p">(</span>
+                <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get_extraction_params</span><span class="p">(),</span>
+                <span class="n">seed</span><span class="o">=</span><span class="n">globl</span><span class="p">[</span><span class="n">GlobalKeys</span><span class="o">.</span><span class="n">SEED</span><span class="p">])</span>
+            <span class="n">extraction</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">do_eval</span><span class="p">:</span>
+            <span class="n">evaluation</span><span class="p">:</span> <span class="n">Evaluation</span> <span class="o">=</span> <span class="n">Evaluation</span><span class="p">(</span>
+                <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">get_evaluation_params</span><span class="p">(),</span>
+                <span class="n">seed</span><span class="o">=</span><span class="n">globl</span><span class="p">[</span><span class="n">GlobalKeys</span><span class="o">.</span><span class="n">SEED</span><span class="p">])</span>
+            <span class="n">evaluation</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_cli_module_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">do_module_cli_flag</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+                          <span class="n">conf_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">do_module_cli_flag</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">has_module</span><span class="p">(</span><span class="n">conf_key</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;CLI flag set to use </span><span class="si">{</span><span class="n">conf_key</span><span class="si">}</span><span class="s1"> module&#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;but no </span><span class="si">{</span><span class="n">conf_key</span><span class="si">}</span><span class="s1"> configuration found.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+</pre></div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">REA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+
+    </div>
+
+
+
+
+  </body>
+</html>

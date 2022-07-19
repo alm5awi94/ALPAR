@@ -1,0 +1,42 @@
+{
+  "global": {
+    "logging": "DEBUG",
+    "seed": 42,
+    "metrics_filename": "eval_metrics_alpa.json",
+    "rules_filename": "rules_alpa.bin",
+    "predict_instance_filename": "iris_classifier.pickle"
+  },
+  "data": {
+    "input_path": "resources/iris.csv",
+    "output_path": "temp/iris_alpa/data",
+    "test_size": 0.3,
+    "dataset_name": "Iris",
+    "label_col": "Species"
+  },
+  "model": {
+    "data_path": "temp/iris_alpa/data",
+    "nwtype": "ff",
+    "hidden_layer_units": [
+      10
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "use_class_weights": true,
+    "batch_size": 2,
+    "epochs": 20,
+    "output_path": "temp/iris_alpa/model"
+  },
+  "extraction": {
+    "data_path": "temp/iris_alpa/data",
+    "trained_model_path": "temp/iris_alpa/model",
+    "algorithm": "alpa",
+    "rules_dir": "temp/iris_alpa/rules"
+  },
+  "evaluation": {
+    "data_path": "temp/iris_alpa/data",
+    "trained_model_path": "temp/iris_alpa/model",
+    "rules_dir": "temp/iris_alpa/rules",
+    "evaluation_dir": "temp/iris_alpa/eval"
+  }
+}

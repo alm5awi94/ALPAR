@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/onehot",
+    "trained_model_path": "model/onehot",
+    "algorithm": "dnnre",
+    "rules_dir": "rules/onehot/dnnre"
+  },
+  "evaluation": {
+    "data_path": "data/onehot",
+    "trained_model_path": "model/onehot",
+    "rules_dir": "rules/onehot/dnnre",
+    "evaluation_dir": "eval/onehot/dnnre"
+  }
+}

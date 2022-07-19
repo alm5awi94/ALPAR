@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/conv",
+    "trained_model_path": "model/conv",
+    "algorithm": "alpa",
+    "rules_dir": "alpa_rules/conv"
+  },
+  "evaluation": {
+    "data_path": "data/conv",
+    "trained_model_path": "model/conv",
+    "rules_dir": "alpa_rules/conv",
+    "evaluation_dir": "alpa_eval/conv"
+  }
+}

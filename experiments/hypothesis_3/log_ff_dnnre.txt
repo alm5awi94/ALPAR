@@ -1,0 +1,50 @@
+DEBUG:rea.configuration:Validating configuration for rule extraction.
+DEBUG:rea.configuration:Validating configuration for evaluation.
+DEBUG:rea.data.data:Created new Data instance.
+DEBUG:rea.extraction.extraction:Starting rule extraction dnnre
+2022-03-02 16:48:12.338964: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.374722: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.375096: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.375664: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-02 16:48:12.376033: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.376432: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.376734: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.864647: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.864935: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.865193: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-02 16:48:12.865377: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 3389 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 950M, pci bus id: 0000:01:00.0, compute capability: 5.0
+2022-03-02 16:48:13.155985: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-02 16:48:13.518478: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-02 16:48:14.958190: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 153664000 exceeds 10% of free system memory.
+2022-03-02 16:48:29.614004: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-02 16:48:30.038838: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+Computed layerwise activations.
+Extracting layer 3 rules:
+.
+.
+Substituting layer 3 rules   Rule Premise Length:  1
+    premise: 1
+done
+Extracting layer 2 rules:
+............
+............
+Substituting layer 2 rules   Rule Premise Length:  5
+    premise: 1
+    premise: 2
+    premise: 3
+    premise: 4
+    premise: 5
+done
+Extracting layer 1 rules:
+............
+............
+Substituting layer 1 rules   Rule Premise Length:  5
+    premise: 1
+..
+..    premise: 2
+.................................................................................................................................................................................
+.................................................................................................................................................................................    premise: 3
+    premise: 4
+...........................................................................................................................
+...........................................................................................................................

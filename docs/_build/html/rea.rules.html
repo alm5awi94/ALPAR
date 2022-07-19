@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rea.rules package &mdash; REA 2022 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> REA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">rea.rules package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-rea.rules.clause">rea.rules.clause module</a></li>
+<li><a class="reference internal" href="#module-rea.rules.helpers">rea.rules.helpers module</a></li>
+<li><a class="reference internal" href="#module-rea.rules.rule">rea.rules.rule module</a></li>
+<li><a class="reference internal" href="#module-rea.rules.ruleset">rea.rules.ruleset module</a></li>
+<li><a class="reference internal" href="#module-rea.rules.term">rea.rules.term module</a></li>
+<li><a class="reference internal" href="#module-rea.rules">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">REA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>rea.rules package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/rea.rules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <section id="rea-rules-package">
+<h1>rea.rules package<a class="headerlink" href="#rea-rules-package" title="Permalink to this headline"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rea.rules.logic_manipulator.html">rea.rules.logic_manipulator package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.delete_redundant_terms">rea.rules.logic_manipulator.delete_redundant_terms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.helpers">rea.rules.logic_manipulator.helpers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.merge">rea.rules.logic_manipulator.merge module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.satisfiability">rea.rules.logic_manipulator.satisfiability module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.substitute_rules">rea.rules.logic_manipulator.substitute_rules module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-rea.rules.clause">
+<span id="rea-rules-clause-module"></span><h2>rea.rules.clause module<a class="headerlink" href="#module-rea.rules.clause" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.clause.</span></span><span class="sig-name descname"><span class="pre">ConjunctiveClause</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>Represent conjunctive clause. All terms in clause are ANDed together.</dt><dd><p>Immutable and Hashable.</p>
+</dd>
+</dl>
+<p>Each conjunctive clause of terms has its own confidence value</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.confidence">
+<span class="sig-name descname"><span class="pre">confidence</span></span><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.confidence" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluate clause with data Dict[Neuron, float]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.get_confidence">
+<span class="sig-name descname"><span class="pre">get_confidence</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.get_confidence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.get_confidence" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.get_rank_score">
+<span class="sig-name descname"><span class="pre">get_rank_score</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.get_rank_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.get_rank_score" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.get_terms">
+<span class="sig-name descname"><span class="pre">get_terms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.get_terms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.get_terms" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.rank_score">
+<span class="sig-name descname"><span class="pre">rank_score</span></span><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.rank_score" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.set_rank_score">
+<span class="sig-name descname"><span class="pre">set_rank_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.set_rank_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.set_rank_score" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.terms">
+<span class="sig-name descname"><span class="pre">terms</span></span><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.terms" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.clause.ConjunctiveClause.union">
+<span class="sig-name descname"><span class="pre">union</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rea.rules.clause.ConjunctiveClause" title="rea.rules.clause.ConjunctiveClause"><span class="pre">rea.rules.clause.ConjunctiveClause</span></a></span></span><a class="reference internal" href="_modules/rea/rules/clause.html#ConjunctiveClause.union"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.clause.ConjunctiveClause.union" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea.rules.helpers">
+<span id="rea-rules-helpers-module"></span><h2>rea.rules.helpers module<a class="headerlink" href="#module-rea.rules.helpers" title="Permalink to this headline"></a></h2>
+<p>Helper methods</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="rea.rules.helpers.neuron_to_str">
+<span class="sig-prename descclassname"><span class="pre">rea.rules.helpers.</span></span><span class="sig-name descname"><span class="pre">neuron_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rea.rules.term.Neuron" title="rea.rules.term.Neuron"><span class="pre">rea.rules.term.Neuron</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rea.data.html#rea.data.data.Data" title="rea.data.data.Data"><span class="pre">rea.data.data.Data</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/rea/rules/helpers.html#neuron_to_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.helpers.neuron_to_str" title="Permalink to this definition"></a></dt>
+<dd><p>Converts an input neuron name to a corresponding feature name.
+WARNING: does not work for hidden layer neurons (h_x_y where x &gt; 0)!
+:param neuron: Neuron to get the corresponding feature name for
+:param data: Data instance which has the mapping for feature names
+:return: The name of the corresponding feature as a string</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rea.rules.helpers.parse_variable_str_to_dict">
+<span class="sig-prename descclassname"><span class="pre">rea.rules.helpers.</span></span><span class="sig-name descname"><span class="pre">parse_variable_str_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables_str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/helpers.html#parse_variable_str_to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.helpers.parse_variable_str_to_dict" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Parse string of variables of the form</dt><dd><p>‘variable_name=”val” variable_name=”val” variable_name=”val”’ into dict</p>
+</dd>
+<dt>Where variable vals are cast to the correct type.</dt><dd><p>This is the form C5 stores output data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rea.rules.helpers.pretty_string_repr">
+<span class="sig-prename descclassname"><span class="pre">rea.rules.helpers.</span></span><span class="sig-name descname"><span class="pre">pretty_string_repr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ruleset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.rule.Rule" title="rea.rules.rule.Rule"><span class="pre">rea.rules.rule.Rule</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rea.data.html#rea.data.data.Data" title="rea.data.data.Data"><span class="pre">rea.data.data.Data</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/helpers.html#pretty_string_repr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.helpers.pretty_string_repr" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a set of rules into a list of human-readable rule strings.
+:param ruleset: The set to convert as strings.
+:param data: Instance to decode feature and class names.
+:param convert_classes: Whether classes should be converted or not.
+:return: A list of rule string representations.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rea.rules.helpers.str_to_bool">
+<span class="sig-prename descclassname"><span class="pre">rea.rules.helpers.</span></span><span class="sig-name descname"><span class="pre">str_to_bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bool_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/helpers.html#str_to_bool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.helpers.str_to_bool" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-rea.rules.rule">
+<span id="rea-rules-rule-module"></span><h2>rea.rules.rule module<a class="headerlink" href="#module-rea.rules.rule" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Represent a rule with a premise in Disjunctive Normal Form (DNF)</dt><dd><p>and conclusion of another term or class conclusion</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.rule.OutputClass">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.rule.</span></span><span class="sig-name descname"><span class="pre">OutputClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/rule.html#OutputClass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.OutputClass" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represent rule conclusion. Immutable and Hashable.</p>
+<dl class="simple">
+<dt>Each output class has a name and its relevant encoding in the network</dt><dd><p>i.e. which output neuron it corresponds to</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.OutputClass.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/rule.html#OutputClass.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.OutputClass.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.rule.OutputClass.encoding">
+<span class="sig-name descname"><span class="pre">encoding</span></span><a class="headerlink" href="#rea.rules.rule.OutputClass.encoding" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.rule.OutputClass.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#rea.rules.rule.OutputClass.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.rule.</span></span><span class="sig-name descname"><span class="pre">Rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">premise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.clause.ConjunctiveClause" title="rea.rules.clause.ConjunctiveClause"><span class="pre">rea.rules.clause.ConjunctiveClause</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conclusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rea.rules.rule.OutputClass" title="rea.rules.rule.OutputClass"><span class="pre">rea.rules.rule.OutputClass</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>Represent rule in DNF form i.e. (t1 AND t2 AND ..) OR ( …) OR … -&gt; t6 .</dt><dd><p>Immutable and Hashable.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">premise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.clause.ConjunctiveClause" title="rea.rules.clause.ConjunctiveClause"><span class="pre">rea.rules.clause.ConjunctiveClause</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conclusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rea.rules.rule.OutputClass" title="rea.rules.rule.OutputClass"><span class="pre">rea.rules.rule.OutputClass</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.conclusion">
+<span class="sig-name descname"><span class="pre">conclusion</span></span><a class="headerlink" href="#rea.rules.rule.Rule.conclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.evaluate_rule_by_confidence">
+<span class="sig-name descname"><span class="pre">evaluate_rule_by_confidence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Neuron" title="rea.rules.term.Neuron"><span class="pre">rea.rules.term.Neuron</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.evaluate_rule_by_confidence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.evaluate_rule_by_confidence" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Given a list of input neurons and their values,</dt><dd><p>return the combined confidence of clauses that satisfy the rule</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.evaluate_rule_by_majority_voting">
+<span class="sig-name descname"><span class="pre">evaluate_rule_by_majority_voting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Neuron" title="rea.rules.term.Neuron"><span class="pre">rea.rules.term.Neuron</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.evaluate_rule_by_majority_voting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.evaluate_rule_by_majority_voting" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Given a list of input neurons and their values,</dt><dd><p>return the combined proportion of clauses that satisfy the rule</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.from_term_set">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_term_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">premise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conclusion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.rule.OutputClass" title="rea.rules.rule.OutputClass"><span class="pre">rea.rules.rule.OutputClass</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.from_term_set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.from_term_set" title="Permalink to this definition"></a></dt>
+<dd><p>Construct Rule given a single clause as a set of terms and a conclusion</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.get_conclusion">
+<span class="sig-name descname"><span class="pre">get_conclusion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#rea.rules.rule.OutputClass" title="rea.rules.rule.OutputClass"><span class="pre">rea.rules.rule.OutputClass</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.get_conclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.get_conclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.get_premise">
+<span class="sig-name descname"><span class="pre">get_premise</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.clause.ConjunctiveClause" title="rea.rules.clause.ConjunctiveClause"><span class="pre">rea.rules.clause.ConjunctiveClause</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.get_premise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.get_premise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.get_terms_with_conf_from_rule_premises">
+<span class="sig-name descname"><span class="pre">get_terms_with_conf_from_rule_premises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.get_terms_with_conf_from_rule_premises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.get_terms_with_conf_from_rule_premises" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return all the terms present in the bodies of all the rules</dt><dd><p>in the ruleset with their max confidence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.initial_rule">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initial_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/rule.html#Rule.initial_rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.rule.Rule.initial_rule" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Construct Initial Rule given parameters</dt><dd><p>with default confidence value of 1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.rule.Rule.premise">
+<span class="sig-name descname"><span class="pre">premise</span></span><a class="headerlink" href="#rea.rules.rule.Rule.premise" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea.rules.ruleset">
+<span id="rea-rules-ruleset-module"></span><h2>rea.rules.ruleset module<a class="headerlink" href="#module-rea.rules.ruleset" title="Permalink to this headline"></a></h2>
+<p>Represent a ruleset made up of rules</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.ruleset.Ruleset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.ruleset.</span></span><span class="sig-name descname"><span class="pre">Ruleset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.rule.Rule" title="rea.rules.rule.Rule"><span class="pre">rea.rules.rule.Rule</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/ruleset.html#Ruleset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.ruleset.Ruleset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a set of disjunctive rules</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.ruleset.Ruleset.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.rule.Rule" title="rea.rules.rule.Rule"><span class="pre">rea.rules.rule.Rule</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/ruleset.html#Ruleset.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.ruleset.Ruleset.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.ruleset.Ruleset.add_rules">
+<span class="sig-name descname"><span class="pre">add_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.rule.Rule" title="rea.rules.rule.Rule"><span class="pre">rea.rules.rule.Rule</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/ruleset.html#Ruleset.add_rules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.ruleset.Ruleset.add_rules" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.ruleset.Ruleset.get_rule_premises_by_conclusion">
+<span class="sig-name descname"><span class="pre">get_rule_premises_by_conclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conclusion</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.clause.ConjunctiveClause" title="rea.rules.clause.ConjunctiveClause"><span class="pre">rea.rules.clause.ConjunctiveClause</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/ruleset.html#Ruleset.get_rule_premises_by_conclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.ruleset.Ruleset.get_rule_premises_by_conclusion" title="Permalink to this definition"></a></dt>
+<dd><p>Return a set of conjunctive clauses that all imply a given conclusion</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.ruleset.Ruleset.get_terms_from_rule_premises">
+<span class="sig-name descname"><span class="pre">get_terms_from_rule_premises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/ruleset.html#Ruleset.get_terms_from_rule_premises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.ruleset.Ruleset.get_terms_from_rule_premises" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return all the terms present in the bodies</dt><dd><p>of all the rules in the ruleset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.ruleset.Ruleset.get_terms_with_conf_from_rule_premises">
+<span class="sig-name descname"><span class="pre">get_terms_with_conf_from_rule_premises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/rea/rules/ruleset.html#Ruleset.get_terms_with_conf_from_rule_premises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.ruleset.Ruleset.get_terms_with_conf_from_rule_premises" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Return all the terms present in the bodies of all the rules</dt><dd><p>in the ruleset with their max confidence</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea.rules.term">
+<span id="rea-rules-term-module"></span><h2>rea.rules.term module<a class="headerlink" href="#module-rea.rules.term" title="Permalink to this headline"></a></h2>
+<p>Represent components that make up a rule. All immutable and hashable.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.term.Neuron">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.term.</span></span><span class="sig-name descname"><span class="pre">Neuron</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Neuron"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Neuron" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represent specific neuron in the neural network. Immutable and Hashable.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Neuron.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Neuron.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Neuron.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Neuron.get_index">
+<span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Neuron.get_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Neuron.get_index" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.Neuron.index">
+<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#rea.rules.term.Neuron.index" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.Neuron.layer">
+<span class="sig-name descname"><span class="pre">layer</span></span><a class="headerlink" href="#rea.rules.term.Neuron.layer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.term.Term">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.term.</span></span><span class="sig-name descname"><span class="pre">Term</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rea.rules.term.Neuron" title="rea.rules.term.Neuron"><span class="pre">rea.rules.term.Neuron</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>Represent a condition indicating if activation value of neuron</dt><dd><p>is above/below a threshold. Immutable and Hashable.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">neuron</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rea.rules.term.Neuron" title="rea.rules.term.Neuron"><span class="pre">rea.rules.term.Neuron</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">operator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Apply condition to a value</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.get_neuron">
+<span class="sig-name descname"><span class="pre">get_neuron</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term.get_neuron"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.get_neuron" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.get_neuron_index">
+<span class="sig-name descname"><span class="pre">get_neuron_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term.get_neuron_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.get_neuron_index" title="Permalink to this definition"></a></dt>
+<dd><p>Return index of neuron specified in the term</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.get_operator">
+<span class="sig-name descname"><span class="pre">get_operator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term.get_operator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.get_operator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.get_threshold">
+<span class="sig-name descname"><span class="pre">get_threshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#Term.get_threshold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.get_threshold" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.Term.negate">
+<span class="sig-name descname"><span class="pre">negate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rea.rules.term.Term" title="rea.rules.term.Term"><span class="pre">rea.rules.term.Term</span></a></span></span><a class="reference internal" href="_modules/rea/rules/term.html#Term.negate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.Term.negate" title="Permalink to this definition"></a></dt>
+<dd><p>Return term with opposite sign</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.Term.neuron">
+<span class="sig-name descname"><span class="pre">neuron</span></span><a class="headerlink" href="#rea.rules.term.Term.neuron" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.Term.operator">
+<span class="sig-name descname"><span class="pre">operator</span></span><a class="headerlink" href="#rea.rules.term.Term.operator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.Term.threshold">
+<span class="sig-name descname"><span class="pre">threshold</span></span><a class="headerlink" href="#rea.rules.term.Term.threshold" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rules.term.TermOperator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rules.term.</span></span><span class="sig-name descname"><span class="pre">TermOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#TermOperator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.TermOperator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.TermOperator.GreaterThan">
+<span class="sig-name descname"><span class="pre">GreaterThan</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'&gt;'</span></em><a class="headerlink" href="#rea.rules.term.TermOperator.GreaterThan" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.rules.term.TermOperator.LessThanEq">
+<span class="sig-name descname"><span class="pre">LessThanEq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'&lt;='</span></em><a class="headerlink" href="#rea.rules.term.TermOperator.LessThanEq" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.TermOperator.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#TermOperator.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.TermOperator.eval" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.TermOperator.most_general_value">
+<span class="sig-name descname"><span class="pre">most_general_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#TermOperator.most_general_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.TermOperator.most_general_value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rules.term.TermOperator.negate">
+<span class="sig-name descname"><span class="pre">negate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rules/term.html#TermOperator.negate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rules.term.TermOperator.negate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea.rules">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rea.rules" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/conv",
+    "trained_model_path": "model/conv",
+    "algorithm": "dnnre",
+    "rules_dir": "dnnre_rules/conv"
+  },
+  "evaluation": {
+    "data_path": "data/conv",
+    "trained_model_path": "model/conv",
+    "rules_dir": "dnnre_rules/conv",
+    "evaluation_dir": "dnnre_eval/conv"
+  }
+}

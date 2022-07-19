@@ -1,0 +1,6 @@
+{
+  "global": {
+    "seed": 123,
+    "logging": "WARNING"
+  }
+}

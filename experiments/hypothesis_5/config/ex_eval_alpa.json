@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/default",
+    "trained_model_path": "model/default",
+    "algorithm": "alpa",
+    "rules_dir": "rules/default/alpa"
+  },
+  "evaluation": {
+    "data_path": "data/default",
+    "trained_model_path": "model/default",
+    "rules_dir": "rules/default/alpa",
+    "evaluation_dir": "eval/default/alpa"
+  }
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rea.evaluation.evaluation &mdash; REA 2022 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> REA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">REA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>rea.evaluation.evaluation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <h1>Source code for rea.evaluation.evaluation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">FileSystemLoader</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects.vectors</span> <span class="kn">import</span> <span class="n">ListVector</span> <span class="k">as</span> <span class="n">R_c5</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+
+<span class="kn">from</span> <span class="nn">rea.data.data</span> <span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">from</span> <span class="nn">.evaluate_rules.accuracy</span> <span class="kn">import</span> <span class="n">accuracy</span>
+<span class="kn">from</span> <span class="nn">.evaluate_rules.comprehensibility</span> <span class="kn">import</span> <span class="n">comprehensibility</span>
+<span class="kn">from</span> <span class="nn">.evaluate_rules.confusion_matrix</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">.evaluate_rules.fidelity</span> <span class="kn">import</span> <span class="n">fidelity</span>
+<span class="kn">from</span> <span class="nn">.evaluate_rules.overlapping_features</span> <span class="kn">import</span> <span class="n">overlapping_features</span>
+<span class="kn">from</span> <span class="nn">.evaluate_rules.predict</span> <span class="kn">import</span> <span class="n">predict</span> <span class="k">as</span> <span class="n">dnnre_predict</span>
+<span class="kn">from</span> <span class="nn">..configuration</span> <span class="kn">import</span> <span class="n">FileNames</span>
+<span class="kn">from</span> <span class="nn">..extraction.alpa.alpa_c5</span> <span class="kn">import</span> <span class="n">c5_r_predict</span>
+<span class="kn">from</span> <span class="nn">..processing_module</span> <span class="kn">import</span> <span class="n">ProcessingModule</span>
+<span class="kn">from</span> <span class="nn">..rules.helpers</span> <span class="kn">import</span> <span class="n">neuron_to_str</span><span class="p">,</span> <span class="n">pretty_string_repr</span>
+<span class="kn">from</span> <span class="nn">..rules.term</span> <span class="kn">import</span> <span class="n">Neuron</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Evaluation"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation">[docs]</a><span class="k">class</span> <span class="nc">Evaluation</span><span class="p">(</span><span class="n">ProcessingModule</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Module for evaluating extracted rules.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Evaluation.__init__"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trained_model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rules_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">evaluation_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the extracted rules.</span>
+
+<span class="sd">        :param trained_model_path: path to the trained tensorflow model</span>
+<span class="sd">        :param data_path: path to the `Data` output folder</span>
+<span class="sd">        :param rules_dir: path to the rules folder</span>
+<span class="sd">        :param evaluation_dir: path of folder to save results</span>
+<span class="sd">        :param seed: random seed for evaluation</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">evaluation_dir</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># for random.choice in predict.py</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Created new Evaluation instance. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Loading model from </span><span class="si">{</span><span class="n">trained_model_path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trained_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">trained_model_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_metrics</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_rules</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predict_instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_predict_instance</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Loaded rules and metrics from </span><span class="si">{</span><span class="n">rules_dir</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_matrices_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span>
+                                              <span class="s2">&quot;confusion_matrices&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conf_matrices_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Evaluation.run"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute the primary module function.</span>
+
+<span class="sd">        :param data: (Optional) Can be provided when using the API mode.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Starting default evaluation.&quot;</span><span class="p">)</span>
+        <span class="n">comprehensibility_results</span> <span class="o">=</span> <span class="n">comprehensibility</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">)</span>
+        <span class="n">common_features</span> <span class="o">=</span> <span class="n">overlapping_features</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">)</span>
+
+        <span class="c1"># convert lists of neurons to string representations</span>
+        <span class="k">def</span> <span class="nf">cvt</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Neuron</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">neuron_to_str</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">common_features</span><span class="p">[</span><span class="s2">&quot;feature_union_per_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">cvt</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span>
+            <span class="n">common_features</span><span class="p">[</span><span class="s2">&quot;feature_union_per_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="n">common_features</span><span class="p">[</span><span class="s2">&quot;feature_intersection_per_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">cvt</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span>
+            <span class="n">common_features</span><span class="p">[</span><span class="s2">&quot;feature_intersection_per_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="n">common_features</span><span class="p">[</span><span class="s2">&quot;feature_intersec&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span>
+            <span class="n">cvt</span><span class="p">,</span>
+            <span class="n">common_features</span><span class="p">[</span><span class="s2">&quot;feature_intersec&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">),</span>
+                               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">)):</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_and_evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">common_features</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">comprehensibility_results</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_output_evaluation_results</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Evaluated </span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">use_dnnre_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Whether to use dnnre rule predict method or not.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict_instance</span> <span class="ow">is</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Evaluation._predict_and_evaluate"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation._predict_and_evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">_predict_and_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">true_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">inverse_transform_classes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">nn_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">inverse_transform_classes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trained_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">original_shape</span><span class="p">)),</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_dnnre_predict</span><span class="p">:</span>
+            <span class="n">rules_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">inverse_transform_classes</span><span class="p">(</span>
+                <span class="n">dnnre_predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rules_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">inverse_transform_classes</span><span class="p">(</span>
+                <span class="n">c5_r_predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_predict_instance</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;rules_acc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">rules_labels</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;rules_fid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fidelity</span><span class="p">(</span><span class="n">rules_labels</span><span class="p">,</span> <span class="n">nn_labels</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;rules_conf_matrix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">true_labels</span><span class="p">,</span>
+                                                        <span class="n">rules_labels</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;nn_conf_matrix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">true_labels</span><span class="p">,</span> <span class="n">nn_labels</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;nn_to_rules_conf_matrix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">nn_labels</span><span class="p">,</span>
+                                                              <span class="n">rules_labels</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">nn_acc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trained_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">original_shape</span><span class="p">),</span>
+            <span class="n">y</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s2">&quot;nn_acc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn_acc</span>
+        <span class="k">return</span> <span class="n">results</span></div>
+
+<div class="viewcode-block" id="Evaluation._output_evaluation_results"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation._output_evaluation_results">[docs]</a>    <span class="k">def</span> <span class="nf">_output_evaluation_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">re_results</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                                   <span class="n">dataset_kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># define where directory of the template is, load environment with</span>
+        <span class="c1"># that path and load eval_template.md as jinja-template</span>
+        <span class="n">templ_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;templates&#39;</span><span class="p">)</span>
+
+        <span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">templ_path</span><span class="p">))</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;eval_templ.md&#39;</span><span class="p">)</span>
+
+        <span class="c1"># dictionary &#39;res&#39; for jinja.render() is re_results dictionary updated</span>
+        <span class="c1"># by the rest of necessary values</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">re_results</span><span class="p">)</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;rules&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>
+        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;human_rules&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pretty_string_repr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">seed</span>
+        <span class="n">res</span><span class="p">[</span><span class="s2">&quot;dataset_kind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset_kind</span>
+        <span class="c1"># write confusions matrices and save them as png to a given path,</span>
+        <span class="c1"># if you fiddle with the path they are being saved to you also have to</span>
+        <span class="c1"># change the path in eval_templ.md</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_conf_matrix</span><span class="p">(</span>
+            <span class="n">re_results</span><span class="p">[</span><span class="s2">&quot;rules_conf_matrix&quot;</span><span class="p">],</span>
+            <span class="sa">f</span><span class="s2">&quot;Confusion Matrix (Rules) on </span><span class="si">{</span><span class="n">dataset_kind</span><span class="si">}</span><span class="s2"> data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Predicted by Rules&quot;</span><span class="p">,</span> <span class="s2">&quot;Label in Dataset&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conf_matrices_dir</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_conf_matrix</span><span class="p">(</span>
+            <span class="n">re_results</span><span class="p">[</span><span class="s2">&quot;nn_conf_matrix&quot;</span><span class="p">],</span>
+            <span class="sa">f</span><span class="s2">&quot;Confusion Matrix (NN) on </span><span class="si">{</span><span class="n">dataset_kind</span><span class="si">}</span><span class="s2"> data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Predicted by NN&quot;</span><span class="p">,</span> <span class="s2">&quot;Label in Dataset&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conf_matrices_dir</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_conf_matrix</span><span class="p">(</span>
+            <span class="n">re_results</span><span class="p">[</span><span class="s2">&quot;nn_to_rules_conf_matrix&quot;</span><span class="p">],</span>
+            <span class="sa">f</span><span class="s2">&quot;Confusion Matrix (NN vs Rules) on </span><span class="si">{</span><span class="n">dataset_kind</span><span class="si">}</span><span class="s2"> data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Predicted by Rules&quot;</span><span class="p">,</span> <span class="s2">&quot;Predicted by NN&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conf_matrices_dir</span>
+        <span class="p">)</span>
+        <span class="c1"># Save the report as markdown file</span>
+        <span class="n">mdpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span>
+                              <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_kind</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">_eval.md&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">mdpath</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">mdfile</span><span class="p">:</span>
+            <span class="n">mdfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+        <span class="c1"># Save the result dictionary as json for later algorithmic evaluation</span>
+        <span class="n">jsonpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span>
+                                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_kind</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">_eval.json&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">jsonpath</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jsonfile</span><span class="p">:</span>
+            <span class="n">res</span><span class="p">[</span><span class="s2">&quot;rules_conf_matrix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span>
+                <span class="s2">&quot;rules_conf_matrix&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">res</span><span class="p">[</span><span class="s2">&quot;nn_conf_matrix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;nn_conf_matrix&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">res</span><span class="p">[</span><span class="s2">&quot;nn_to_rules_conf_matrix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span>
+                <span class="s2">&quot;nn_to_rules_conf_matrix&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">del</span> <span class="n">res</span><span class="p">[</span><span class="s2">&quot;rules&quot;</span><span class="p">]</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">jsonfile</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Evaluation.write_conf_matrix"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation.write_conf_matrix">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">write_conf_matrix</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">:</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                          <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">conf_matrices_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">sn</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">conf_matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+        <span class="n">cvt_name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="n">cvt_name</span> <span class="o">=</span> <span class="n">cvt_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conf_matrices_path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cvt_name</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Evaluation.read_metrics"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation.read_metrics">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">read_metrics</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">metrics_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">,</span> <span class="n">FileNames</span><span class="o">.</span><span class="n">METRICS</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metrics_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">json_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">json_dict</span></div>
+
+<div class="viewcode-block" id="Evaluation.read_rules"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation.read_rules">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">read_rules</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">:</span>
+        <span class="n">rules_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">,</span> <span class="n">FileNames</span><span class="o">.</span><span class="n">RULES</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">rules_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rules_file</span><span class="p">:</span>
+            <span class="n">rules</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">rules_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rules</span></div>
+
+<div class="viewcode-block" id="Evaluation.load_predict_instance"><a class="viewcode-back" href="../../../rea.evaluation.html#rea.evaluation.evaluation.Evaluation.load_predict_instance">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load_predict_instance</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">R_c5</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tries to load an instance of R `ListVector` for rule prediction.</span>
+<span class="sd">        :param rules_dir: Directory to load from.</span>
+<span class="sd">        :return: None if no instance found, otherwise rpy2 `ListVector`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">predict_instance_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">,</span>
+                                             <span class="n">FileNames</span><span class="o">.</span><span class="n">PREDICT_INSTANCE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">predict_instance_path</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Loading prediction instance from </span><span class="si">{</span><span class="n">predict_instance_path</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">predict_instance_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">instance</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">instance</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

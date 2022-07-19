@@ -1,0 +1,26 @@
+{
+  "data": {
+    "input_path": "../datasets/iris.csv",
+    "test_size": 0.35,
+    "dataset_name": "Iris",
+    "label_col": "species",
+    "output_path": "data"
+  },
+  "model": {
+    "data_path": "data",
+    "nwtype": "ff",
+    "hidden_layer_units": [
+      64
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "dropout": 0.2,
+    "use_class_weights": true,
+    "batch_size": 1,
+    "learning_rate": 0.00009,
+    "epochs": 250,
+    "val_split": 0.25,
+    "output_path": "model"
+  }
+}

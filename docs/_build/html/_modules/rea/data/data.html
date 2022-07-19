@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rea.data.data &mdash; REA 2022 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> REA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">REA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>rea.data.data</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <h1>Source code for rea.data.data</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">category_encoders</span> <span class="k">as</span> <span class="nn">ce</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">keras.utils.np_utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">class_weight</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Data"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data">[docs]</a><span class="k">class</span> <span class="nc">Data</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Module to handle the data acquisition and preprocessing.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Data.__init__"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">input_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">label_col</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+            <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">original_shape</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">test_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
+            <span class="n">cat_conv_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;woe&quot;</span><span class="p">,</span>
+            <span class="n">categorical_columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">scale_data</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new instance of the data module.</span>
+
+<span class="sd">        :param input_path: Filepath to the dataset in csv format</span>
+<span class="sd">        :param output_path: Path to the folder to fill with output</span>
+<span class="sd">        :param label_col: index or name of the column containing the labels</span>
+<span class="sd">        :param dataset_name: friendly name to give to the dataset</span>
+<span class="sd">        :param test_size: percentage of the data used for testing</span>
+<span class="sd">        :param categorical_columns: List of categorical columns to be</span>
+<span class="sd">            converted in the dataset</span>
+<span class="sd">        :param cat_conv_method: Method for categorical conversion</span>
+<span class="sd">        :param seed: random seed for data splitting</span>
+<span class="sd">        :param scale_data: flag to MinMaxScale the input data</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new Data instance.&quot;</span><span class="p">)</span>
+        <span class="c1"># private fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_input_path</span> <span class="o">=</span> <span class="n">input_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span> <span class="o">=</span> <span class="n">output_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label_col</span> <span class="o">=</span> <span class="n">label_col</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_test_size</span> <span class="o">=</span> <span class="n">test_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cat_conv_method</span> <span class="o">=</span> <span class="n">cat_conv_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span> <span class="o">=</span> <span class="n">seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_class_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+        <span class="c1"># public fields</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_train</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_test</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_weights</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">categorical_columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+            <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="n">categorical_columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">categorical_woe_encoding</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">original_shape</span> <span class="o">=</span> <span class="n">original_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_data</span> <span class="o">=</span> <span class="n">scale_data</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">class_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_encoder</span><span class="o">.</span><span class="n">classes_</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Data._one_hot_encode_classes"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._one_hot_encode_classes">[docs]</a>    <span class="k">def</span> <span class="nf">_one_hot_encode_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> \
+            <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+        <span class="c1"># Transform from e.g. string to numbers</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="n">labels_categorical</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="n">n_classes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">labels_categorical</span><span class="p">,</span> <span class="n">labels</span></div>
+
+<div class="viewcode-block" id="Data.run"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply the default data processing.</span>
+
+<span class="sd">        :return: this instance of data updated with the processed data.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Running default data processing.&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Attempting to load data.&quot;</span><span class="p">)</span>
+        <span class="n">path</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_input_path</span><span class="p">)</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;csv&quot;</span><span class="p">:</span>
+            <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_input_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;hdf5&quot;</span> <span class="ow">or</span> <span class="n">ext</span> <span class="o">==</span> <span class="s2">&quot;h5&quot;</span><span class="p">:</span>
+            <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_input_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported filetype of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_input_path</span><span class="si">}</span><span class="s2">.&quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;Supported filetypes are: csv, hdf&quot;</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">class_names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_labels</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_col</span><span class="p">)</span>
+        <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_names</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">y_train_vanilla</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span><span class="p">,</span>
+                                                    <span class="bp">self</span><span class="o">.</span><span class="n">_test_size</span><span class="p">)</span>
+        <span class="c1"># one hot encoding after class_weights determination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_class_weights</span><span class="p">(</span><span class="n">y_train_vanilla</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">y_train_vanilla</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">y_labels_encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_one_hot_encode_classes</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_categorical</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y_labels_encoded</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New attr names: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_data</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">_split_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_test_size</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">original_shape</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">original_shape</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Data.convert_categorical"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data.convert_categorical">[docs]</a>    <span class="k">def</span> <span class="nf">convert_categorical</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                            <span class="n">y_labels_encoded</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cat_conv_method</span> <span class="o">==</span> <span class="s2">&quot;woe&quot;</span><span class="p">:</span>
+            <span class="c1"># woe needs indices instead of column names</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+                                       <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span>
+                                       <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">categorical_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span>
+
+            <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">categorical_woe_encoding</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">_convert_categorical_woe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_labels_encoded</span><span class="p">,</span>
+                                              <span class="n">categorical_columns</span><span class="p">,</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">,</span>
+                                              <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># scikit-learn functions need column string names</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+                <span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+                                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">categorical_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span>
+            <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">_conv_cat_scikit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span>
+                                      <span class="n">categorical_columns</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">_cat_conv_method</span><span class="p">,</span> <span class="n">y_labels_encoded</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+
+<div class="viewcode-block" id="Data._write"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._write">[docs]</a>    <span class="k">def</span> <span class="nf">_write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Writes the processed data and metadata to the output path.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;x_train.npy&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_train</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;x_test.npy&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_test</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;y_train.npy&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;y_test.npy&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;encoder.pickle&quot;</span><span class="p">),</span>
+                  <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_class_encoder</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_data</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;scaler.pickle&quot;</span><span class="p">),</span>
+                      <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data_scaler</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;input_path&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_path</span><span class="p">,</span>
+            <span class="s2">&quot;output_path&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span>
+            <span class="s2">&quot;label_col&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label_col</span><span class="p">,</span>
+            <span class="s2">&quot;dataset_name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset_name</span><span class="p">,</span>
+            <span class="s2">&quot;test_size&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_test_size</span><span class="p">,</span>
+            <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span><span class="p">,</span>
+            <span class="s2">&quot;class_weights&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_weights</span><span class="p">,</span>
+            <span class="s2">&quot;original_shape&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_shape</span><span class="p">,</span>
+            <span class="s2">&quot;feature_names&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_names</span><span class="p">,</span>
+            <span class="s2">&quot;categorical_columns&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">categorical_columns</span><span class="p">,</span>
+            <span class="s2">&quot;cat_conv_method&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cat_conv_method</span><span class="p">,</span>
+            <span class="s2">&quot;scale_data&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale_data</span>
+        <span class="p">}</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;metadata.json&quot;</span><span class="p">),</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Data.inverse_transform_classes"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data.inverse_transform_classes">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoded_classes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform integer encoded classes back to label.</span>
+
+<span class="sd">        :param encoded_classes: Integer encoded classes</span>
+
+<span class="sd">        :return: Labels of the classes.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_class_encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">encoded_classes</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Data.inverse_transform_scaling"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data.inverse_transform_scaling">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform_scaling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoded_value</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">attr_index</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Transform ``MinMaxScaled`` value back to original.</span>
+
+<span class="sd">        :param encoded_value: Float encoded value</span>
+<span class="sd">        :param attr_index: Index of the feature the value belongs too</span>
+
+<span class="sd">        :return: Original, pre-scaled value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO make this similiar to inverse_transform_classes?</span>
+        <span class="c1"># would move sample gen and selecting on the inverse outside function</span>
+
+        <span class="c1"># create dummy sample to inverse transform</span>
+        <span class="n">sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_features</span><span class="p">))</span>
+        <span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">attr_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">encoded_value</span>
+        <span class="c1"># and pick just the value in the column we actually want</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">sample</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="n">attr_index</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Data._conv_cat_scikit"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._conv_cat_scikit">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_conv_cat_scikit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                         <span class="n">categorical_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                         <span class="n">cat_conv_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                         <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert the categorical columns in the given data points to numerical</span>
+<span class="sd">        using a scikit learn method from ``Data.cat_encoder_methods``.</span>
+
+<span class="sd">        :param x: The input dataset to convert columns from</span>
+<span class="sd">        :param categorical_columns: The list of column names for x</span>
+<span class="sd">        :param categorical_columns: The list of categorical column names</span>
+<span class="sd">        :param cat_conv_key: Name encoding of scikit-learn method</span>
+
+<span class="sd">        :return: The converted data of ``x`` and the new feature_names</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Converting to categorical with </span><span class="si">{</span><span class="n">cat_conv_key</span><span class="si">}</span><span class="s2"> method.&quot;</span><span class="p">)</span>
+        <span class="n">encoder_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">cols</span><span class="o">=</span><span class="n">categorical_columns</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cat_conv_key</span> <span class="o">==</span> <span class="s2">&quot;onehot&quot;</span><span class="p">:</span>
+            <span class="n">encoder_params</span><span class="p">[</span><span class="s1">&#39;use_cat_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">encoder</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cat_encoder_methods</span><span class="p">[</span><span class="n">cat_conv_key</span><span class="p">](</span><span class="o">**</span><span class="n">encoder_params</span><span class="p">)</span>
+        <span class="n">df_x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
+        <span class="n">transformed</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">transformed</span><span class="p">,</span> <span class="n">encoder</span><span class="o">.</span><span class="n">feature_names</span></div>
+
+<div class="viewcode-block" id="Data.read"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data.read">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Data&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reconstructs a data instance from a previously saved one.</span>
+
+<span class="sd">        :param path: The path to the output folder.</span>
+
+<span class="sd">        :return: A new data instance.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;metadata.json&quot;</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;input_path&quot;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;output_path&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;label_col&quot;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;dataset_name&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;original_shape&quot;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;test_size&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;cat_conv_method&quot;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;categorical_columns&quot;</span><span class="p">],</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;scale_data&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">_class_weights</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;class_weights&quot;</span><span class="p">]</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;feature_names&quot;</span><span class="p">]</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;x_train.npy&quot;</span><span class="p">))</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;x_test.npy&quot;</span><span class="p">))</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;y_test.npy&quot;</span><span class="p">))</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;y_train.npy&quot;</span><span class="p">))</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;encoder.pickle&quot;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">d</span><span class="o">.</span><span class="n">_class_encoder</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">scale_data</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="n">d</span><span class="o">.</span><span class="n">_output_path</span><span class="p">,</span> <span class="s2">&quot;scaler.pickle&quot;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">d</span><span class="o">.</span><span class="n">_data_scaler</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span></div>
+
+<div class="viewcode-block" id="Data._get_class_weights"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._get_class_weights">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_class_weights</span><span class="p">(</span><span class="n">y_train</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate the weights for each class to determine the balancing of the</span>
+<span class="sd">        dataset.</span>
+
+<span class="sd">        :param y_train: The model labels</span>
+
+<span class="sd">        :return: The weights for each class.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">class_weight</span><span class="o">.</span><span class="n">compute_class_weight</span><span class="p">(</span>
+            <span class="s2">&quot;balanced&quot;</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_train</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="Data._split_test"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._split_test">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_split_test</span><span class="p">(</span>
+            <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">test_size</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split the dataset into model and testing datasets using</span>
+<span class="sd">        scikit-learns train_test_split</span>
+
+<span class="sd">        :param x: The attributes</span>
+<span class="sd">        :param y: The labels</span>
+<span class="sd">        :param seed: The seed to use for the rng</span>
+<span class="sd">        :param test_size: The proportion of entries used for testing</span>
+
+<span class="sd">        :return: Tuple of model, testing data in the form ``(x_train, x_test,</span>
+<span class="sd">            y_train, y_test)``</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">test_size</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span>
+        <span class="k">return</span> <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span></div>
+
+<div class="viewcode-block" id="Data._split_labels"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._split_labels">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_split_labels</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">label_col</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> \
+            <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split the given dataset into attributes and labels and transform it to</span>
+<span class="sd">        an array</span>
+
+<span class="sd">        :param dataset: The dataset to split</span>
+<span class="sd">        :param label_col: The index or name of the column containing the labels</span>
+
+<span class="sd">        :return: Tuple of attributes, labels of type np.ndarray, class</span>
+<span class="sd">            and feature names</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># determine index of label column if necessary</span>
+        <span class="n">label_col_name</span> <span class="o">=</span> <span class="n">label_col</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">label_col_name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">label_col_name</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span>
+
+        <span class="c1"># split labels and transform to numpy arrays</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">label_col_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">label_col_name</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+        <span class="n">class_names</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">label_col_name</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+        <span class="n">feature_names</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+        <span class="n">feature_names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">label_col_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">class_names</span><span class="p">,</span> <span class="n">feature_names</span></div>
+
+<div class="viewcode-block" id="Data._convert_categorical_woe"><a class="viewcode-back" href="../../../rea.data.html#rea.data.data.Data._convert_categorical_woe">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_convert_categorical_woe</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                 <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                                 <span class="n">categorical_columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+                                 <span class="n">class_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                                 <span class="n">feature_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> \
+            <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert the categorical columns in the given data points to numerical</span>
+<span class="sd">        using WoE Encoding.</span>
+
+<span class="sd">        Since WoE encoding is normally based on binary decisions, we split</span>
+<span class="sd">        an n-dimensional decision into n binary decisions and calculate a</span>
+<span class="sd">        vector based encoding on those. See</span>
+<span class="sd">        `here &lt;https://www.listendata.com/2015/03/weight-of-evidence-woe-and-</span>
+<span class="sd">        information.html&gt;`_</span>
+<span class="sd">        for more detail on WoE</span>
+
+<span class="sd">        :param x: The input dataset to convert columns from</span>
+<span class="sd">        :param y: The decisions for each point in x</span>
+<span class="sd">        :param categorical_columns: The list of column indices of x</span>
+<span class="sd">            that are to be converted</span>
+<span class="sd">        :param class_names: The list of class names</span>
+
+<span class="sd">        :return: Tuple of converted points, leaving the original columns</span>
+<span class="sd">            intact and a Dictionary containing a Dictionary for each</span>
+<span class="sd">            converted column, where the latter includes the encodings</span>
+<span class="sd">            for each column value</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Converting to categorical with woe method.&quot;</span><span class="p">)</span>
+        <span class="c1"># save encoding for each feature</span>
+        <span class="n">categorical_encoded</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_names</span><span class="p">)</span>
+        <span class="c1"># first count number of occurrences for specific output label</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">num_events_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># and number of non-occurrences for specific output label</span>
+        <span class="c1"># both are used for WoE calculation</span>
+        <span class="n">num_points</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">num_non_events_sum</span> <span class="o">=</span> <span class="n">num_points</span> <span class="o">-</span> <span class="n">num_events_sum</span>
+        <span class="c1"># Would require LabelEncoding the categorical columns to remove</span>
+        <span class="c1"># the need for value_labels and idx and bincount for counts.</span>
+        <span class="c1"># Using minlength in bincount allows for padding with non existent</span>
+        <span class="c1"># attribute values to fix dimensionality issues. But has higher</span>
+        <span class="c1"># memory requirements, since for value_counts the categorical</span>
+        <span class="c1"># matrix needs to be unravelled and y needs to copied for each</span>
+        <span class="c1"># num_events_sum bincount call (since we&#39;re going through y for</span>
+        <span class="c1"># each categorical feature)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">categorical_columns</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">class_names</span><span class="p">:</span>
+                <span class="n">feature_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># need both values and their occurrence amount</span>
+            <span class="n">value_labels</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value_counts</span> <span class="o">=</span> \
+                <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># save amount of different values for convenience</span>
+            <span class="n">num_labels</span> <span class="o">=</span> <span class="n">value_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># For WoE calculation we first need to save how often each</span>
+            <span class="c1"># attribute value is mapped to each possible output class.</span>
+            <span class="c1"># In order to do that for all attribute values all at once</span>
+            <span class="c1"># we add an offset on the output vector, which depends on</span>
+            <span class="c1"># the attribute value. Multiplying by num_classes is equivalent</span>
+            <span class="c1"># to multiplying by the max value of y. This causes the number</span>
+            <span class="c1"># of bins np.bincount counts to raise from num_classes to</span>
+            <span class="c1"># num_classes*num_labels, therefore we have all the counts</span>
+            <span class="c1"># we need at once. Finally we reshape to the matrix form</span>
+            <span class="c1"># we want, where each row includes the counts for a specific</span>
+            <span class="c1"># attribute value</span>
+            <span class="n">num_events</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span>
+                <span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">num_classes</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_labels</span><span class="p">))[</span><span class="n">idx</span><span class="p">],</span>
+                <span class="n">minlength</span><span class="o">=</span><span class="n">num_classes</span> <span class="o">*</span> <span class="n">num_labels</span><span class="p">)</span> \
+                <span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_labels</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># The only bad thing about this is how this will take longer</span>
+            <span class="c1"># when y gets larger (=larger dataset), since the addition</span>
+            <span class="c1"># will take longer then</span>
+            <span class="c1"># For comparison is a loop-based method below, which applies</span>
+            <span class="c1"># np.bincount for each attribute value to a part of y which is</span>
+            <span class="c1"># sliced for that specific attribute value</span>
+            <span class="c1"># num_events = np.apply_along_axis(lambda k: np.bincount(</span>
+            <span class="c1"># y[x[:,i]==k],minlength=num_classes),axis=1,arr=labels[:,None])</span>
+            <span class="c1"># This would be independent of the size of y (to an extent, since</span>
+            <span class="c1"># bincount still goes through y once overall, but that also</span>
+            <span class="c1"># happens in the method above), but has python loop overhead</span>
+
+            <span class="c1"># Comparing both methods on UCI (30000 data points) yielded</span>
+            <span class="c1"># performance slowdown magnitude of apply_along_axis equal</span>
+            <span class="c1"># to the number of repetitions of the loop. Meaning</span>
+            <span class="c1"># apply_along_axis takes #num_labels times the time of</span>
+            <span class="c1"># bincounting on the whole array with an offset in this</span>
+            <span class="c1"># application. Therefore bincounting stands. Since this</span>
+            <span class="c1"># doesn&#39;t conclude if this performance difference holds</span>
+            <span class="c1"># over different dataset sizes the alternative still stands</span>
+            <span class="c1"># in comments above</span>
+
+            <span class="c1"># Then we also want to save how often each value is NOT mapped</span>
+            <span class="c1"># to each output class</span>
+            <span class="n">num_non_events</span> <span class="o">=</span> <span class="n">value_counts</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_events</span>
+
+            <span class="c1"># here we adjust values where num_events or num_non_events</span>
+            <span class="c1"># is 0, since that leaves math errors in the calculation</span>
+            <span class="c1"># follows the handling of https://doi.org/10.15439/2015F90</span>
+            <span class="c1"># minus the case where both are 0, this is handled</span>
+            <span class="c1"># since the attribute value simply doesn&#39;t exist then</span>
+            <span class="c1"># TODO can this be done in single steps instead of two per</span>
+            <span class="c1">#  array?</span>
+            <span class="n">num_non_events</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">num_events</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+                                      <span class="n">num_non_events</span> <span class="o">+</span>
+                                      <span class="n">num_non_events_sum</span> <span class="o">/</span> <span class="n">num_events_sum</span><span class="p">,</span>
+                                      <span class="n">num_non_events</span><span class="p">)</span>
+            <span class="n">num_events</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">num_events</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_events</span><span class="p">)</span>
+            <span class="n">num_events</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">num_non_events</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+                                  <span class="n">num_events</span> <span class="o">+</span>
+                                  <span class="n">num_events_sum</span> <span class="o">/</span> <span class="n">num_non_events_sum</span><span class="p">,</span>
+                                  <span class="n">num_events</span><span class="p">)</span>
+            <span class="n">num_non_events</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">num_non_events</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                                      <span class="n">num_non_events</span><span class="p">)</span>
+
+            <span class="c1"># then save WoE calculation</span>
+            <span class="c1"># WoE = ln(event% / non-event%), including restructuring</span>
+            <span class="c1"># of the fraction</span>
+            <span class="n">woe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">num_events</span> <span class="o">*</span> <span class="n">num_non_events_sum</span><span class="p">)</span> <span class="o">/</span>
+                         <span class="p">(</span><span class="n">num_events_sum</span> <span class="o">*</span> <span class="n">num_non_events</span><span class="p">))</span>
+
+            <span class="c1"># save finished dict for category</span>
+            <span class="n">categorical_encoded</span><span class="p">[</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> \
+                <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">value_labels</span><span class="p">,</span> <span class="n">woe</span><span class="p">))</span>
+            <span class="c1"># Finally, we want to put the new columns. Here the index list</span>
+            <span class="c1"># from before is helpful again, since the woe vectors can be</span>
+            <span class="c1"># indexed the same way to easily encode the attribute values</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">woe</span><span class="p">[</span><span class="n">idx</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">categorical_columns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span>
+                         <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">categorical_columns</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">categorical_encoded</span><span class="p">,</span> <span class="n">feature_names</span></div>
+
+    <span class="n">cat_encoder_methods</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;onehot&quot;</span><span class="p">:</span> <span class="n">ce</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">,</span>
+                           <span class="s2">&quot;helmert&quot;</span><span class="p">:</span> <span class="n">ce</span><span class="o">.</span><span class="n">HelmertEncoder</span><span class="p">,</span>
+                           <span class="s2">&quot;leave_one_out&quot;</span><span class="p">:</span> <span class="n">ce</span><span class="o">.</span><span class="n">LeaveOneOutEncoder</span><span class="p">,</span>
+                           <span class="s2">&quot;woe-scikit&quot;</span><span class="p">:</span> <span class="n">ce</span><span class="o">.</span><span class="n">WOEEncoder</span><span class="p">,</span>  <span class="c1"># for testing</span>
+                           <span class="s2">&quot;ordinal&quot;</span><span class="p">:</span> <span class="n">ce</span><span class="o">.</span><span class="n">OrdinalEncoder</span><span class="p">,</span>
+                           <span class="s2">&quot;woe&quot;</span><span class="p">:</span> <span class="n">_convert_categorical_woe</span><span class="p">}</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

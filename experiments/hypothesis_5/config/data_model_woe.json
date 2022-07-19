@@ -1,0 +1,40 @@
+{
+  "data": {
+    "input_path": "../datasets/uci.csv",
+    "test_size": 0.2,
+    "dataset_name": "UCI credit",
+    "label_col": "default.payment.next.month",
+    "output_path": "data/woe",
+    "scale_data": true,
+    "categorical_columns": [
+      "SEX",
+      "EDUCATION",
+      "MARRIAGE",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6"
+    ],
+    "cat_conv_method": "woe"
+  },
+  "model": {
+    "data_path": "data/woe",
+    "nwtype": "ff",
+    "hidden_layer_units": [
+      25
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "dropout": 0.1,
+    "use_class_weights": true,
+    "batch_size": 2,
+    "learning_rate": 0.0005,
+    "epochs": 10,
+    "val_split": 0.4,
+    "use_decay": true,
+    "output_path": "model/woe"
+  }
+}

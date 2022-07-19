@@ -1,0 +1,39 @@
+{
+  "global": {
+    "logging": "DEBUG",
+    "seed": 42
+  },
+  "data": {
+    "input_path": "resources/iris.csv",
+    "output_path": "temp/iris_dnnre/data",
+    "test_size": 0.3,
+    "dataset_name": "Iris",
+    "label_col": "Species"
+  },
+  "model": {
+    "data_path": "temp/iris_dnnre/data",
+    "nwtype": "ff",
+    "hidden_layer_units": [
+      10
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "use_class_weights": true,
+    "batch_size": 2,
+    "epochs": 20,
+    "output_path": "temp/iris_dnnre/model"
+  },
+  "extraction": {
+    "data_path": "temp/iris_dnnre/data",
+    "trained_model_path": "temp/iris_dnnre/model",
+    "algorithm": "dnnre",
+    "rules_dir": "temp/iris_dnnre/rules"
+  },
+  "evaluation": {
+    "data_path": "temp/iris_dnnre/data",
+    "trained_model_path": "temp/iris_dnnre/model",
+    "rules_dir": "temp/iris_dnnre/rules",
+    "evaluation_dir": "temp/iris_dnnre/eval"
+  }
+}

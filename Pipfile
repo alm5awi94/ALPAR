@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pre-commit = "*"
+pandas = "*"
+numpy = "*"
+scikit-learn = "*"
+tensorflow = "*"
+flake8 = "*"
+memory-profiler = "*"
+rpy2 = "*"
+seaborn = "*"
+jupyter = "*"
+category-encoders="*"
+tables = "*"
+pdoc = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"

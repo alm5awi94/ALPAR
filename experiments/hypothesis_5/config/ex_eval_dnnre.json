@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/default",
+    "trained_model_path": "model/default",
+    "algorithm": "dnnre",
+    "rules_dir": "rules/default/dnnre"
+  },
+  "evaluation": {
+    "data_path": "data/default",
+    "trained_model_path": "model/default",
+    "rules_dir": "rules/default/dnnre",
+    "evaluation_dir": "eval/default/dnnre"
+  }
+}

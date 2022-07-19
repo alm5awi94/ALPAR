@@ -1,0 +1,16 @@
+{
+  "model": {
+    "data_path": "temp/batch/data",
+    "nwtype": "ff",
+    "hidden_layer_units": [
+      10
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "use_class_weights": true,
+    "batch_size": 2,
+    "epochs": 20,
+    "output_path": "temp/batch/model"
+  }
+}

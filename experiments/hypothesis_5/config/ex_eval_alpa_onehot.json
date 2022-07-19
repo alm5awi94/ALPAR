@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/onehot",
+    "trained_model_path": "model/onehot",
+    "algorithm": "alpa",
+    "rules_dir": "rules/onehot/alpa"
+  },
+  "evaluation": {
+    "data_path": "data/onehot",
+    "trained_model_path": "model/onehot",
+    "rules_dir": "rules/onehot/alpa",
+    "evaluation_dir": "eval/onehot/alpa"
+  }
+}

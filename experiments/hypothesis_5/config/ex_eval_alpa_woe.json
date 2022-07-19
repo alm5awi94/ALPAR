@@ -1,0 +1,14 @@
+{
+  "extraction": {
+    "data_path": "data/woe",
+    "trained_model_path": "model/woe",
+    "algorithm": "alpa",
+    "rules_dir": "rules/woe/alpa"
+  },
+  "evaluation": {
+    "data_path": "data/woe",
+    "trained_model_path": "model/woe",
+    "rules_dir": "rules/woe/alpa",
+    "evaluation_dir": "eval/woe/alpa"
+  }
+}

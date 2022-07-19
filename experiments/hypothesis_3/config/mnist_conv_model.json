@@ -1,0 +1,44 @@
+{
+  "data": {
+    "input_path": "../datasets/mnist.csv",
+    "output_path": "data/conv",
+    "test_size": 0.3,
+    "dataset_name": "MNIST",
+    "original_shape": [
+      28,
+      28,
+      1
+    ],
+    "label_col": 0
+  },
+  "model": {
+    "nwtype": "conv",
+    "data_path": "data/conv",
+    "hidden_layer_units": [
+      32,
+      64
+    ],
+    "hidden_layer_activations": [
+      "relu",
+      "relu"
+    ],
+    "conv_layer_kernels": [
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "dropout": 0.2,
+    "use_class_weights": true,
+    "batch_size": 4,
+    "learning_rate": 0.0001,
+    "use_decay": false,
+    "epochs": 15,
+    "val_split": 0.15,
+    "output_path": "model/conv"
+  }
+}

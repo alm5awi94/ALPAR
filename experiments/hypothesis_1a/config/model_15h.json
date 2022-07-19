@@ -1,0 +1,47 @@
+{
+    "model": {
+        "data_path": "data/",
+        "nwtype": "ff",
+        "hidden_layer_units": [
+            64,
+            70,
+            76,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            80,
+            76,
+            70,
+            64
+        ],
+        "hidden_layer_activations": [
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu"
+        ],
+        "use_class_weights": true,
+        "batch_size": 1,
+        "dropout": 0.2,
+        "val_split": 0.25,
+        "learning_rate": 6.666666666666667e-05,
+        "epochs": 375,
+        "output_path": "model/model_15h"
+    }
+}

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rea package &mdash; REA 2022 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> REA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">rea package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-rea.configuration">rea.configuration module</a></li>
+<li><a class="reference internal" href="#module-rea.processing_module">rea.processing_module module</a></li>
+<li><a class="reference internal" href="#module-rea.rea">rea.rea module</a></li>
+<li><a class="reference internal" href="#module-rea">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">REA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>rea package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/rea.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <section id="rea-package">
+<h1>rea package<a class="headerlink" href="#rea-package" title="Permalink to this headline"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rea.data.html">rea.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rea.data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.data.html#module-rea.data.data">rea.data.data module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.data.html#module-rea.data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rea.evaluation.html">rea.evaluation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rea.evaluation.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rea.evaluation.evaluate_rules.html">rea.evaluation.evaluate_rules package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.accuracy">rea.evaluation.evaluate_rules.accuracy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.comprehensibility">rea.evaluation.evaluate_rules.comprehensibility module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.confusion_matrix">rea.evaluation.evaluate_rules.confusion_matrix module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.count_attributes">rea.evaluation.evaluate_rules.count_attributes module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.fidelity">rea.evaluation.evaluate_rules.fidelity module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.overlapping_features">rea.evaluation.evaluate_rules.overlapping_features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.predict">rea.evaluation.evaluate_rules.predict module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules.rule_eval_keys">rea.evaluation.evaluate_rules.rule_eval_keys module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.evaluation.evaluate_rules.html#module-rea.evaluation.evaluate_rules">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rea.evaluation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.evaluation.html#module-rea.evaluation.evaluation">rea.evaluation.evaluation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.evaluation.html#module-rea.evaluation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rea.extraction.html">rea.extraction package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rea.extraction.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rea.extraction.alpa.html">rea.extraction.alpa package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.alpa.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.alpa.html#module-rea.extraction.alpa.alpa">rea.extraction.alpa.alpa module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.alpa.html#module-rea.extraction.alpa.alpa_c5">rea.extraction.alpa.alpa_c5 module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.alpa.html#module-rea.extraction.alpa">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rea.extraction.dnnre.html">rea.extraction.dnnre package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.dnnre.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.dnnre.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.dnnre.html#module-rea.extraction.dnnre.dnnre_misc">rea.extraction.dnnre.dnnre_misc module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.extraction.dnnre.html#module-rea.extraction.dnnre">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rea.extraction.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.extraction.html#module-rea.extraction.extraction">rea.extraction.extraction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.extraction.html#module-rea.extraction">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rea.model.html">rea.model package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rea.model.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.model.html#module-rea.model.model">rea.model.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.model.html#module-rea.model">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rea.rules.html">rea.rules package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rea.rules.logic_manipulator.html">rea.rules.logic_manipulator package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.delete_redundant_terms">rea.rules.logic_manipulator.delete_redundant_terms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.helpers">rea.rules.logic_manipulator.helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.merge">rea.rules.logic_manipulator.merge module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.satisfiability">rea.rules.logic_manipulator.satisfiability module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator.substitute_rules">rea.rules.logic_manipulator.substitute_rules module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rea.rules.logic_manipulator.html#module-rea.rules.logic_manipulator">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#module-rea.rules.clause">rea.rules.clause module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#module-rea.rules.helpers">rea.rules.helpers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#module-rea.rules.rule">rea.rules.rule module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#module-rea.rules.ruleset">rea.rules.ruleset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#module-rea.rules.term">rea.rules.term module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rea.rules.html#module-rea.rules">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-rea.configuration">
+<span id="rea-configuration-module"></span><h2>rea.configuration module<a class="headerlink" href="#module-rea.configuration" title="Permalink to this headline"></a></h2>
+<p>Code to work with a custom json config-format (reading, validation, …).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.ConfKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">ConfKeys</span></span><a class="reference internal" href="_modules/rea/configuration.html#ConfKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.ConfKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Top-level keys used in the configuration file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ConfKeys.DATA">
+<span class="sig-name descname"><span class="pre">DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data'</span></em><a class="headerlink" href="#rea.configuration.ConfKeys.DATA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ConfKeys.EVALUATION">
+<span class="sig-name descname"><span class="pre">EVALUATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'evaluation'</span></em><a class="headerlink" href="#rea.configuration.ConfKeys.EVALUATION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ConfKeys.EXTRACTION">
+<span class="sig-name descname"><span class="pre">EXTRACTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'extraction'</span></em><a class="headerlink" href="#rea.configuration.ConfKeys.EXTRACTION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ConfKeys.GLOBAL">
+<span class="sig-name descname"><span class="pre">GLOBAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'global'</span></em><a class="headerlink" href="#rea.configuration.ConfKeys.GLOBAL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ConfKeys.MODEL">
+<span class="sig-name descname"><span class="pre">MODEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'model'</span></em><a class="headerlink" href="#rea.configuration.ConfKeys.MODEL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.Configuration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">Configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/configuration.html#Configuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration._get_module_params">
+<span class="sig-name descname"><span class="pre">_get_module_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration._get_module_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration._get_module_params" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the second-level dict with module-specific keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>conf_key</strong> – The json-key of the module.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary containing the module specific values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.get_all">
+<span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.get_all" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The raw data which was read.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.get_data_params">
+<span class="sig-name descname"><span class="pre">get_data_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.get_data_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.get_data_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.get_evaluation_params">
+<span class="sig-name descname"><span class="pre">get_evaluation_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.get_evaluation_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.get_evaluation_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.get_extraction_params">
+<span class="sig-name descname"><span class="pre">get_extraction_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.get_extraction_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.get_extraction_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.get_global_params">
+<span class="sig-name descname"><span class="pre">get_global_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.get_global_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.get_global_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.get_model_params">
+<span class="sig-name descname"><span class="pre">get_model_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.get_model_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.get_model_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.has_module">
+<span class="sig-name descname"><span class="pre">has_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.has_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.has_module" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.read" title="Permalink to this definition"></a></dt>
+<dd><p>Tries to read the configuration from the path provided at
+initialisation into the internal <code class="docutils literal notranslate"><span class="pre">_json_data</span></code> attribute, which can be
+accessed using the other methods.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.validate_all">
+<span class="sig-name descname"><span class="pre">validate_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.validate_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.validate_all" title="Permalink to this definition"></a></dt>
+<dd><p>Validates whole configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.validate_data">
+<span class="sig-name descname"><span class="pre">validate_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.validate_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.validate_data" title="Permalink to this definition"></a></dt>
+<dd><p>Validate the data configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.validate_evaluation">
+<span class="sig-name descname"><span class="pre">validate_evaluation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.validate_evaluation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.validate_evaluation" title="Permalink to this definition"></a></dt>
+<dd><p>Validates the evaluation configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.validate_global">
+<span class="sig-name descname"><span class="pre">validate_global</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.validate_global"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.validate_global" title="Permalink to this definition"></a></dt>
+<dd><p>Validate the global configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.validate_model">
+<span class="sig-name descname"><span class="pre">validate_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.validate_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.validate_model" title="Permalink to this definition"></a></dt>
+<dd><p>Validates the tensorflow model model configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.validate_rule_ex">
+<span class="sig-name descname"><span class="pre">validate_rule_ex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.validate_rule_ex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.validate_rule_ex" title="Permalink to this definition"></a></dt>
+<dd><p>Validates the rule extraction configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.configuration.Configuration.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/configuration.html#Configuration.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.Configuration.write" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the current configuration to <cite>output_path</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">DataKeys</span></span><a class="reference internal" href="_modules/rea/configuration.html#DataKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.DataKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keys used in the data module configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.CATEGORICAL_COLUMNS">
+<span class="sig-name descname"><span class="pre">CATEGORICAL_COLUMNS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'categorical_columns'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.CATEGORICAL_COLUMNS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.CAT_CONV_METHOD">
+<span class="sig-name descname"><span class="pre">CAT_CONV_METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cat_conv_method'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.CAT_CONV_METHOD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.DATASET_NAME">
+<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dataset_name'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.DATASET_NAME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.INPUT_PATH">
+<span class="sig-name descname"><span class="pre">INPUT_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'input_path'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.INPUT_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.LABEL_COL">
+<span class="sig-name descname"><span class="pre">LABEL_COL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'label_col'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.LABEL_COL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.ORIG_SHAPE">
+<span class="sig-name descname"><span class="pre">ORIG_SHAPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'original_shape'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.ORIG_SHAPE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.OUTPUT_PATH">
+<span class="sig-name descname"><span class="pre">OUTPUT_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'output_path'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.OUTPUT_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.SCALE_DATA">
+<span class="sig-name descname"><span class="pre">SCALE_DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'scale_data'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.SCALE_DATA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.DataKeys.TEST_SIZE">
+<span class="sig-name descname"><span class="pre">TEST_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'test_size'</span></em><a class="headerlink" href="#rea.configuration.DataKeys.TEST_SIZE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.EvaluationKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">EvaluationKeys</span></span><a class="reference internal" href="_modules/rea/configuration.html#EvaluationKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.EvaluationKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keys used in the evaluation module configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.EvaluationKeys.DATA_PATH">
+<span class="sig-name descname"><span class="pre">DATA_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data_path'</span></em><a class="headerlink" href="#rea.configuration.EvaluationKeys.DATA_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.EvaluationKeys.MODEL_PATH">
+<span class="sig-name descname"><span class="pre">MODEL_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'trained_model_path'</span></em><a class="headerlink" href="#rea.configuration.EvaluationKeys.MODEL_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.EvaluationKeys.OUTPUT_PATH">
+<span class="sig-name descname"><span class="pre">OUTPUT_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'evaluation_dir'</span></em><a class="headerlink" href="#rea.configuration.EvaluationKeys.OUTPUT_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.EvaluationKeys.PREDICT_INSTANCE_PATH">
+<span class="sig-name descname"><span class="pre">PREDICT_INSTANCE_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'predict_instance_path'</span></em><a class="headerlink" href="#rea.configuration.EvaluationKeys.PREDICT_INSTANCE_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.EvaluationKeys.RULES_DIR">
+<span class="sig-name descname"><span class="pre">RULES_DIR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rules_dir'</span></em><a class="headerlink" href="#rea.configuration.EvaluationKeys.RULES_DIR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.ExtractionKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">ExtractionKeys</span></span><a class="reference internal" href="_modules/rea/configuration.html#ExtractionKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.ExtractionKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keys used in the extraction module configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ExtractionKeys.ALGORITHM">
+<span class="sig-name descname"><span class="pre">ALGORITHM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'algorithm'</span></em><a class="headerlink" href="#rea.configuration.ExtractionKeys.ALGORITHM" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ExtractionKeys.DATA_PATH">
+<span class="sig-name descname"><span class="pre">DATA_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data_path'</span></em><a class="headerlink" href="#rea.configuration.ExtractionKeys.DATA_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ExtractionKeys.MODEL_PATH">
+<span class="sig-name descname"><span class="pre">MODEL_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'trained_model_path'</span></em><a class="headerlink" href="#rea.configuration.ExtractionKeys.MODEL_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ExtractionKeys.OUTPUT_PATH">
+<span class="sig-name descname"><span class="pre">OUTPUT_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rules_dir'</span></em><a class="headerlink" href="#rea.configuration.ExtractionKeys.OUTPUT_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.FileNames">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">FileNames</span></span><a class="reference internal" href="_modules/rea/configuration.html#FileNames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.FileNames" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Common file names used in the project.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.FileNames.METRICS">
+<span class="sig-name descname"><span class="pre">METRICS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'eval_metrics.json'</span></em><a class="headerlink" href="#rea.configuration.FileNames.METRICS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.FileNames.PREDICT_INSTANCE">
+<span class="sig-name descname"><span class="pre">PREDICT_INSTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rule_classifier.pickle'</span></em><a class="headerlink" href="#rea.configuration.FileNames.PREDICT_INSTANCE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.FileNames.RULES">
+<span class="sig-name descname"><span class="pre">RULES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rules.bin'</span></em><a class="headerlink" href="#rea.configuration.FileNames.RULES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.GlobalKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">GlobalKeys</span></span><a class="reference internal" href="_modules/rea/configuration.html#GlobalKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.GlobalKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keys used in the global configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.GlobalKeys.LOGGING">
+<span class="sig-name descname"><span class="pre">LOGGING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'logging'</span></em><a class="headerlink" href="#rea.configuration.GlobalKeys.LOGGING" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.GlobalKeys.METRICS_FILENAME">
+<span class="sig-name descname"><span class="pre">METRICS_FILENAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'metrics_filename'</span></em><a class="headerlink" href="#rea.configuration.GlobalKeys.METRICS_FILENAME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.GlobalKeys.PREDICT_INSTANCE_FILENAME">
+<span class="sig-name descname"><span class="pre">PREDICT_INSTANCE_FILENAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'predict_instance_filename'</span></em><a class="headerlink" href="#rea.configuration.GlobalKeys.PREDICT_INSTANCE_FILENAME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.GlobalKeys.RULES_FILENAME">
+<span class="sig-name descname"><span class="pre">RULES_FILENAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'rules_filename'</span></em><a class="headerlink" href="#rea.configuration.GlobalKeys.RULES_FILENAME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.GlobalKeys.SEED">
+<span class="sig-name descname"><span class="pre">SEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'seed'</span></em><a class="headerlink" href="#rea.configuration.GlobalKeys.SEED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.configuration.</span></span><span class="sig-name descname"><span class="pre">ModelKeys</span></span><a class="reference internal" href="_modules/rea/configuration.html#ModelKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.configuration.ModelKeys" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Keys used in the model module configuration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.BATCH_SIZE">
+<span class="sig-name descname"><span class="pre">BATCH_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'batch_size'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.BATCH_SIZE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.CONV_LAYER_KERNELS">
+<span class="sig-name descname"><span class="pre">CONV_LAYER_KERNELS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'conv_layer_kernels'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.CONV_LAYER_KERNELS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.DATA_PATH">
+<span class="sig-name descname"><span class="pre">DATA_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data_path'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.DATA_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.DROPOUT">
+<span class="sig-name descname"><span class="pre">DROPOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dropout'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.DROPOUT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.EPOCHS">
+<span class="sig-name descname"><span class="pre">EPOCHS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'epochs'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.EPOCHS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.HIDDEN_LAYERS">
+<span class="sig-name descname"><span class="pre">HIDDEN_LAYERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hidden_layer_units'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.HIDDEN_LAYERS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.HIDDEN_LAYER_ACTIVATIONS">
+<span class="sig-name descname"><span class="pre">HIDDEN_LAYER_ACTIVATIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hidden_layer_activations'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.HIDDEN_LAYER_ACTIVATIONS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.LEARNING_RATE">
+<span class="sig-name descname"><span class="pre">LEARNING_RATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'learning_rate'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.LEARNING_RATE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.OUTPUT_PATH">
+<span class="sig-name descname"><span class="pre">OUTPUT_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'output_path'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.OUTPUT_PATH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nwtype'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.TYPE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.USE_CLASS_WEIGHTS">
+<span class="sig-name descname"><span class="pre">USE_CLASS_WEIGHTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'use_class_weights'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.USE_CLASS_WEIGHTS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.USE_DECAY">
+<span class="sig-name descname"><span class="pre">USE_DECAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'use_decay'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.USE_DECAY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.configuration.ModelKeys.VAL_SPLIT">
+<span class="sig-name descname"><span class="pre">VAL_SPLIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'val_split'</span></em><a class="headerlink" href="#rea.configuration.ModelKeys.VAL_SPLIT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea.processing_module">
+<span id="rea-processing-module-module"></span><h2>rea.processing_module module<a class="headerlink" href="#module-rea.processing_module" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.processing_module.ProcessingModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.processing_module.</span></span><span class="sig-name descname"><span class="pre">ProcessingModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/processing_module.html#ProcessingModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.processing_module.ProcessingModule" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Base class for modules of the pipeline that use <cite>Data</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.processing_module.ProcessingModule.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/processing_module.html#ProcessingModule.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.processing_module.ProcessingModule.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Common attributes among Pipeline modules.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_dir</strong> – path where to save the outputs</p></li>
+<li><p><strong>data_dir</strong> – path to the <cite>Data</cite> output folder</p></li>
+<li><p><strong>seed</strong> – random seed to use</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rea.processing_module.ProcessingModule._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#rea.processing_module.ProcessingModule._abc_impl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.processing_module.ProcessingModule.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rea.data.html#rea.data.data.Data" title="rea.data.data.Data"><span class="pre">rea.data.data.Data</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/processing_module.html#ProcessingModule.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.processing_module.ProcessingModule.run" title="Permalink to this definition"></a></dt>
+<dd><p>Execute the primary module function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – (Optional) Can be provided when using the API mode.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.processing_module.ProcessingModule.setup_data">
+<span class="sig-name descname"><span class="pre">setup_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rea.data.html#rea.data.data.Data" title="rea.data.data.Data"><span class="pre">rea.data.data.Data</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/rea/processing_module.html#ProcessingModule.setup_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.processing_module.ProcessingModule.setup_data" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the data attribute to data. If None is provided
+a <cite>Data</cite> instance is created with <cite>Data.read</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – Instance to use or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea.rea">
+<span id="rea-rea-module"></span><h2>rea.rea module<a class="headerlink" href="#module-rea.rea" title="Permalink to this headline"></a></h2>
+<p>REA - Rule Extraction Assistant</p>
+<p>A pipeline for evaluating rule extraction algorithms for (feed-forward) neural
+networks.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="rea.rea.REA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rea.rea.</span></span><span class="sig-name descname"><span class="pre">REA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rea.html#REA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rea.REA" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main class of the rule extraction assistant to load the configuration and
+run the pipeline.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rea.REA.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_paths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rea.html#REA.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rea.REA.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rea.REA._cli_module_check">
+<span class="sig-name descname"><span class="pre">_cli_module_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_module_cli_flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/rea/rea.html#REA._cli_module_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rea.REA._cli_module_check" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rea.rea.REA.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_data_flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_model_flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_extraction_flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_eval_flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rea/rea.html#REA.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rea.rea.REA.run" title="Permalink to this definition"></a></dt>
+<dd><p>Executes the specified pipeline modules.
+The specification of which modules to run can be done by using the cli
+flags or gets inferred from the given configurations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>do_data_flag</strong> – CLI flag to execute <cite>Data</cite> module.</p></li>
+<li><p><strong>do_model_flag</strong> – CLI flag to execute <cite>Model</cite> module.</p></li>
+<li><p><strong>do_extraction_flag</strong> – CLI flag to execute <cite>Extraction</cite> module.</p></li>
+<li><p><strong>do_eval_flag</strong> – CLI flag to execute <cite>Evaluation</cite> module.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rea">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rea" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

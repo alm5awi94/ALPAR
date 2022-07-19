@@ -1,0 +1,1 @@
+C:\Users\User\.virtualenvs\D_ALPAR_ENV\Scripts\python.exe: Error while finding module specification for 'config/global.json' (ModuleNotFoundError: No module named 'config/global')

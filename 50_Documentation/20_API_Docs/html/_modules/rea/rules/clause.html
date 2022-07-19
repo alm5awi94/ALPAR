@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rea.rules.clause &#8212; REA 2022 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+          <div class="body" role="main">
+
+  <h1>Source code for rea.rules.clause</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">DELETE_REDUNDANT_TERMS_FLAG</span>
+<span class="kn">from</span> <span class="nn">.logic_manipulator.delete_redundant_terms</span> <span class="kn">import</span> <span class="n">remove_redundant_terms</span>
+<span class="kn">from</span> <span class="nn">.term</span> <span class="kn">import</span> <span class="n">Term</span>
+
+
+<span class="c1"># source code adapted to PEP8 from</span>
+<span class="c1"># https://github.com/sumaiyah/DNN-RE/tree/master/src/rules</span>
+
+<div class="viewcode-block" id="ConjunctiveClause"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause">[docs]</a><span class="k">class</span> <span class="nc">ConjunctiveClause</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represent conjunctive clause. All terms in clause are ANDed together.</span>
+<span class="sd">     Immutable and Hashable.</span>
+
+<span class="sd">    Each conjunctive clause of terms has its own confidence value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;terms&#39;</span><span class="p">,</span> <span class="s1">&#39;confidence&#39;</span><span class="p">,</span> <span class="s1">&#39;rank_score&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Term</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">terms</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">terms</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="n">rank_score</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">if</span> <span class="n">DELETE_REDUNDANT_TERMS_FLAG</span><span class="p">:</span>
+            <span class="n">terms</span> <span class="o">=</span> <span class="n">remove_redundant_terms</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConjunctiveClause</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s1">&#39;terms&#39;</span><span class="p">,</span> <span class="n">terms</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConjunctiveClause</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s1">&#39;confidence&#39;</span><span class="p">,</span> <span class="n">confidence</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConjunctiveClause</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s1">&#39;rank_score&#39;</span><span class="p">,</span> <span class="n">rank_score</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">terms_str</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">term</span><span class="p">)</span> <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">confidence</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">terms_str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
+
+    <span class="c1"># def __setattr__(self, name, value):</span>
+    <span class="c1">#     msg = &quot;&#39;%s&#39; is immutable, can&#39;t modify %s&quot; % (self.__class__, name)</span>
+    <span class="c1">#     raise AttributeError(msg)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span> <span class="ow">and</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">terms</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">terms</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">^</span> <span class="nb">hash</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<div class="viewcode-block" id="ConjunctiveClause.get_terms"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause.get_terms">[docs]</a>    <span class="k">def</span> <span class="nf">get_terms</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Term</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span></div>
+
+<div class="viewcode-block" id="ConjunctiveClause.get_confidence"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause.get_confidence">[docs]</a>    <span class="k">def</span> <span class="nf">get_confidence</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">confidence</span></div>
+
+<div class="viewcode-block" id="ConjunctiveClause.set_rank_score"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause.set_rank_score">[docs]</a>    <span class="k">def</span> <span class="nf">set_rank_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank_score</span> <span class="o">=</span> <span class="n">score</span></div>
+
+<div class="viewcode-block" id="ConjunctiveClause.get_rank_score"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause.get_rank_score">[docs]</a>    <span class="k">def</span> <span class="nf">get_rank_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank_score</span></div>
+
+<div class="viewcode-block" id="ConjunctiveClause.union"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause.union">[docs]</a>    <span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ConjunctiveClause&#39;</span><span class="p">:</span>
+        <span class="c1"># Return new conjunctive clause that has all terms from both</span>
+        <span class="n">terms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">get_terms</span><span class="p">())</span>
+        <span class="n">confidence</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">confidence</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">get_confidence</span><span class="p">()</span>
+        <span class="c1"># todo change this? see when called? its not right</span>
+
+        <span class="k">return</span> <span class="n">ConjunctiveClause</span><span class="p">(</span><span class="n">terms</span><span class="o">=</span><span class="n">terms</span><span class="p">,</span> <span class="n">confidence</span><span class="o">=</span><span class="n">confidence</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConjunctiveClause.evaluate"><a class="viewcode-back" href="../../../rea.rules.html#rea.rules.clause.ConjunctiveClause.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate clause with data Dict[Neuron, float]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">terms</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">term</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">term</span><span class="o">.</span><span class="n">get_neuron</span><span class="p">()]):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># All conditions in the clause are satisfied</span>
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">REA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+
+    </div>
+
+
+
+
+  </body>
+</html>

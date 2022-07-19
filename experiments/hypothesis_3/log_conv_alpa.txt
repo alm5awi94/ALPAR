@@ -1,0 +1,1377 @@
+DEBUG:rea.configuration:Validating configuration for rule extraction.
+DEBUG:rea.configuration:Validating configuration for evaluation.
+DEBUG:rea.data.data:Created new Data instance.
+DEBUG:rea.extraction.extraction:Starting rule extraction alpa
+2022-03-03 11:04:39.570431: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:39.609035: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:39.609410: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:39.609937: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-03 11:04:39.610272: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:39.610640: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:39.610928: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:40.135729: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:40.136011: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:40.136211: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-03 11:04:40.136377: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 3389 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 950M, pci bus id: 0000:01:00.0, compute capability: 5.0
+2022-03-03 11:04:40.503340: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-03 11:04:40.861499: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-03 11:04:41.789258: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8301
+
+   1/1532 [..............................] - ETA: 32:51
+  29/1532 [..............................] - ETA: 2s   
+  57/1532 [>.............................] - ETA: 2s
+  86/1532 [>.............................] - ETA: 2s
+ 115/1532 [=>............................] - ETA: 2s
+ 143/1532 [=>............................] - ETA: 2s
+ 171/1532 [==>...........................] - ETA: 2s
+ 199/1532 [==>...........................] - ETA: 2s
+ 227/1532 [===>..........................] - ETA: 2s
+ 256/1532 [====>.........................] - ETA: 2s
+ 284/1532 [====>.........................] - ETA: 2s
+ 312/1532 [=====>........................] - ETA: 2s
+ 340/1532 [=====>........................] - ETA: 2s
+ 368/1532 [======>.......................] - ETA: 2s
+ 396/1532 [======>.......................] - ETA: 2s
+ 424/1532 [=======>......................] - ETA: 1s
+ 452/1532 [=======>......................] - ETA: 1s
+ 480/1532 [========>.....................] - ETA: 1s
+ 508/1532 [========>.....................] - ETA: 1s
+ 537/1532 [=========>....................] - ETA: 1s
+ 565/1532 [==========>...................] - ETA: 1s
+ 593/1532 [==========>...................] - ETA: 1s
+ 621/1532 [===========>..................] - ETA: 1s
+ 649/1532 [===========>..................] - ETA: 1s
+ 677/1532 [============>.................] - ETA: 1s
+ 705/1532 [============>.................] - ETA: 1s
+ 733/1532 [=============>................] - ETA: 1s
+ 762/1532 [=============>................] - ETA: 1s
+ 790/1532 [==============>...............] - ETA: 1s
+ 818/1532 [===============>..............] - ETA: 1s
+ 846/1532 [===============>..............] - ETA: 1s
+ 874/1532 [================>.............] - ETA: 1s
+ 903/1532 [================>.............] - ETA: 1s
+ 931/1532 [=================>............] - ETA: 1s
+ 959/1532 [=================>............] - ETA: 1s
+ 987/1532 [==================>...........] - ETA: 0s
+1016/1532 [==================>...........] - ETA: 0s
+1044/1532 [===================>..........] - ETA: 0s
+1073/1532 [====================>.........] - ETA: 0s
+1102/1532 [====================>.........] - ETA: 0s
+1130/1532 [=====================>........] - ETA: 0s
+1158/1532 [=====================>........] - ETA: 0s
+1186/1532 [======================>.......] - ETA: 0s
+1214/1532 [======================>.......] - ETA: 0s
+1242/1532 [=======================>......] - ETA: 0s
+1270/1532 [=======================>......] - ETA: 0s
+1298/1532 [========================>.....] - ETA: 0s
+1326/1532 [========================>.....] - ETA: 0s
+1354/1532 [=========================>....] - ETA: 0s
+1383/1532 [==========================>...] - ETA: 0s
+1411/1532 [==========================>...] - ETA: 0s
+1439/1532 [===========================>..] - ETA: 0s
+1467/1532 [===========================>..] - ETA: 0s
+1495/1532 [============================>.] - ETA: 0s
+1523/1532 [============================>.] - ETA: 0s
+1532/1532 [==============================] - ETA: 0s
+1532/1532 [==============================] - 4s 2ms/step
+DEBUG:rea.extraction.alpa.alpa:Found nearest points to 12250 valleypoints.
+DEBUG:rea.extraction.alpa.alpa:Generated 245 points (rho=0.005) - fid: 0.94927
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 245 (rho=0.005) new samples (0.94927 > -inf)
+DEBUG:rea.extraction.alpa.alpa:Generated 490 points (rho=0.01) - fid: 0.94823
+DEBUG:rea.extraction.alpa.alpa:Generated 980 points (rho=0.02) - fid: 0.94586
+DEBUG:rea.extraction.alpa.alpa:Generated 1225 points (rho=0.025) - fid: 0.94455
+DEBUG:rea.extraction.alpa.alpa:Generated 1470 points (rho=0.03) - fid: 0.9447
+DEBUG:rea.extraction.alpa.alpa:Generated 1960 points (rho=0.04) - fid: 0.94058
+DEBUG:rea.extraction.alpa.alpa:Generated 2450 points (rho=0.05) - fid: 0.94041
+DEBUG:rea.extraction.extraction:IF 0.7692307692307693[(h_0,211 > 69.050331) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,383 > 20) AND (h_0,381 <= 12) AND (h_0,567 <= 70) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8461538461538461[(h_0,350 > 84) AND (h_0,177 > 37.80793) AND (h_0,517 > 177) AND (h_0,609 <= 10) AND (h_0,516 <= 142.36966) AND (h_0,264 <= 157) AND (h_0,553 <= 0) AND (h_0,233 <= 4) AND (h_0,499 <= 4) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4[(h_0,210 <= 156) AND (h_0,470 > 1) AND (h_0,156 <= 66) AND (h_0,373 <= 0) AND (h_0,324 > 171) AND (h_0,347 > 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.36421033643005324[(h_0,402 <= 4) AND (h_0,405 <= 2)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.26905829596412556[(h_0,210 <= 156) AND (h_0,470 > 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,324 > 171)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.75[(h_0,339 > 5) AND (h_0,451 > 38) AND (h_0,379 <= 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6226415094339622[(h_0,329 > 201) AND (h_0,462 > 2) AND (h_0,580 <= 69) AND (h_0,295 > 153.31293) AND (h_0,219 <= 223) AND (h_0,567 <= 18) AND (h_0,431 > 21) AND (h_0,304 <= 124)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.58[(h_0,706 <= 14) AND (h_0,515 > 7.7229967) AND (h_0,708 > 221) AND (h_0,347 > 1.8082929) AND (h_0,376 > 5)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5038461538461538[(h_0,429 > 37) AND (h_0,379 > 0) AND (h_0,269 > 16) AND (h_0,487 > 19) AND (h_0,431 <= 4) AND (h_0,349 <= 9.1758108)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4859779045769091[(h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,569 <= 9) AND (h_0,156 <= 0) AND (h_0,595 <= 10.425243)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9916434540389972[(h_0,485 <= 94) AND (h_0,329 > 143) AND (h_0,126 <= 109) AND (h_0,462 <= 2) AND (h_0,296 > 2.357619) AND (h_0,483 > 149.28964) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9861224489795918[(h_0,406 <= 88) AND (h_0,355 > 16) AND (h_0,72 <= 0) AND (h_0,149 <= 19) AND (h_0,66 <= 0) AND (h_0,379 <= 0) AND (h_0,135 <= 60) AND (h_0,737 <= 0) AND (h_0,324 <= 111) AND (h_0,462 <= 2) AND (h_0,359 <= 27) AND (h_0,598 > 4) AND (h_0,402 > 11) AND (h_0,707 <= 2) AND (h_0,75 <= 1)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9835390946502057[(h_0,737 <= 0) AND (h_0,103 <= 1) AND (h_0,381 <= 12) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,93 <= 0) AND (h_0,387 > 240) AND (h_0,707 <= 18) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9705882352941176[(h_0,406 <= 88) AND (h_0,210 > 24) AND (h_0,324 > 111) AND (h_0,430 > 15.375971) AND (h_0,379 <= 0) AND (h_0,719 <= 8) AND (h_0,743 <= 1) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,612 <= 4) AND (h_0,427 <= 36) AND (h_0,322 <= 1) AND (h_0,707 <= 2)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9696969696969697[(h_0,151 <= 25) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,106 <= 51) AND (h_0,382 > 120) AND (h_0,434 <= 248) AND (h_0,492 > 130) AND (h_0,529 <= 5) AND (h_0,567 > 49) AND (h_0,100 <= 1) AND (h_0,220 <= 3) AND (h_0,321 > 169) AND (h_0,657 <= 5.0613775) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9680851063829787[(h_0,485 > 94) AND (h_0,457 > 109) AND (h_0,192 <= 18) AND (h_0,462 <= 2) AND (h_0,656 > 11) AND (h_0,266 > 252.43169) AND (h_0,710 <= 45) AND (h_0,649 <= 8) AND (h_0,162 <= 8) AND (h_0,487 <= 19) AND (h_0,207 <= 126)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9683544303797469[(h_0,174 <= 20) AND (h_0,462 <= 2) AND (h_0,656 > 6.68085) AND (h_0,487 > 19) AND (h_0,522 > 116) AND (h_0,459 > 8) AND (h_0,453 <= 15) AND (h_0,357 > 110)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9613670133729569[(h_0,406 <= 88) AND (h_0,120 <= 12) AND (h_0,72 <= 0) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,557 <= 22) AND (h_0,612 <= 4) AND (h_0,75 <= 1) AND (h_0,457 > 240) AND (h_0,267 > 51) AND (h_0,517 <= 190) AND (h_0,464 <= 207) AND (h_0,716 <= 8)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9609683794466403[(h_0,567 > 28) AND (h_0,412 > 2.0733187) AND (h_0,428 > 16) AND (h_0,103 <= 1) AND (h_0,381 <= 12) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,93 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,569 > 9) AND (h_0,488 <= 35) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,685 <= 53) AND (h_0,657 > 5.0613775) AND (h_0,485 > 41) AND (h_0,405 <= 119) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9980657640232108[(h_0,372 <= 79) AND (h_0,683 > 0.36443651) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,180 <= 3) AND (h_0,350 <= 84) AND (h_0,492 > 65) AND (h_0,349 <= 67) AND (h_0,544 > 6) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9978189749182116[(h_0,485 <= 10) AND (h_0,460 <= 58.359089) AND (h_0,405 <= 4.115541) AND (h_0,740 > 0) AND (h_0,211 <= 133)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9957127545551983[(h_0,743 > 1) AND (h_0,432 <= 1.3616941) AND (h_0,377 <= 9) AND (h_0,487 <= 126) AND (h_0,543 <= 159)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9964028776978417[(h_0,743 > 1) AND (h_0,432 <= 1.3616941) AND (h_0,487 <= 126) AND (h_0,299 > 14) AND (h_0,324 > 42.014072) AND (h_0,404 <= 9) AND (h_0,210 <= 253.4769) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.99568345323741[(h_0,377 <= 7) AND (h_0,485 <= 10) AND (h_0,460 <= 58.359089) AND (h_0,405 <= 4.115541) AND (h_0,740 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.995[(h_0,231 > 72) AND (h_0,713 <= 1.0239191) AND (h_0,737 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.99375[(h_0,485 <= 94) AND (h_0,492 > 63) AND (h_0,349 <= 66) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,210 > 1) AND (h_0,151 <= 111) AND (h_0,462 <= 2) AND (h_0,680 <= 1) AND (h_0,405 <= 4) AND (h_0,353 > 4) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9940828402366864[(h_0,379 <= 0) AND (h_0,489 <= 62) AND (h_0,569 <= 12) AND (h_0,462 <= 2) AND (h_0,746 > 3) AND (h_0,376 <= 111)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9925857275254866[(h_0,372 <= 79) AND (h_0,710 > 1.2304417) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,572 > 4.4860787) AND (h_0,350 <= 84) AND (h_0,349 <= 67) AND (h_0,716 <= 2) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9929453262786596[(h_0,205 > 23) AND (h_0,690 <= 15) AND (h_0,740 > 0) AND (h_0,405 <= 4.115541)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9444444444444444[(h_0,216 > 6.3626695) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,433 <= 11) AND (h_0,154 <= 1) AND (h_0,469 <= 34) AND (h_0,743 <= 1) AND (h_0,163 <= 2) AND (h_0,514 > 128) AND (h_0,595 <= 10.425243) AND (h_0,160 <= 2.5547478) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9393939393939394[(h_0,379 <= 0) AND (h_0,246 <= 94) AND (h_0,719 > 8) AND (h_0,462 <= 2) AND (h_0,543 > 2) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9375[(h_0,625 <= 116) AND (h_0,320 <= 24) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,737 <= 0) AND (h_0,210 > 9) AND (h_0,372 > 79)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9357142857142857[(h_0,216 > 6.3626695) AND (h_0,210 <= 37) AND (h_0,381 > 12) AND (h_0,211 > 7.0905542) AND (h_0,469 <= 34) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,163 <= 2) AND (h_0,156 <= 0) AND (h_0,233 <= 16) AND (h_0,433 > 11) AND (h_0,595 <= 10.425243) AND (h_0,160 <= 2.5547478) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9333333333333333[(h_0,462 > 2) AND (h_0,270 <= 107) AND (h_0,373 > 0) AND (h_0,705 > 63)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9259259259259259[(h_0,210 > 134) AND (h_0,376 <= 235) AND (h_0,412 > 2.0733187) AND (h_0,373 > 0) AND (h_0,103 <= 1) AND (h_0,569 <= 173) AND (h_0,737 <= 0) AND (h_0,209 > 24) AND (h_0,213 > 94.04586) AND (h_0,381 <= 12) AND (h_0,567 <= 28) AND (h_0,686 <= 208) AND (h_0,100 <= 1) AND (h_0,490 > 85.067856) AND (h_0,707 <= 18) AND (h_0,387 <= 240)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.925[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,721 > 16) AND (h_0,492 <= 63) AND (h_0,210 > 1)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,456 > 43.465656) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,191 <= 2) AND (h_0,210 <= 3) AND (h_0,370 > 4.6807737) AND (h_0,276 <= 64) AND (h_0,376 <= 252) AND (h_0,293 > 0.30155319)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9130434782608695[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,598 <= 175) AND (h_0,376 <= 177) AND (h_0,370 > 4.6807737) AND (h_0,103 <= 3) AND (h_0,210 > 3) AND (h_0,416 <= 71) AND (h_0,456 <= 8.0664835) AND (h_0,510 > 57)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9047619047619048[(h_0,210 > 134) AND (h_0,376 <= 235) AND (h_0,412 > 2.0733187) AND (h_0,462 > 2) AND (h_0,569 <= 173) AND (h_0,381 <= 12) AND (h_0,499 <= 191) AND (h_0,522 > 126) AND (h_0,567 <= 28) AND (h_0,288 > 129) AND (h_0,740 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4411764705882353[(h_0,455 <= 65) AND (h_0,379 > 0) AND (h_0,300 > 57) AND (h_0,296 <= 2.357619) AND (h_0,386 > 91) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.40346205059920104[(h_0,290 > 51) AND (h_0,405 > 119) AND (h_0,488 <= 35) AND (h_0,462 > 2) AND (h_0,485 <= 2)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.392904073587385[(h_0,460 > 58) AND (h_0,632 <= 0) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967) AND (h_0,376 <= 1)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.3884180790960452[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,72 <= 0) AND (h_0,626 <= 4) AND (h_0,66 <= 0) AND (h_0,331 <= 18) AND (h_0,462 <= 2) AND (h_0,75 <= 1) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9482758620689655[(h_0,295 <= 249.3743) AND (h_0,706 <= 14) AND (h_0,242 > 152) AND (h_0,373 <= 0) AND (h_0,319 <= 0) AND (h_0,548 <= 248.22823) AND (h_0,638 <= 2) AND (h_0,377 > 201) AND (h_0,434 > 93) AND (h_0,470 <= 1) AND (h_0,347 > 1.8082929) AND (h_0,104 <= 8) AND (h_0,464 > 91)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9473684210526315[(h_0,571 > 6) AND (h_0,283 > 10) AND (h_0,379 > 0) AND (h_0,462 <= 2) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9473684210526315[(h_0,710 <= 1.2304417) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,713 <= 2) AND (h_0,350 <= 84) AND (h_0,376 > 4.3603277) AND (h_0,456 <= 40) AND (h_0,349 <= 67) AND (h_0,238 > 9) AND (h_0,680 <= 59) AND (h_0,154 <= 0) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9459459459459459[(h_0,381 > 12) AND (h_0,624 > 219) AND (h_0,657 > 4) AND (h_0,345 > 4) AND (h_0,211 <= 7.0905542) AND (h_0,264 <= 228) AND (h_0,289 <= 101) AND (h_0,155 > 69)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9838709677419355[(h_0,514 <= 96) AND (h_0,304 <= 2) AND (h_0,351 > 58) AND (h_0,404 > 53) AND (h_0,471 <= 28) AND (h_0,324 > 18) AND (h_0,512 <= 105) AND (h_0,350 > 123.3881) AND (h_0,412 <= 2.0733187) AND (h_0,314 <= 88) AND (h_0,317 <= 7) AND (h_0,318 <= 136) AND (h_0,381 <= 12) AND (h_0,276 <= 6) AND (h_0,219 <= 8) AND (h_0,528 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9816901408450704[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,453 <= 43) AND (h_0,624 > 65) AND (h_0,398 <= 8.340457) AND (h_0,331 <= 18) AND (h_0,185 > 121) AND (h_0,462 <= 2) AND (h_0,297 > 240.00169) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.988442487616951[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,163 <= 0.033175658) AND (h_0,331 <= 18) AND (h_0,291 <= 213) AND (h_0,316 <= 237) AND (h_0,512 <= 149) AND (h_0,462 <= 2) AND (h_0,584 <= 3.4976177) AND (h_0,710 <= 20) AND (h_0,296 > 2.357619) AND (h_0,329 <= 143) AND (h_0,490 <= 8) AND (h_0,290 <= 122) AND (h_0,247 <= 4) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9871794871794872[(h_0,290 <= 2.402199) AND (h_0,149 > 62) AND (h_0,295 > 249.3743) AND (h_0,370 <= 4.6807737) AND (h_0,638 <= 2) AND (h_0,434 > 93) AND (h_0,528 <= 2) AND (h_0,347 > 1.8082929) AND (h_0,99 <= 2)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9873417721518988[(h_0,149 > 14) AND (h_0,462 > 2) AND (h_0,381 <= 12) AND (h_0,485 <= 140) AND (h_0,321 > 67) AND (h_0,515 <= 173) AND (h_0,273 <= 4) AND (h_0,517 <= 174) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9863013698630136[(h_0,379 > 0) AND (h_0,266 > 3) AND (h_0,296 <= 2.357619) AND (h_0,462 <= 2) AND (h_0,120 > 4) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7692307692307693[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,626 <= 4) AND (h_0,210 > 1) AND (h_0,158 > 179) AND (h_0,462 <= 2) AND (h_0,680 <= 1) AND (h_0,75 <= 1) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.76[(h_0,176 <= 18) AND (h_0,381 > 12) AND (h_0,211 > 7.0905542) AND (h_0,409 > 45) AND (h_0,151 <= 2) AND (h_0,156 > 0) AND (h_0,314 <= 220) AND (h_0,354 <= 5) AND (h_0,569 <= 9) AND (h_0,544 <= 106) AND (h_0,208 > 31.215437) AND (h_0,656 > 46) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7368421052631579[(h_0,357 <= 110) AND (h_0,375 <= 250.21194) AND (h_0,430 > 252.49162) AND (h_0,462 <= 2) AND (h_0,145 <= 6) AND (h_0,656 > 6.68085) AND (h_0,359 <= 14) AND (h_0,487 > 19) AND (h_0,298 <= 1)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6764705882352942[(h_0,379 > 0) AND (h_0,514 > 21) AND (h_0,462 <= 2) AND (h_0,656 > 6.68085) AND (h_0,639 <= 27) AND (h_0,359 <= 14) AND (h_0,296 <= 101) AND (h_0,487 > 19) AND (h_0,459 <= 73)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6666666666666666[(h_0,255 <= 34) AND (h_0,324 > 111) AND (h_0,261 <= 225) AND (h_0,340 <= 24) AND (h_0,379 <= 0) AND (h_0,743 <= 1) AND (h_0,272 <= 228) AND (h_0,462 <= 2) AND (h_0,322 > 1) AND (h_0,314 > 174) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5925742574257425[(h_0,380 <= 44) AND (h_0,498 <= 47) AND (h_0,72 <= 0) AND (h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,743 <= 1) AND (h_0,350 <= 84) AND (h_0,69 <= 0) AND (h_0,231 <= 1) AND (h_0,411 <= 38) AND (h_0,75 <= 1) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9772727272727273[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,350 > 84) AND (h_0,329 > 0) AND (h_0,293 > 7.3479714) AND (h_0,217 > 48) AND (h_0,453 <= 99) AND (h_0,535 <= 3) AND (h_0,233 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,465 <= 253.10309)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.975[(h_0,679 <= 126) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,632 > 2) AND (h_0,103 <= 1) AND (h_0,151 <= 2) AND (h_0,156 > 0) AND (h_0,569 <= 9) AND (h_0,127 <= 110) AND (h_0,544 > 106) AND (h_0,513 <= 91) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9752906976744186[(h_0,373 > 0) AND (h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,130 <= 204) AND (h_0,403 > 23) AND (h_0,462 > 2) AND (h_0,515 > 3) AND (h_0,529 <= 5) AND (h_0,657 > 5.0613775) AND (h_0,488 > 35) AND (h_0,432 > 24) AND (h_0,97 <= 3) AND (h_0,427 <= 232) AND (h_0,537 <= 182) AND (h_0,705 <= 63)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9722222222222222[(h_0,434 > 75) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,567 > 79) AND (h_0,427 <= 153) AND (h_0,355 > 66) AND (h_0,220 > 3) AND (h_0,708 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.971830985915493[(h_0,290 <= 51) AND (h_0,386 <= 153) AND (h_0,548 <= 55) AND (h_0,405 > 119) AND (h_0,569 > 9) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,287 > 52) AND (h_0,657 > 5.0613775) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9714285714285714[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,350 > 84) AND (h_0,321 > 32) AND (h_0,325 > 120) AND (h_0,220 > 0) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9705882352941176[(h_0,317 <= 16) AND (h_0,329 <= 0) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,437 > 3.4561198) AND (h_0,494 > 16) AND (h_0,264 > 71) AND (h_0,469 <= 1) AND (h_0,495 <= 228) AND (h_0,233 <= 4) AND (h_0,515 > 20.215134) AND (h_0,454 <= 5) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9705882352941176[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,402 <= 158) AND (h_0,516 > 42) AND (h_0,347 > 1.8082929) AND (h_0,711 <= 60) AND (h_0,276 <= 0) AND (h_0,518 <= 104) AND (h_0,411 <= 3) AND (h_0,191 <= 7) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9711286089238845[(h_0,373 > 0) AND (h_0,569 > 9) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,322 <= 241) AND (h_0,484 <= 179) AND (h_0,488 > 35) AND (h_0,657 > 5.0613775) AND (h_0,271 <= 253.4879) AND (h_0,125 <= 15) AND (h_0,547 <= 241) AND (h_0,537 <= 182) AND (h_0,705 <= 63)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9696969696969697[(h_0,295 <= 249.3743) AND (h_0,102 <= 0) AND (h_0,270 <= 7) AND (h_0,370 <= 4.6807737) AND (h_0,429 <= 5) AND (h_0,638 <= 2) AND (h_0,434 > 93) AND (h_0,376 <= 6.2511687) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,96 <= 12) AND (h_0,469 <= 1) AND (h_0,99 <= 2)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.585949177877429[(h_0,379 > 0) AND (h_0,462 <= 2) AND (h_0,145 <= 6) AND (h_0,656 > 6.68085) AND (h_0,359 <= 14) AND (h_0,487 > 19) AND (h_0,459 > 8) AND (h_0,453 <= 15) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5384615384615384[(h_0,379 > 0) AND (h_0,331 > 18) AND (h_0,181 > 253.175)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.36601166054847767[(h_0,462 > 2) AND (h_0,376 > 235) AND (h_0,496 <= 95)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9838709677419355[(h_0,356 <= 122) AND (h_0,406 <= 88) AND (h_0,441 <= 86) AND (h_0,221 > 6) AND (h_0,462 <= 2) AND (h_0,710 <= 3)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9829545454545454[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,247 > 4) AND (h_0,737 <= 0) AND (h_0,331 <= 18) AND (h_0,462 <= 2) AND (h_0,325 <= 209) AND (h_0,296 > 2.357619) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9791666666666666[(h_0,372 <= 79) AND (h_0,329 <= 0) AND (h_0,429 <= 4.0921988) AND (h_0,270 <= 122) AND (h_0,265 > 83) AND (h_0,233 <= 4) AND (h_0,163 > 24) AND (h_0,300 <= 3.0214944)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9761904761904762[(h_0,485 <= 94) AND (h_0,350 > 28.203444) AND (h_0,331 <= 18) AND (h_0,316 <= 237) AND (h_0,462 <= 2) AND (h_0,161 > 86) AND (h_0,329 <= 143) AND (h_0,291 > 191) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9736842105263158[(h_0,358 <= 179) AND (h_0,379 > 0) AND (h_0,571 > 6) AND (h_0,485 <= 94) AND (h_0,72 <= 0) AND (h_0,626 <= 4) AND (h_0,66 <= 0) AND (h_0,283 <= 10) AND (h_0,331 <= 18) AND (h_0,147 <= 88) AND (h_0,325 <= 251) AND (h_0,462 <= 2) AND (h_0,455 <= 253) AND (h_0,451 <= 128) AND (h_0,454 <= 233) AND (h_0,487 <= 19) AND (h_0,211 <= 96.187675)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.972972972972973[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,520 <= 241) AND (h_0,331 <= 18) AND (h_0,295 <= 191) AND (h_0,297 <= 240.00169) AND (h_0,462 <= 2) AND (h_0,299 <= 238.48677) AND (h_0,296 > 2.357619) AND (h_0,290 > 122) AND (h_0,207 > 156) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9646017699115044[(h_0,324 <= 25) AND (h_0,176 <= 178) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,291 > 48) AND (h_0,656 > 5) AND (h_0,485 <= 40) AND (h_0,516 <= 42) AND (h_0,347 > 1.8082929) AND (h_0,276 <= 0) AND (h_0,518 <= 104) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9649122807017544[(h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967) AND (h_0,485 <= 40) AND (h_0,276 > 0) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.961864406779661[(h_0,372 <= 79) AND (h_0,329 <= 0) AND (h_0,325 <= 120) AND (h_0,350 > 84) AND (h_0,177 <= 37.80793) AND (h_0,220 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9609756097560975[(h_0,489 > 1) AND (h_0,355 <= 16) AND (h_0,379 <= 0) AND (h_0,69 <= 0) AND (h_0,359 <= 27) AND (h_0,402 > 11) AND (h_0,275 > 106)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,269 <= 152) AND (h_0,267 > 59) AND (h_0,72 <= 0) AND (h_0,69 > 0) AND (h_0,318 > 7) AND (h_0,213 <= 1)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8333333333333334[(h_0,458 <= 63) AND (h_0,72 > 0) AND (h_0,295 > 190.15654)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8095238095238095[(h_0,155 <= 69) AND (h_0,567 > 18) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,188 > 252) AND (h_0,211 <= 7.0905542) AND (h_0,106 <= 2) AND (h_0,295 > 153.31293)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7700431034482759[(h_0,514 <= 96) AND (h_0,351 > 58) AND (h_0,462 > 2) AND (h_0,381 <= 12) AND (h_0,317 <= 7)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6444444444444445[(h_0,102 > 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,324 > 123) AND (h_0,431 <= 37) AND (h_0,271 <= 30)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9888535031847133[(h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,256 <= 76) AND (h_0,713 <= 2) AND (h_0,154 <= 0) AND (h_0,238 <= 9) AND (h_0,69 <= 0) AND (h_0,345 <= 14) AND (h_0,208 <= 95) AND (h_0,379 > 188) AND (h_0,349 <= 67) AND (h_0,716 <= 5) AND (h_0,347 <= 1.8082929) AND (h_0,578 <= 51) AND (h_0,248 <= 43)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9696969696969697[(h_0,127 <= 228) AND (h_0,345 > 24) AND (h_0,373 > 0) AND (h_0,293 <= 251) AND (h_0,151 > 2) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,404 > 6.242517) AND (h_0,462 > 2) AND (h_0,569 <= 9) AND (h_0,182 > 6) AND (h_0,97 <= 3) AND (h_0,596 <= 3) AND (h_0,147 <= 199) AND (h_0,572 > 15) AND (h_0,489 > 5)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9689922480620154[(h_0,624 <= 219) AND (h_0,657 > 4) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,345 > 4) AND (h_0,375 > 6) AND (h_0,211 <= 7.0905542) AND (h_0,264 <= 228) AND (h_0,155 > 69)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9640718562874252[(h_0,304 <= 2) AND (h_0,351 > 58) AND (h_0,404 > 47) AND (h_0,293 <= 252.36769) AND (h_0,462 > 2) AND (h_0,746 <= 21) AND (h_0,743 <= 1) AND (h_0,411 <= 52) AND (h_0,172 <= 30) AND (h_0,381 <= 12) AND (h_0,652 <= 246) AND (h_0,378 > 30) AND (h_0,441 <= 24) AND (h_0,317 > 7) AND (h_0,433 > 175.47052) AND (h_0,528 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9578313253012049[(h_0,379 > 28.163273) AND (h_0,357 <= 110) AND (h_0,514 > 21) AND (h_0,465 <= 134) AND (h_0,712 <= 76) AND (h_0,408 <= 20) AND (h_0,679 <= 7) AND (h_0,291 > 25) AND (h_0,371 <= 54) AND (h_0,656 > 6.68085) AND (h_0,359 <= 14) AND (h_0,459 > 73)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9583333333333334[(h_0,372 <= 79) AND (h_0,434 > 65) AND (h_0,462 > 2) AND (h_0,320 > 88) AND (h_0,350 > 84) AND (h_0,609 <= 10) AND (h_0,743 <= 1) AND (h_0,233 > 4) AND (h_0,266 <= 230) AND (h_0,499 <= 4) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9711538461538461[(h_0,340 > 24) AND (h_0,324 > 111) AND (h_0,379 <= 0) AND (h_0,322 > 1) AND (h_0,427 <= 36)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.96875[(h_0,487 <= 54) AND (h_0,379 <= 0) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,707 > 2) AND (h_0,716 <= 8)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.968421052631579[(h_0,376 <= 10) AND (h_0,247 <= 16) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,320 <= 88) AND (h_0,370 <= 4.6807737) AND (h_0,233 > 4) AND (h_0,154 <= 2.2187531) AND (h_0,553 <= 0) AND (h_0,499 <= 4) AND (h_0,463 > 208.21082) AND (h_0,578 <= 96)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9655172413793104[(h_0,683 <= 0.36443651) AND (h_0,679 > 2) AND (h_0,232 <= 68) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,376 <= 0.15691276) AND (h_0,349 <= 67) AND (h_0,210 > 3) AND (h_0,347 <= 1.8082929) AND (h_0,549 <= 5)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9636363636363636[(h_0,462 <= 2) AND (h_0,379 > 0) AND (h_0,746 > 4) AND (h_0,405 <= 1)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9629629629629629[(h_0,706 > 14) AND (h_0,373 <= 0) AND (h_0,486 <= 144) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,376 <= 103.49749)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9615384615384616[(h_0,372 <= 79) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,569 <= 22) AND (h_0,688 > 17.187574) AND (h_0,350 <= 84) AND (h_0,437 > 32) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9583333333333334[(h_0,405 <= 4.115541) AND (h_0,740 > 0) AND (h_0,470 > 5.3976722)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9574468085106383[(h_0,340 <= 185) AND (h_0,376 <= 177) AND (h_0,462 > 2) AND (h_0,373 <= 0) AND (h_0,598 <= 175) AND (h_0,556 <= 86) AND (h_0,370 > 4.6807737) AND (h_0,429 <= 168) AND (h_0,210 > 3) AND (h_0,220 <= 3) AND (h_0,456 <= 8.0664835) AND (h_0,416 <= 71) AND (h_0,125 <= 31) AND (h_0,575 > 7) AND (h_0,510 <= 57)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9574468085106383[(h_0,183 <= 14) AND (h_0,716 > 8) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,743 <= 1) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,434 <= 106) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.2159090909090909[(h_0,156 > 69) AND (h_0,410 <= 5) AND (h_0,373 <= 0) AND (h_0,598 <= 175) AND (h_0,456 > 8.0664835)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.19103773584905662[(h_0,406 > 88) AND (h_0,690 > 67)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.16136263413200058[(h_0,433 > 73)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9630606860158312[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,598 <= 175) AND (h_0,625 <= 228) AND (h_0,370 > 4.6807737) AND (h_0,321 <= 119.4739) AND (h_0,210 > 3) AND (h_0,220 <= 3) AND (h_0,410 > 5) AND (h_0,416 <= 71) AND (h_0,125 <= 31) AND (h_0,456 > 8.0664835)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9603174603174603[(h_0,737 <= 0) AND (h_0,649 <= 34) AND (h_0,212 > 22) AND (h_0,188 <= 190) AND (h_0,485 <= 40) AND (h_0,632 <= 0) AND (h_0,373 <= 0) AND (h_0,518 > 104) AND (h_0,595 <= 1.0170894) AND (h_0,189 <= 126) AND (h_0,740 <= 0) AND (h_0,219 <= 0.35121116) AND (h_0,431 <= 253.46422) AND (h_0,376 > 1) AND (h_0,462 > 2) AND (h_0,155 <= 36) AND (h_0,178 <= 51) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9574468085106383[(h_0,164 <= 13) AND (h_0,373 <= 0) AND (h_0,156 <= 69) AND (h_0,598 <= 175) AND (h_0,462 > 2) AND (h_0,625 <= 228) AND (h_0,370 > 4.6807737) AND (h_0,321 <= 119.4739) AND (h_0,210 > 3) AND (h_0,220 <= 3) AND (h_0,416 <= 71) AND (h_0,125 <= 31) AND (h_0,456 > 8.0664835)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9523809523809523[(h_0,209 > 111) AND (h_0,462 <= 2) AND (h_0,746 <= 4) AND (h_0,717 <= 3) AND (h_0,719 > 36)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9502262443438914[(h_0,572 <= 15) AND (h_0,293 <= 251) AND (h_0,381 > 12) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,496 <= 141) AND (h_0,180 > 166) AND (h_0,176 <= 104) AND (h_0,512 <= 104) AND (h_0,182 > 6) AND (h_0,569 <= 9) AND (h_0,437 > 171) AND (h_0,100 <= 1) AND (h_0,683 <= 183) AND (h_0,595 <= 10.425243) AND (h_0,681 <= 47) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9484536082474226[(h_0,489 > 62) AND (h_0,743 <= 1) AND (h_0,746 > 3)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9482071713147411[(h_0,304 <= 2) AND (h_0,351 > 58) AND (h_0,404 > 47) AND (h_0,373 > 0) AND (h_0,293 <= 252.36769) AND (h_0,462 > 2) AND (h_0,433 <= 175.47052) AND (h_0,210 > 81) AND (h_0,411 <= 52) AND (h_0,441 <= 24) AND (h_0,317 > 7) AND (h_0,276 <= 6) AND (h_0,522 <= 26)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9473684210526315[(h_0,283 <= 7) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 <= 7.0905542) AND (h_0,295 > 153.31293) AND (h_0,719 > 39) AND (h_0,431 > 21) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9473684210526315[(h_0,743 > 1) AND (h_0,432 <= 1.3616941) AND (h_0,496 <= 2) AND (h_0,487 > 126) AND (h_0,231 <= 188) AND (h_0,247 <= 52) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9459459459459459[(h_0,743 > 1) AND (h_0,432 <= 1.3616941) AND (h_0,329 <= 6) AND (h_0,404 > 9) AND (h_0,573 <= 25.332827) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,271 > 11) AND (h_0,462 > 2) AND (h_0,103 > 1) AND (h_0,265 > 4.2818413) AND (h_0,100 <= 1) AND (h_0,158 > 232) AND (h_0,408 > 96) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,69 <= 0) AND (h_0,237 > 135) AND (h_0,66 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8839779005524862[(h_0,462 > 2) AND (h_0,295 <= 153.31293) AND (h_0,267 <= 133) AND (h_0,595 > 23) AND (h_0,480 > 116) AND (h_0,75 <= 1)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,354 > 21) AND (h_0,379 <= 0) AND (h_0,406 > 88) AND (h_0,462 <= 2) AND (h_0,596 > 2) AND (h_0,295 <= 109)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8666666666666667[(h_0,406 <= 88) AND (h_0,464 <= 181) AND (h_0,379 <= 0) AND (h_0,489 <= 1) AND (h_0,324 <= 111) AND (h_0,378 > 92) AND (h_0,624 <= 139) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8461538461538461[(h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,536 > 2.4830289) AND (h_0,569 <= 9) AND (h_0,331 <= 36) AND (h_0,455 <= 206.35962) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8421052631578947[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,485 <= 211) AND (h_0,370 > 4.6807737) AND (h_0,103 <= 3) AND (h_0,543 > 28.206907) AND (h_0,233 > 42) AND (h_0,598 > 175) AND (h_0,210 > 3) AND (h_0,416 <= 71) AND (h_0,680 <= 143) AND (h_0,191 <= 20)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.75[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,300 <= 57) AND (h_0,299 > 75) AND (h_0,296 <= 2.357619) AND (h_0,511 > 111) AND (h_0,386 <= 115) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5922643029814666[(h_0,406 <= 88) AND (h_0,489 > 1) AND (h_0,72 <= 0) AND (h_0,737 <= 0) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,221 <= 6) AND (h_0,324 <= 111) AND (h_0,433 <= 143) AND (h_0,713 <= 1.0239191) AND (h_0,69 <= 0) AND (h_0,359 <= 27) AND (h_0,598 > 4) AND (h_0,707 <= 2) AND (h_0,75 <= 1) AND (h_0,716 <= 8) AND (h_0,710 <= 3)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5686274509803921[(h_0,462 > 2) AND (h_0,416 > 71) AND (h_0,293 > 33) AND (h_0,373 <= 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9047619047619048[(h_0,283 <= 7) AND (h_0,717 > 35) AND (h_0,743 <= 1) AND (h_0,298 <= 134) AND (h_0,211 <= 7.0905542) AND (h_0,295 > 153.31293) AND (h_0,219 <= 223) AND (h_0,431 > 21) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9877498388136686[(h_0,144 <= 5) AND (h_0,372 <= 79) AND (h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,320 <= 127) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,685 <= 2) AND (h_0,553 > 0) AND (h_0,69 <= 0) AND (h_0,681 <= 64) AND (h_0,256 <= 206) AND (h_0,75 <= 1) AND (h_0,347 <= 1.8082929) AND (h_0,488 > 9.4845877)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9882352941176471[(h_0,102 <= 0) AND (h_0,458 > 52) AND (h_0,357 <= 17) AND (h_0,597 > 62) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,99 > 2) AND (h_0,265 <= 137)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9883720930232558[(h_0,567 > 28) AND (h_0,293 <= 31.21183) AND (h_0,412 > 2.0733187) AND (h_0,428 > 16) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,381 <= 12) AND (h_0,290 <= 72)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9865771812080537[(h_0,379 > 0) AND (h_0,357 <= 110) AND (h_0,514 > 21) AND (h_0,408 <= 20) AND (h_0,462 <= 2) AND (h_0,382 <= 8) AND (h_0,359 <= 14) AND (h_0,291 <= 25) AND (h_0,459 > 8) AND (h_0,155 > 43)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9873239436619718[(h_0,683 <= 0.36443651) AND (h_0,686 <= 1) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,238 <= 9) AND (h_0,350 <= 84) AND (h_0,69 <= 0) AND (h_0,347 <= 1.8082929) AND (h_0,75 <= 1) AND (h_0,510 > 56) AND (h_0,345 <= 14) AND (h_0,248 <= 43)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9864864864864865[(h_0,606 > 133) AND (h_0,329 <= 0) AND (h_0,494 <= 16) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,177 <= 37.80793) AND (h_0,233 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,429 > 4.0921988)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9857142857142858[(h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,663 <= 117) AND (h_0,737 <= 0) AND (h_0,381 > 12) AND (h_0,100 <= 1) AND (h_0,93 <= 0) AND (h_0,529 > 5)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.984251968503937[(h_0,516 > 142.36966) AND (h_0,350 > 84) AND (h_0,177 > 37.80793) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,233 <= 4) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9759450171821306[(h_0,409 <= 143.29543) AND (h_0,677 <= 56) AND (h_0,657 <= 170) AND (h_0,372 <= 79) AND (h_0,683 <= 0.36443651) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,653 <= 68) AND (h_0,376 <= 4.3603277) AND (h_0,743 <= 1) AND (h_0,350 <= 84) AND (h_0,311 <= 9) AND (h_0,238 > 9) AND (h_0,688 <= 17.187574) AND (h_0,347 <= 1.8082929) AND (h_0,679 <= 2)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9941451990632318[(h_0,414 <= 79) AND (h_0,657 <= 170) AND (h_0,372 <= 79) AND (h_0,686 <= 1) AND (h_0,683 <= 0.36443651) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,376 <= 4.3603277) AND (h_0,350 <= 84) AND (h_0,311 <= 9) AND (h_0,688 <= 17.187574) AND (h_0,409 > 143.29543) AND (h_0,347 <= 1.8082929) AND (h_0,679 <= 2) AND (h_0,483 > 36)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9540229885057471[(h_0,356 <= 83) AND (h_0,379 > 0) AND (h_0,248 > 24) AND (h_0,462 <= 2) AND (h_0,656 <= 6.68085)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.954468802698145[(h_0,304 <= 2) AND (h_0,103 <= 1) AND (h_0,412 <= 2.0733187) AND (h_0,192 > 18) AND (h_0,381 <= 12) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9516129032258065[(h_0,514 <= 192) AND (h_0,349 <= 37) AND (h_0,185 <= 253.3492) AND (h_0,379 <= 0) AND (h_0,406 > 88) AND (h_0,356 <= 34) AND (h_0,488 <= 93) AND (h_0,690 <= 67) AND (h_0,144 <= 10) AND (h_0,462 <= 2) AND (h_0,713 <= 1.0239191) AND (h_0,354 <= 21)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,276 > 3) AND (h_0,329 <= 0) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,370 <= 4.6807737) AND (h_0,347 <= 1.8082929) AND (h_0,353 <= 2)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,255 <= 34) AND (h_0,406 <= 88) AND (h_0,681 <= 40) AND (h_0,324 > 111) AND (h_0,740 <= 0) AND (h_0,737 <= 0) AND (h_0,379 <= 0) AND (h_0,261 > 225) AND (h_0,272 <= 228) AND (h_0,462 <= 2) AND (h_0,339 <= 5) AND (h_0,322 > 1) AND (h_0,713 <= 1.0239191) AND (h_0,457 <= 178) AND (h_0,427 <= 36) AND (h_0,464 <= 207) AND (h_0,716 <= 8) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9468085106382979[(h_0,358 <= 179) AND (h_0,379 > 0) AND (h_0,571 > 6) AND (h_0,461 <= 138) AND (h_0,485 <= 94) AND (h_0,626 <= 4) AND (h_0,283 <= 10) AND (h_0,295 <= 182) AND (h_0,331 <= 18) AND (h_0,147 <= 88) AND (h_0,126 <= 23.188581) AND (h_0,325 <= 251) AND (h_0,462 <= 2) AND (h_0,455 <= 253) AND (h_0,299 <= 75) AND (h_0,451 <= 128) AND (h_0,454 <= 233) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9444444444444444[(h_0,100 <= 32) AND (h_0,150 <= 4.4510322) AND (h_0,176 <= 69) AND (h_0,489 > 1) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,382 <= 127) AND (h_0,324 <= 111) AND (h_0,433 <= 143) AND (h_0,598 <= 4) AND (h_0,462 <= 2) AND (h_0,557 <= 22) AND (h_0,713 <= 1.0239191) AND (h_0,465 <= 1) AND (h_0,359 <= 27) AND (h_0,716 <= 8)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9938608458390177[(h_0,683 <= 0.36443651) AND (h_0,372 <= 79) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,350 <= 84) AND (h_0,69 <= 0) AND (h_0,154 > 0) AND (h_0,349 <= 67) AND (h_0,688 <= 17.187574) AND (h_0,347 <= 1.8082929) AND (h_0,75 <= 1) AND (h_0,679 <= 2) AND (h_0,484 > 6)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9931972789115646[(h_0,296 <= 218.06856) AND (h_0,372 <= 53) AND (h_0,379 <= 0) AND (h_0,324 <= 111) AND (h_0,125 > 28) AND (h_0,93 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9928909952606635[(h_0,429 <= 4.0921988) AND (h_0,329 <= 0) AND (h_0,411 <= 4.1304026) AND (h_0,494 <= 16) AND (h_0,743 <= 1) AND (h_0,712 <= 14) AND (h_0,635 > 14) AND (h_0,515 > 85) AND (h_0,347 <= 1.8082929) AND (h_0,434 > 85)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9914204003813155[(h_0,683 <= 0.36443651) AND (h_0,372 <= 79) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,379 <= 253.44084) AND (h_0,350 <= 84) AND (h_0,183 > 63) AND (h_0,154 > 0) AND (h_0,406 <= 112) AND (h_0,349 <= 67) AND (h_0,688 <= 17.187574) AND (h_0,347 <= 1.8082929) AND (h_0,679 <= 2) AND (h_0,104 <= 11)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9912554653341662[(h_0,683 <= 0.36443651) AND (h_0,372 <= 79) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,350 <= 84) AND (h_0,514 > 10) AND (h_0,69 <= 0) AND (h_0,154 > 0) AND (h_0,349 <= 67) AND (h_0,688 <= 17.187574) AND (h_0,347 <= 1.8082929) AND (h_0,679 <= 2) AND (h_0,104 <= 11)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9911764705882353[(h_0,707 <= 1) AND (h_0,372 <= 79) AND (h_0,72 <= 0) AND (h_0,632 <= 3) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,713 <= 2) AND (h_0,350 <= 84) AND (h_0,498 > 86) AND (h_0,69 <= 0) AND (h_0,180 > 3) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9897058823529412[(h_0,677 <= 56) AND (h_0,683 <= 0.36443651) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,514 > 11) AND (h_0,653 <= 68) AND (h_0,376 <= 4.3603277) AND (h_0,743 <= 1) AND (h_0,350 <= 84) AND (h_0,311 <= 9) AND (h_0,238 > 9) AND (h_0,688 <= 17.187574) AND (h_0,347 <= 1.8082929) AND (h_0,679 <= 2)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9897959183673469[(h_0,317 <= 16) AND (h_0,72 <= 0) AND (h_0,329 <= 0) AND (h_0,462 > 2) AND (h_0,494 > 16) AND (h_0,437 <= 3.4561198) AND (h_0,233 <= 4) AND (h_0,515 > 20.215134) AND (h_0,347 <= 1.8082929) AND (h_0,541 > 174)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9877300613496932[(h_0,683 <= 0.36443651) AND (h_0,372 <= 79) AND (h_0,686 <= 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,653 <= 68) AND (h_0,350 <= 84) AND (h_0,376 > 4.3603277) AND (h_0,349 <= 67) AND (h_0,456 > 40) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9644495412844036[(h_0,376 <= 10) AND (h_0,372 <= 79) AND (h_0,266 <= 209) AND (h_0,154 > 2.2187531) AND (h_0,247 <= 16) AND (h_0,373 <= 0) AND (h_0,320 <= 88) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,233 > 4) AND (h_0,515 > 2) AND (h_0,360 <= 46)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9[(h_0,462 <= 2) AND (h_0,656 > 6.68085) AND (h_0,453 > 15) AND (h_0,486 > 211)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9762282091917591[(h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,66 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,737 <= 0) AND (h_0,528 > 2) AND (h_0,75 <= 1) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9753086419753086[(h_0,329 <= 0) AND (h_0,411 <= 4.1304026) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,494 <= 16) AND (h_0,294 <= 70) AND (h_0,233 <= 4) AND (h_0,551 > 2.4634004) AND (h_0,347 <= 1.8082929) AND (h_0,75 <= 1)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9745762711864406[(h_0,462 > 2) AND (h_0,93 > 0) AND (h_0,210 > 193) AND (h_0,72 <= 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9736842105263158[(h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,373 <= 0) AND (h_0,609 > 10) AND (h_0,553 <= 0) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9728506787330317[(h_0,372 <= 79) AND (h_0,72 <= 0) AND (h_0,350 > 84) AND (h_0,370 <= 4.6807737) AND (h_0,69 <= 0) AND (h_0,499 > 4) AND (h_0,145 <= 2) AND (h_0,347 <= 1.8082929) AND (h_0,740 <= 0) AND (h_0,632 <= 7)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9722222222222222[(h_0,262 <= 178) AND (h_0,400 > 0.36769417) AND (h_0,185 > 15) AND (h_0,462 > 2) AND (h_0,97 > 3) AND (h_0,100 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9666666666666667[(h_0,269 > 79) AND (h_0,243 <= 4) AND (h_0,237 <= 127) AND (h_0,72 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,406 <= 88) AND (h_0,375 <= 3) AND (h_0,379 <= 0) AND (h_0,489 <= 1) AND (h_0,402 <= 32) AND (h_0,324 <= 111) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,557 <= 22) AND (h_0,242 > 10.356112) AND (h_0,707 <= 2) AND (h_0,627 > 8) AND (h_0,710 <= 3) AND (h_0,464 > 181)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.984375[(h_0,485 > 40) AND (h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,295 <= 111) AND (h_0,596 > 128) AND (h_0,515 <= 7.7229967) AND (h_0,405 <= 126) AND (h_0,652 <= 113)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9809523809523809[(h_0,69 > 0) AND (h_0,213 > 1) AND (h_0,265 <= 166) AND (h_0,290 <= 33)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.859375[(h_0,471 <= 28) AND (h_0,173 > 1) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,597 > 62) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,458 <= 52) AND (h_0,99 > 2) AND (h_0,347 > 1.8082929) AND (h_0,465 > 87) AND (h_0,411 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8461538461538461[(h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,657 > 5.0613775) AND (h_0,515 <= 3) AND (h_0,512 <= 56) AND (h_0,488 > 35) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.845360824742268[(h_0,355 > 87) AND (h_0,405 > 119) AND (h_0,488 <= 35) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,569 > 9) AND (h_0,657 > 5.0613775) AND (h_0,485 <= 2)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7857142857142857[(h_0,355 > 87) AND (h_0,405 > 119) AND (h_0,569 > 9) AND (h_0,488 <= 35) AND (h_0,462 > 2) AND (h_0,657 > 5.0613775) AND (h_0,681 > 160) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7718253968253969[(h_0,379 > 0) AND (h_0,457 <= 109) AND (h_0,481 <= 129) AND (h_0,490 <= 13) AND (h_0,331 <= 18) AND (h_0,434 > 100) AND (h_0,517 <= 5) AND (h_0,743 <= 1) AND (h_0,192 <= 18) AND (h_0,656 > 11) AND (h_0,710 <= 45) AND (h_0,740 <= 0) AND (h_0,162 <= 8) AND (h_0,487 <= 19) AND (h_0,329 <= 158)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7543103448275862[(h_0,329 <= 0) AND (h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,370 <= 4.6807737) AND (h_0,609 <= 10) AND (h_0,220 <= 0) AND (h_0,553 <= 0) AND (h_0,537 > 4) AND (h_0,276 <= 3) AND (h_0,499 <= 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7365591397849462[(h_0,324 > 25) AND (h_0,737 <= 0) AND (h_0,719 <= 8) AND (h_0,489 <= 1) AND (h_0,743 <= 1) AND (h_0,713 <= 1.0239191) AND (h_0,256 > 1) AND (h_0,716 <= 8) AND (h_0,464 <= 181)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7215189873417721[(h_0,406 <= 88) AND (h_0,127 > 126) AND (h_0,72 <= 0) AND (h_0,324 > 111) AND (h_0,96 > 5) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,557 <= 22) AND (h_0,612 <= 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9545454545454546[(h_0,176 > 6) AND (h_0,373 > 0) AND (h_0,210 > 37) AND (h_0,372 <= 20) AND (h_0,462 > 2) AND (h_0,543 <= 189) AND (h_0,212 > 0.23029582) AND (h_0,569 <= 9) AND (h_0,156 <= 0) AND (h_0,248 <= 5) AND (h_0,573 <= 29)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9833333333333333[(h_0,456 <= 100) AND (h_0,686 <= 4) AND (h_0,379 <= 0) AND (h_0,458 <= 42) AND (h_0,405 <= 6.325798) AND (h_0,462 <= 2) AND (h_0,710 > 3)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9825581395348837[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,713 <= 2) AND (h_0,350 <= 84) AND (h_0,349 <= 67) AND (h_0,707 > 1) AND (h_0,347 <= 1.8082929) AND (h_0,605 <= 126)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9832402234636871[(h_0,155 <= 69) AND (h_0,485 <= 84) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,473 <= 8) AND (h_0,431 <= 21) AND (h_0,743 <= 1) AND (h_0,211 <= 7.0905542) AND (h_0,295 > 153.31293) AND (h_0,567 <= 18) AND (h_0,150 <= 195) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9805825242718447[(h_0,432 <= 4) AND (h_0,377 <= 32) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,103 <= 1) AND (h_0,433 <= 11) AND (h_0,154 <= 1) AND (h_0,543 <= 189) AND (h_0,151 <= 2) AND (h_0,743 <= 1) AND (h_0,486 <= 11) AND (h_0,595 <= 10.425243) AND (h_0,160 <= 2.5547478) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9789915966386554[(h_0,707 <= 1) AND (h_0,372 <= 79) AND (h_0,683 > 0.36443651) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,632 <= 3) AND (h_0,350 <= 84) AND (h_0,180 > 3) AND (h_0,349 <= 67) AND (h_0,486 <= 217.38155) AND (h_0,716 <= 5) AND (h_0,544 > 6) AND (h_0,498 <= 86) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.979381443298969[(h_0,632 <= 0) AND (h_0,349 <= 56) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,460 <= 58) AND (h_0,595 <= 1.0170894) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967) AND (h_0,376 <= 1)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9782608695652174[(h_0,569 > 9) AND (h_0,203 > 1) AND (h_0,708 > 6) AND (h_0,657 <= 5.0613775) AND (h_0,567 <= 156)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9747474747474747[(h_0,295 <= 249.3743) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,710 > 23) AND (h_0,434 > 93) AND (h_0,376 <= 6.2511687) AND (h_0,515 > 7.7229967) AND (h_0,572 > 123)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9747899159663865[(h_0,203 > 30) AND (h_0,743 > 1) AND (h_0,663 <= 119) AND (h_0,247 <= 52) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9724770642201835[(h_0,485 <= 94) AND (h_0,210 <= 1) AND (h_0,321 > 113) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,331 <= 18) AND (h_0,325 > 27) AND (h_0,428 <= 221) AND (h_0,462 <= 2) AND (h_0,145 <= 2) AND (h_0,183 <= 28) AND (h_0,487 <= 19) AND (h_0,499 <= 13)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9840546697038725[(h_0,72 <= 0) AND (h_0,75 > 1) AND (h_0,270 <= 110) AND (h_0,565 <= 250)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9804878048780488[(h_0,380 <= 44) AND (h_0,101 > 15) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,349 > 67) AND (h_0,350 <= 84)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9795918367346939[(h_0,102 > 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,347 > 1.8082929) AND (h_0,431 > 37) AND (h_0,271 <= 30)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.98[(h_0,370 > 4.6807737) AND (h_0,462 > 2) AND (h_0,93 > 6) AND (h_0,373 <= 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9789473684210527[(h_0,293 <= 0.30155319) AND (h_0,458 <= 20) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,465 <= 220) AND (h_0,210 <= 3) AND (h_0,370 > 4.6807737) AND (h_0,740 <= 0) AND (h_0,653 <= 2)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9783653846153846[(h_0,104 > 64) AND (h_0,242 <= 143) AND (h_0,431 > 4) AND (h_0,72 <= 0) AND (h_0,572 > 1) AND (h_0,247 <= 5) AND (h_0,487 > 19) AND (h_0,244 <= 160)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9779005524861878[(h_0,379 > 0) AND (h_0,514 > 21) AND (h_0,434 <= 171) AND (h_0,462 <= 2) AND (h_0,408 > 20) AND (h_0,375 > 250.21194) AND (h_0,459 > 73) AND (h_0,487 > 19) AND (h_0,298 <= 1) AND (h_0,178 <= 2) AND (h_0,315 <= 14)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9777777777777777[(h_0,376 <= 235) AND (h_0,412 > 2.0733187) AND (h_0,462 > 2) AND (h_0,569 <= 173) AND (h_0,381 <= 12) AND (h_0,210 <= 134) AND (h_0,178 > 38) AND (h_0,544 > 244) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9770992366412213[(h_0,406 <= 88) AND (h_0,648 <= 58) AND (h_0,737 <= 0) AND (h_0,379 <= 0) AND (h_0,489 <= 1) AND (h_0,216 <= 15.478389) AND (h_0,324 <= 111) AND (h_0,462 <= 2) AND (h_0,297 <= 118) AND (h_0,242 <= 10.356112) AND (h_0,716 <= 8) AND (h_0,464 > 181)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9766536964980544[(h_0,383 <= 20) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,515 > 173) AND (h_0,381 <= 12) AND (h_0,351 <= 58) AND (h_0,314 <= 16) AND (h_0,130 > 74)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8823529411764706[(h_0,434 <= 85) AND (h_0,411 <= 4.1304026) AND (h_0,494 <= 16) AND (h_0,462 > 2) AND (h_0,350 > 84) AND (h_0,235 <= 25.064602) AND (h_0,625 > 38) AND (h_0,276 <= 3) AND (h_0,347 <= 1.8082929) AND (h_0,491 > 2)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8793103448275862[(h_0,379 > 0) AND (h_0,431 <= 221) AND (h_0,485 > 94) AND (h_0,66 <= 0) AND (h_0,331 <= 18) AND (h_0,612 <= 14) AND (h_0,289 <= 77) AND (h_0,275 <= 37) AND (h_0,192 <= 18) AND (h_0,462 <= 2) AND (h_0,370 <= 70) AND (h_0,429 <= 19) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8648648648648649[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,229 > 95) AND (h_0,743 <= 1) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9429824561403509[(h_0,379 > 0) AND (h_0,481 <= 129) AND (h_0,331 <= 18) AND (h_0,517 <= 5) AND (h_0,192 <= 18) AND (h_0,656 > 11) AND (h_0,649 > 8) AND (h_0,710 <= 45) AND (h_0,162 <= 8) AND (h_0,487 <= 19) AND (h_0,329 <= 158)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.941908713692946[(h_0,433 <= 73) AND (h_0,324 > 111) AND (h_0,267 <= 18) AND (h_0,340 <= 24) AND (h_0,270 > 12) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,612 <= 4) AND (h_0,322 > 1) AND (h_0,427 <= 36) AND (h_0,707 <= 2) AND (h_0,429 <= 24.462738) AND (h_0,464 <= 207) AND (h_0,716 <= 8) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9423076923076923[(h_0,379 > 0) AND (h_0,156 <= 31) AND (h_0,737 <= 0) AND (h_0,571 <= 6) AND (h_0,626 <= 4) AND (h_0,353 <= 4) AND (h_0,210 > 1) AND (h_0,743 <= 1) AND (h_0,462 <= 2) AND (h_0,662 <= 121) AND (h_0,680 <= 1) AND (h_0,294 > 4.01931) AND (h_0,740 <= 0) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9375[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,377 > 108) AND (h_0,350 <= 84) AND (h_0,154 > 0) AND (h_0,458 <= 6.1736031) AND (h_0,349 <= 67) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9342359767891683[(h_0,102 <= 0) AND (h_0,373 <= 0) AND (h_0,743 <= 1) AND (h_0,293 <= 247) AND (h_0,318 <= 14) AND (h_0,485 <= 40) AND (h_0,347 > 1.8082929) AND (h_0,403 > 64) AND (h_0,515 <= 7.7229967) AND (h_0,191 <= 7) AND (h_0,104 <= 8) AND (h_0,632 > 0) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9285714285714286[(h_0,358 <= 179) AND (h_0,379 > 0) AND (h_0,571 > 6) AND (h_0,370 <= 4) AND (h_0,626 <= 4) AND (h_0,451 > 128) AND (h_0,454 <= 233)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.925[(h_0,160 <= 6) AND (h_0,459 <= 8) AND (h_0,379 > 0) AND (h_0,462 <= 2) AND (h_0,488 <= 240) AND (h_0,656 > 6.68085) AND (h_0,359 <= 14) AND (h_0,487 > 19) AND (h_0,458 <= 159)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,295 > 153.31293) AND (h_0,211 <= 7.0905542) AND (h_0,361 <= 61) AND (h_0,333 > 69)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.921875[(h_0,290 > 51) AND (h_0,405 > 119) AND (h_0,569 > 9) AND (h_0,488 <= 35) AND (h_0,462 > 2) AND (h_0,243 <= 80) AND (h_0,657 > 5.0613775) AND (h_0,485 <= 2) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,379 > 0) AND (h_0,72 <= 0) AND (h_0,462 <= 2) AND (h_0,487 <= 155) AND (h_0,297 <= 45.062931) AND (h_0,487 > 19) AND (h_0,349 > 9.1758108) AND (h_0,431 <= 4) AND (h_0,656 <= 6.68085)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,357 <= 110) AND (h_0,434 > 171) AND (h_0,462 <= 2) AND (h_0,145 <= 6) AND (h_0,656 > 6.68085) AND (h_0,375 > 250.21194) AND (h_0,487 > 19) AND (h_0,298 <= 1) AND (h_0,315 <= 14)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9142857142857143[(h_0,514 <= 21) AND (h_0,737 <= 0) AND (h_0,454 <= 10) AND (h_0,712 <= 105) AND (h_0,295 <= 217) AND (h_0,567 <= 251) AND (h_0,462 <= 2) AND (h_0,297 <= 45) AND (h_0,656 > 6.68085) AND (h_0,487 > 19) AND (h_0,491 <= 222) AND (h_0,516 <= 80.167099)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9142857142857143[(h_0,429 <= 4.0921988) AND (h_0,329 <= 0) AND (h_0,462 > 2) AND (h_0,516 <= 43) AND (h_0,105 <= 63) AND (h_0,177 <= 37.80793) AND (h_0,410 <= 16) AND (h_0,551 <= 2.4634004) AND (h_0,296 <= 44.231812) AND (h_0,626 > 8) AND (h_0,233 <= 4) AND (h_0,493 > 3.9105239) AND (h_0,300 <= 3.0214944)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9130434782608695[(h_0,241 <= 3) AND (h_0,627 > 0) AND (h_0,324 <= 111) AND (h_0,378 <= 92) AND (h_0,462 <= 2) AND (h_0,93 <= 0) AND (h_0,324 > 77) AND (h_0,237 <= 38) AND (h_0,464 <= 181)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,489 > 1) AND (h_0,355 <= 16) AND (h_0,570 <= 60) AND (h_0,150 <= 75) AND (h_0,379 <= 0) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,402 > 11) AND (h_0,598 > 4) AND (h_0,359 <= 27)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,102 <= 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,430 <= 100) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,376 > 19.186138) AND (h_0,481 > 9) AND (h_0,355 <= 197)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,350 > 84) AND (h_0,329 > 0) AND (h_0,293 <= 7.3479714) AND (h_0,380 <= 91) AND (h_0,470 <= 30) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9375[(h_0,373 <= 0) AND (h_0,66 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,69 <= 0) AND (h_0,210 <= 9) AND (h_0,553 <= 41) AND (h_0,372 > 79) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9285714285714286[(h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,383 > 20) AND (h_0,381 <= 12) AND (h_0,211 <= 69.050331) AND (h_0,567 <= 70) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.926829268292683[(h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,154 > 1) AND (h_0,206 <= 53.105824) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,156 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9259259259259259[(h_0,219 <= 0.35121116) AND (h_0,632 <= 0) AND (h_0,376 > 1) AND (h_0,373 <= 0) AND (h_0,431 > 253.46422) AND (h_0,518 > 104) AND (h_0,69 <= 0) AND (h_0,595 <= 1.0170894) AND (h_0,347 > 1.8082929) AND (h_0,276 <= 0) AND (h_0,515 <= 7.7229967) AND (h_0,649 <= 34) AND (h_0,575 <= 254)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9142857142857143[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,598 <= 175) AND (h_0,242 <= 126) AND (h_0,370 > 4.6807737) AND (h_0,220 > 3)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8947368421052632[(h_0,351 > 58) AND (h_0,209 <= 160) AND (h_0,471 <= 28) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,743 <= 1) AND (h_0,714 <= 82) AND (h_0,381 <= 12) AND (h_0,217 <= 120) AND (h_0,207 <= 191) AND (h_0,100 <= 1) AND (h_0,441 <= 24) AND (h_0,317 > 7) AND (h_0,404 <= 47) AND (h_0,740 <= 0) AND (h_0,276 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,743 > 1) AND (h_0,405 > 152) AND (h_0,740 <= 0) AND (h_0,238 <= 59) AND (h_0,432 > 1.3616941)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9787234042553191[(h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,737 <= 0) AND (h_0,211 > 7.0905542) AND (h_0,151 <= 2) AND (h_0,268 <= 84.256599) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,156 <= 0) AND (h_0,212 <= 0.23029582) AND (h_0,160 <= 2.5547478) AND (h_0,319 > 208.31392) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9765395894428153[(h_0,293 <= 0.30155319) AND (h_0,66 <= 0) AND (h_0,462 > 2) AND (h_0,528 <= 67) AND (h_0,743 <= 1) AND (h_0,210 <= 3) AND (h_0,69 <= 0) AND (h_0,154 <= 123) AND (h_0,370 > 4.6807737) AND (h_0,416 <= 235) AND (h_0,93 <= 6) AND (h_0,458 > 20)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9761904761904762[(h_0,373 > 0) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,355 > 66) AND (h_0,220 > 3) AND (h_0,567 <= 79) AND (h_0,657 <= 5.0613775) AND (h_0,708 <= 6) AND (h_0,705 <= 63)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.55[(h_0,571 > 6) AND (h_0,485 <= 94) AND (h_0,147 > 88) AND (h_0,462 <= 2) AND (h_0,287 > 47)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.45864661654135336[(h_0,127 <= 228) AND (h_0,345 > 24) AND (h_0,151 > 2) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,489 <= 5) AND (h_0,569 <= 9) AND (h_0,97 <= 3)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.42857142857142855[(h_0,462 <= 2) AND (h_0,379 > 0) AND (h_0,713 > 23) AND (h_0,541 > 35)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.09297836232498939[(h_0,740 <= 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9922480620155039[(h_0,241 > 54) AND (h_0,404 > 0.34042352) AND (h_0,231 <= 72) AND (h_0,381 > 8) AND (h_0,488 <= 140) AND (h_0,406 > 0) AND (h_0,740 <= 0) AND (h_0,737 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9883720930232558[(h_0,213 > 147) AND (h_0,657 <= 5.0613775) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,203 <= 1) AND (h_0,462 > 2) AND (h_0,405 > 28) AND (h_0,708 > 6) AND (h_0,740 <= 0) AND (h_0,567 <= 156) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9826086956521739[(h_0,127 <= 170) AND (h_0,354 > 5) AND (h_0,470 <= 28) AND (h_0,462 > 2) AND (h_0,409 > 45) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,314 <= 220) AND (h_0,687 <= 171) AND (h_0,184 > 172.11771) AND (h_0,544 <= 106) AND (h_0,182 > 249) AND (h_0,537 <= 51) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9824561403508771[(h_0,127 <= 170) AND (h_0,354 > 5) AND (h_0,294 <= 158) AND (h_0,287 <= 1) AND (h_0,470 <= 28) AND (h_0,211 > 7.0905542) AND (h_0,262 > 13) AND (h_0,462 > 2) AND (h_0,409 > 45) AND (h_0,151 <= 2) AND (h_0,156 > 0) AND (h_0,569 <= 9) AND (h_0,184 > 172.11771) AND (h_0,544 <= 106) AND (h_0,208 > 31.215437) AND (h_0,537 <= 51) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9802955665024631[(h_0,629 > 2) AND (h_0,373 > 6) AND (h_0,238 > 7) AND (h_0,543 <= 31) AND (h_0,204 <= 55) AND (h_0,740 > 0) AND (h_0,405 > 4.115541)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9759036144578314[(h_0,414 <= 21) AND (h_0,737 <= 0) AND (h_0,154 <= 1) AND (h_0,569 <= 9) AND (h_0,470 <= 7) AND (h_0,248 <= 5) AND (h_0,595 <= 10.425243) AND (h_0,605 <= 61) AND (h_0,345 > 3.1863115) AND (h_0,553 <= 11) AND (h_0,211 > 7.0905542) AND (h_0,192 <= 12) AND (h_0,409 > 169) AND (h_0,176 <= 6) AND (h_0,543 <= 189) AND (h_0,212 > 0.23029582) AND (h_0,163 <= 2) AND (h_0,373 > 0) AND (h_0,210 > 37) AND (h_0,743 <= 1) AND (h_0,156 <= 0) AND (h_0,433 > 11) AND (h_0,160 <= 2.5547478)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9752925877763329[(h_0,536 <= 2.4830289) AND (h_0,529 <= 5) AND (h_0,381 > 12) AND (h_0,154 <= 1) AND (h_0,569 <= 9) AND (h_0,470 <= 7) AND (h_0,595 <= 10.425243) AND (h_0,573 <= 29) AND (h_0,211 > 7.0905542) AND (h_0,151 <= 2) AND (h_0,192 <= 12) AND (h_0,372 > 20) AND (h_0,543 <= 189) AND (h_0,212 > 0.23029582) AND (h_0,210 > 37) AND (h_0,462 > 2) AND (h_0,208 > 44) AND (h_0,433 > 11) AND (h_0,160 <= 2.5547478)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9743589743589743[(h_0,743 <= 1) AND (h_0,238 > 16) AND (h_0,462 <= 2) AND (h_0,746 > 4) AND (h_0,553 <= 48) AND (h_0,405 > 1)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9704918032786886[(h_0,743 > 1) AND (h_0,238 > 59) AND (h_0,206 <= 222) AND (h_0,232 <= 34) AND (h_0,247 <= 52) AND (h_0,740 <= 0) AND (h_0,432 > 1.3616941)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.96875[(h_0,746 > 21) AND (h_0,412 > 2.0733187) AND (h_0,462 > 2) AND (h_0,743 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8928571428571429[(h_0,72 <= 0) AND (h_0,245 > 181) AND (h_0,318 > 192) AND (h_0,100 > 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7307692307692307[(h_0,567 > 79) AND (h_0,434 <= 75) AND (h_0,355 > 66) AND (h_0,220 > 3) AND (h_0,657 <= 5.0613775) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7244582043343654[(h_0,102 <= 0) AND (h_0,430 > 134) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,434 <= 93) AND (h_0,625 > 186)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6923076923076923[(h_0,537 > 121) AND (h_0,462 > 2) AND (h_0,210 <= 3) AND (h_0,370 > 4.6807737) AND (h_0,293 > 0.30155319)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6206896551724138[(h_0,276 > 3) AND (h_0,347 <= 1.8082929) AND (h_0,329 <= 0) AND (h_0,405 <= 192)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.996268656716418[(h_0,432 <= 81) AND (h_0,329 > 158) AND (h_0,490 <= 13) AND (h_0,485 > 94) AND (h_0,331 <= 18) AND (h_0,462 <= 2) AND (h_0,656 > 11) AND (h_0,429 > 19) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9928802588996763[(h_0,596 > 1) AND (h_0,200 <= 10) AND (h_0,386 > 28) AND (h_0,181 <= 253.175) AND (h_0,66 <= 0) AND (h_0,737 <= 0) AND (h_0,121 <= 6) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,331 > 18) AND (h_0,491 <= 241) AND (h_0,97 <= 111) AND (h_0,102 <= 52) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.2682400123399661[(h_0,427 > 232)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.2629651506202008[(h_0,347 > 1.8082929) AND (h_0,377 <= 201) AND (h_0,464 > 91)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8088235294117647[(h_0,102 <= 0) AND (h_0,295 <= 249.3743) AND (h_0,72 <= 0) AND (h_0,434 > 253.36256) AND (h_0,69 <= 0) AND (h_0,513 <= 38) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,469 <= 1) AND (h_0,493 <= 61) AND (h_0,707 <= 8) AND (h_0,402 > 4) AND (h_0,657 <= 16)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7272727272727273[(h_0,462 <= 2) AND (h_0,221 > 6) AND (h_0,356 > 122) AND (h_0,441 <= 86)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9719626168224299[(h_0,379 > 0) AND (h_0,210 <= 1) AND (h_0,488 <= 0) AND (h_0,653 <= 14) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,331 <= 18) AND (h_0,743 <= 1) AND (h_0,321 <= 113) AND (h_0,462 <= 2) AND (h_0,154 <= 36) AND (h_0,266 <= 63) AND (h_0,182 <= 40)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9714285714285714[(h_0,354 > 21) AND (h_0,596 <= 2) AND (h_0,379 <= 0) AND (h_0,406 > 88) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,557 <= 22) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.96875[(h_0,470 > 7) AND (h_0,373 > 0) AND (h_0,536 <= 2.4830289) AND (h_0,210 > 37) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,154 <= 1) AND (h_0,569 <= 9) AND (h_0,444 <= 4) AND (h_0,75 <= 1) AND (h_0,740 <= 0) AND (h_0,235 <= 77)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.963855421686747[(h_0,376 <= 235) AND (h_0,182 <= 228) AND (h_0,746 <= 21) AND (h_0,707 <= 18) AND (h_0,569 <= 173) AND (h_0,93 <= 0) AND (h_0,544 <= 244) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,740 <= 0) AND (h_0,373 > 0) AND (h_0,412 > 2.0733187) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,743 <= 1) AND (h_0,381 <= 12) AND (h_0,567 <= 28) AND (h_0,210 <= 134) AND (h_0,595 <= 32) AND (h_0,387 <= 240)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6784810126582278[(h_0,406 <= 88) AND (h_0,216 > 15.478389) AND (h_0,713 <= 1.0239191) AND (h_0,598 <= 113) AND (h_0,242 <= 10.356112) AND (h_0,710 <= 3) AND (h_0,464 > 181)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6440677966101694[(h_0,567 <= 49) AND (h_0,381 > 12) AND (h_0,103 <= 1) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,440 <= 199) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,321 > 169) AND (h_0,657 <= 5.0613775) AND (h_0,708 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5935483870967742[(h_0,373 > 0) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,69 <= 0) AND (h_0,75 <= 1) AND (h_0,302 <= 48) AND (h_0,528 <= 1) AND (h_0,471 > 28)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.46153846153846156[(h_0,126 <= 105) AND (h_0,271 <= 8) AND (h_0,269 > 91.437836) AND (h_0,100 > 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4270833333333333[(h_0,516 > 127) AND (h_0,379 <= 0) AND (h_0,324 <= 111) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,93 <= 0) AND (h_0,601 <= 29) AND (h_0,241 <= 2.2055037)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9824561403508771[(h_0,595 <= 10.425243) AND (h_0,216 > 6.3626695) AND (h_0,469 > 34) AND (h_0,210 <= 37) AND (h_0,72 <= 0) AND (h_0,381 > 12) AND (h_0,154 <= 1) AND (h_0,743 <= 1) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,444 <= 4) AND (h_0,740 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9795918367346939[(h_0,605 > 61) AND (h_0,553 <= 11) AND (h_0,210 > 37) AND (h_0,381 > 12) AND (h_0,209 <= 5.2166777) AND (h_0,543 <= 189) AND (h_0,743 <= 1) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,470 <= 7) AND (h_0,433 > 11) AND (h_0,595 <= 10.425243) AND (h_0,160 <= 2.5547478)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8816120906801007[(h_0,255 <= 34) AND (h_0,406 <= 88) AND (h_0,72 <= 0) AND (h_0,324 > 111) AND (h_0,430 > 15.375971) AND (h_0,719 <= 8) AND (h_0,743 <= 1) AND (h_0,69 <= 0) AND (h_0,612 <= 4) AND (h_0,322 <= 1) AND (h_0,740 <= 0) AND (h_0,210 <= 24) AND (h_0,710 <= 3)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,544 <= 15) AND (h_0,462 > 2) AND (h_0,97 > 3) AND (h_0,571 <= 1.1743674) AND (h_0,185 <= 15) AND (h_0,100 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8695652173913043[(h_0,176 <= 18) AND (h_0,321 > 2.4185228) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,151 <= 2) AND (h_0,156 > 0) AND (h_0,569 <= 9) AND (h_0,632 <= 2) AND (h_0,652 <= 3.4319522) AND (h_0,127 <= 110) AND (h_0,513 <= 91) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8666666666666667[(h_0,176 <= 18) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,103 <= 1) AND (h_0,151 <= 2) AND (h_0,156 > 0) AND (h_0,569 <= 9) AND (h_0,100 <= 1) AND (h_0,544 > 106) AND (h_0,468 > 172) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,241 <= 54) AND (h_0,267 <= 95.063232) AND (h_0,404 > 0.34042352) AND (h_0,740 <= 0) AND (h_0,737 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8421052631578947[(h_0,345 > 3.1863115) AND (h_0,210 > 37) AND (h_0,381 > 12) AND (h_0,209 <= 5.2166777) AND (h_0,462 > 2) AND (h_0,737 <= 0) AND (h_0,543 <= 189) AND (h_0,743 <= 1) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,409 <= 169) AND (h_0,595 <= 10.425243) AND (h_0,160 <= 2.5547478) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9409282700421941[(h_0,737 <= 0) AND (h_0,529 <= 5) AND (h_0,381 > 12) AND (h_0,216 <= 6.3626695) AND (h_0,154 <= 1) AND (h_0,569 <= 9) AND (h_0,595 <= 10.425243) AND (h_0,211 > 7.0905542) AND (h_0,283 <= 10) AND (h_0,97 <= 3) AND (h_0,746 <= 4) AND (h_0,740 <= 0) AND (h_0,373 > 0) AND (h_0,210 <= 37) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,743 <= 1) AND (h_0,444 <= 4) AND (h_0,160 <= 2.5547478) AND (h_0,182 <= 30.409426)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9393939393939394[(h_0,102 <= 0) AND (h_0,485 > 40) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,295 <= 111) AND (h_0,528 <= 2) AND (h_0,347 > 1.8082929) AND (h_0,471 <= 65) AND (h_0,99 <= 2) AND (h_0,515 <= 7.7229967) AND (h_0,405 <= 126) AND (h_0,104 <= 8) AND (h_0,596 <= 128) AND (h_0,652 <= 113)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9949748743718593[(h_0,324 > 25) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,350 > 51) AND (h_0,656 > 5) AND (h_0,516 <= 42) AND (h_0,347 > 1.8082929) AND (h_0,485 <= 40) AND (h_0,518 <= 104) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.993006993006993[(h_0,331 <= 18) AND (h_0,300 <= 57) AND (h_0,216 <= 90) AND (h_0,296 <= 2.357619) AND (h_0,462 <= 2) AND (h_0,266 > 139.01939) AND (h_0,151 > 119) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9905660377358491[(h_0,130 <= 237) AND (h_0,294 > 141) AND (h_0,485 <= 94) AND (h_0,189 <= 3) AND (h_0,300 <= 57) AND (h_0,243 <= 86) AND (h_0,296 <= 2.357619) AND (h_0,120 <= 4) AND (h_0,462 <= 2) AND (h_0,161 <= 6) AND (h_0,463 <= 84) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9908256880733946[(h_0,372 <= 79) AND (h_0,683 > 0.36443651) AND (h_0,710 <= 1.2304417) AND (h_0,514 <= 66) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,713 <= 2) AND (h_0,350 <= 84) AND (h_0,518 <= 191) AND (h_0,544 <= 6) AND (h_0,349 <= 67) AND (h_0,347 <= 1.8082929) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.991304347826087[(h_0,320 <= 89) AND (h_0,429 <= 4.0921988) AND (h_0,300 > 3.0214944) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,183 > 2) AND (h_0,487 <= 49) AND (h_0,220 <= 0) AND (h_0,233 <= 4) AND (h_0,102 <= 139) AND (h_0,434 > 85)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.98989898989899[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,176 > 178) AND (h_0,656 > 5) AND (h_0,516 <= 42) AND (h_0,347 > 1.8082929) AND (h_0,485 <= 40)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9886363636363636[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,174 > 151) AND (h_0,265 > 58) AND (h_0,331 <= 18) AND (h_0,462 <= 2) AND (h_0,299 <= 75) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9893162393162394[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,324 > 43) AND (h_0,656 > 5) AND (h_0,485 <= 40) AND (h_0,291 <= 48) AND (h_0,516 <= 42) AND (h_0,518 <= 104) AND (h_0,191 <= 7) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9883040935672515[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,291 <= 236) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,492 <= 63) AND (h_0,210 > 1) AND (h_0,179 > 3) AND (h_0,343 <= 106) AND (h_0,462 <= 2) AND (h_0,488 <= 37) AND (h_0,290 <= 139) AND (h_0,721 <= 16) AND (h_0,316 <= 73) AND (h_0,329 <= 119.46252)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9545454545454546[(h_0,514 <= 192) AND (h_0,488 <= 93) AND (h_0,379 <= 0) AND (h_0,406 > 88) AND (h_0,356 <= 34) AND (h_0,462 <= 2) AND (h_0,354 <= 21) AND (h_0,291 > 95)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9545454545454546[(h_0,329 <= 0) AND (h_0,219 > 114.22903) AND (h_0,370 <= 4.6807737) AND (h_0,494 > 16) AND (h_0,469 <= 1) AND (h_0,233 <= 4) AND (h_0,515 <= 20.215134)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.954954954954955[(h_0,210 > 134) AND (h_0,376 <= 235) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,569 <= 173) AND (h_0,490 <= 85.067856) AND (h_0,298 <= 5) AND (h_0,381 <= 12) AND (h_0,100 <= 1) AND (h_0,567 <= 28) AND (h_0,213 > 94.04586) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9738562091503268[(h_0,455 <= 65) AND (h_0,379 > 0) AND (h_0,485 <= 94) AND (h_0,192 <= 10) AND (h_0,276 <= 34) AND (h_0,353 > 6) AND (h_0,710 <= 1.2304417) AND (h_0,331 <= 18) AND (h_0,386 <= 91) AND (h_0,490 <= 48) AND (h_0,300 > 57) AND (h_0,318 <= 235) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9[(h_0,514 <= 192) AND (h_0,488 <= 93) AND (h_0,379 <= 0) AND (h_0,690 <= 67) AND (h_0,406 > 88) AND (h_0,462 <= 2) AND (h_0,386 <= 42) AND (h_0,349 > 37) AND (h_0,291 <= 95)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,514 <= 21) AND (h_0,712 <= 105) AND (h_0,567 <= 251) AND (h_0,462 <= 2) AND (h_0,320 <= 145) AND (h_0,656 > 6.68085) AND (h_0,487 > 19) AND (h_0,491 <= 222) AND (h_0,297 > 45) AND (h_0,516 <= 80.167099)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,710 > 1.2304417) AND (h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,373 <= 0) AND (h_0,572 <= 4.4860787) AND (h_0,433 > 35.114136) AND (h_0,349 <= 67) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9630996309963099[(h_0,350 > 84) AND (h_0,177 > 37.80793) AND (h_0,370 <= 4.6807737) AND (h_0,609 <= 10) AND (h_0,516 <= 142.36966) AND (h_0,264 <= 157) AND (h_0,553 <= 0) AND (h_0,233 <= 4) AND (h_0,517 <= 177)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9620253164556962[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,571 > 6) AND (h_0,290 <= 28) AND (h_0,331 <= 18) AND (h_0,462 <= 2) AND (h_0,325 > 251) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9573170731707317[(h_0,72 <= 0) AND (h_0,324 > 111) AND (h_0,261 <= 225) AND (h_0,535 > 78) AND (h_0,462 <= 2) AND (h_0,427 <= 36)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9561200923787528[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,147 > 88) AND (h_0,462 <= 2) AND (h_0,455 <= 253) AND (h_0,287 <= 47) AND (h_0,454 <= 233) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9545454545454546[(h_0,578 > 111) AND (h_0,315 <= 170.28334) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,718 <= 95) AND (h_0,485 <= 40) AND (h_0,516 <= 42) AND (h_0,347 > 1.8082929) AND (h_0,99 <= 2) AND (h_0,518 <= 104) AND (h_0,656 <= 5) AND (h_0,302 <= 112) AND (h_0,104 <= 8) AND (h_0,515 <= 7.7229967) AND (h_0,219 <= 0.35121116) AND (h_0,291 <= 175.05432)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9952456418383518[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,291 <= 191) AND (h_0,163 <= 0.033175658) AND (h_0,350 > 28.203444) AND (h_0,316 <= 237) AND (h_0,462 <= 2) AND (h_0,265 <= 235.31001) AND (h_0,315 <= 153) AND (h_0,296 > 2.357619) AND (h_0,329 <= 143) AND (h_0,290 <= 122) AND (h_0,247 <= 4) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5227272727272727[(h_0,379 > 0) AND (h_0,653 <= 24) AND (h_0,72 <= 0) AND (h_0,572 > 1) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,349 > 9.1758108) AND (h_0,487 > 19) AND (h_0,431 <= 4) AND (h_0,656 <= 6.68085) AND (h_0,248 <= 24)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4357142857142857[(h_0,296 > 218.06856) AND (h_0,324 <= 111) AND (h_0,125 > 28)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9920398009950249[(h_0,295 <= 249.3743) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,429 <= 5) AND (h_0,319 > 0) AND (h_0,434 > 93) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,469 <= 1) AND (h_0,481 <= 9) AND (h_0,710 <= 23) AND (h_0,656 > 181)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9852941176470589[(h_0,512 > 4) AND (h_0,350 > 84) AND (h_0,494 <= 16) AND (h_0,373 <= 0) AND (h_0,429 > 4.0921988) AND (h_0,553 <= 0) AND (h_0,233 <= 4) AND (h_0,656 > 14) AND (h_0,347 <= 1.8082929) AND (h_0,434 > 85)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9852941176470589[(h_0,373 <= 0) AND (h_0,276 > 60) AND (h_0,370 <= 4.6807737) AND (h_0,515 > 7.7229967) AND (h_0,376 > 5) AND (h_0,180 > 15)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.984375[(h_0,295 <= 249.3743) AND (h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,429 <= 5) AND (h_0,710 > 23) AND (h_0,572 <= 123) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9836065573770492[(h_0,210 > 37) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,154 <= 1) AND (h_0,484 <= 18) AND (h_0,444 <= 4) AND (h_0,569 <= 9) AND (h_0,659 > 26) AND (h_0,543 > 189) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9823008849557522[(h_0,429 <= 4.0921988) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,573 <= 211) AND (h_0,150 <= 39) AND (h_0,537 <= 4) AND (h_0,220 <= 0) AND (h_0,570 > 79) AND (h_0,553 <= 0) AND (h_0,493 <= 3.9105239) AND (h_0,520 > 70) AND (h_0,102 <= 139) AND (h_0,276 <= 3) AND (h_0,434 > 85)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9821428571428571[(h_0,373 <= 0) AND (h_0,295 > 249.3743) AND (h_0,462 > 2) AND (h_0,470 <= 1) AND (h_0,515 > 7.7229967) AND (h_0,528 <= 2) AND (h_0,347 > 1.8082929) AND (h_0,376 > 5) AND (h_0,290 > 2.402199) AND (h_0,518 <= 238)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9807692307692307[(h_0,468 <= 96) AND (h_0,485 > 40) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,437 <= 240) AND (h_0,431 > 6.3872261) AND (h_0,347 > 1.8082929) AND (h_0,99 <= 2) AND (h_0,709 <= 85) AND (h_0,294 <= 242) AND (h_0,515 <= 7.7229967) AND (h_0,75 <= 1) AND (h_0,405 > 126)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9310344827586207[(h_0,437 <= 38) AND (h_0,360 > 28) AND (h_0,381 > 12) AND (h_0,267 <= 133) AND (h_0,332 <= 3) AND (h_0,595 <= 23)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,379 > 0) AND (h_0,462 <= 2) AND (h_0,572 <= 1) AND (h_0,242 <= 64) AND (h_0,487 > 19) AND (h_0,656 <= 6.68085) AND (h_0,629 > 172.21158)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,69 <= 0) AND (h_0,93 > 0) AND (h_0,125 <= 28) AND (h_0,180 <= 184)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,294 > 141) AND (h_0,105 > 46) AND (h_0,331 <= 18) AND (h_0,296 <= 2.357619)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,373 <= 0) AND (h_0,295 > 249.3743) AND (h_0,462 > 2) AND (h_0,347 > 1.8082929) AND (h_0,481 <= 9) AND (h_0,135 > 76)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,151 > 2) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,127 > 228) AND (h_0,569 <= 9) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9078014184397163[(h_0,406 <= 88) AND (h_0,379 <= 0) AND (h_0,489 <= 1) AND (h_0,324 <= 111) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,297 <= 118) AND (h_0,242 <= 10.356112) AND (h_0,716 <= 8) AND (h_0,710 <= 3) AND (h_0,464 > 181)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8909090909090909[(h_0,106 > 2) AND (h_0,462 > 2) AND (h_0,295 > 153.31293) AND (h_0,100 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8756476683937824[(h_0,489 > 1) AND (h_0,125 > 16) AND (h_0,372 > 80) AND (h_0,557 <= 22) AND (h_0,598 > 4) AND (h_0,402 <= 11)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,462 <= 2) AND (h_0,406 > 88) AND (h_0,379 <= 0) AND (h_0,103 > 46)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9473684210526315[(h_0,379 > 0) AND (h_0,191 > 36) AND (h_0,299 > 47) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8378378378378378[(h_0,379 > 0) AND (h_0,381 > 32) AND (h_0,629 <= 172.21158) AND (h_0,556 <= 54) AND (h_0,181 <= 3.3980262) AND (h_0,743 <= 1) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,572 <= 1) AND (h_0,681 <= 10) AND (h_0,717 <= 3) AND (h_0,746 <= 4) AND (h_0,487 > 19) AND (h_0,303 <= 7) AND (h_0,713 <= 23) AND (h_0,656 <= 6.68085) AND (h_0,248 <= 24) AND (h_0,416 <= 3)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.994535519125683[(h_0,570 <= 110.45159) AND (h_0,103 <= 1) AND (h_0,541 <= 116) AND (h_0,151 <= 2) AND (h_0,208 <= 31.215437) AND (h_0,156 > 0) AND (h_0,100 <= 1) AND (h_0,656 <= 66) AND (h_0,411 > 145) AND (h_0,679 <= 57) AND (h_0,595 <= 10.425243)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9941348973607038[(h_0,176 > 6) AND (h_0,373 > 0) AND (h_0,381 > 12) AND (h_0,66 <= 0) AND (h_0,151 <= 2) AND (h_0,569 <= 9) AND (h_0,208 <= 44) AND (h_0,433 > 11) AND (h_0,573 <= 29)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9925893635571055[(h_0,155 <= 69) AND (h_0,737 <= 0) AND (h_0,381 > 12) AND (h_0,266 <= 225) AND (h_0,211 <= 7.0905542) AND (h_0,69 <= 0) AND (h_0,437 > 38) AND (h_0,267 <= 133) AND (h_0,93 <= 0) AND (h_0,66 <= 0) AND (h_0,499 <= 105) AND (h_0,332 <= 3) AND (h_0,125 <= 8) AND (h_0,740 <= 0) AND (h_0,373 > 0) AND (h_0,72 <= 0) AND (h_0,462 > 2) AND (h_0,295 <= 153.31293) AND (h_0,743 <= 1) AND (h_0,595 <= 23) AND (h_0,716 <= 243)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9910313901345291[(h_0,160 > 2.5547478) AND (h_0,462 > 2) AND (h_0,154 <= 1) AND (h_0,569 <= 9) AND (h_0,353 > 100) AND (h_0,156 <= 0) AND (h_0,246 <= 74) AND (h_0,261 <= 75) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9899328859060402[(h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,569 <= 9) AND (h_0,687 <= 7) AND (h_0,163 > 2) AND (h_0,156 <= 0) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9894301470588235[(h_0,155 <= 69) AND (h_0,381 > 12) AND (h_0,211 <= 7.0905542) AND (h_0,69 <= 0) AND (h_0,322 <= 89.045341) AND (h_0,267 <= 133) AND (h_0,93 <= 0) AND (h_0,408 > 84) AND (h_0,357 <= 253) AND (h_0,499 <= 105) AND (h_0,332 <= 3) AND (h_0,96 <= 19) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,740 <= 0) AND (h_0,373 > 0) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,295 <= 153.31293) AND (h_0,743 <= 1) AND (h_0,595 <= 23)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9846153846153847[(h_0,155 <= 69) AND (h_0,737 <= 0) AND (h_0,381 > 12) AND (h_0,473 <= 8) AND (h_0,580 <= 69) AND (h_0,211 <= 7.0905542) AND (h_0,69 <= 0) AND (h_0,106 <= 2) AND (h_0,719 <= 39) AND (h_0,567 <= 18) AND (h_0,329 <= 201) AND (h_0,717 <= 35) AND (h_0,93 <= 0) AND (h_0,431 > 21) AND (h_0,201 <= 1) AND (h_0,66 <= 0) AND (h_0,333 <= 69) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,712 <= 116) AND (h_0,740 <= 0) AND (h_0,373 > 0) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,743 <= 1) AND (h_0,537 <= 23) AND (h_0,708 <= 113) AND (h_0,219 <= 223) AND (h_0,361 <= 61) AND (h_0,304 <= 124)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9837837837837838[(h_0,127 <= 228) AND (h_0,572 <= 15) AND (h_0,151 > 2) AND (h_0,381 > 12) AND (h_0,66 <= 0) AND (h_0,462 > 2) AND (h_0,176 <= 104) AND (h_0,569 <= 9) AND (h_0,69 <= 0) AND (h_0,180 <= 166) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9666666666666667[(h_0,205 <= 23) AND (h_0,405 <= 4.115541) AND (h_0,690 <= 15) AND (h_0,740 > 0) AND (h_0,470 <= 5.3976722) AND (h_0,354 > 9.4915934) AND (h_0,217 <= 191) AND (h_0,460 > 58.359089)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9655172413793104[(h_0,410 > 2.0611422) AND (h_0,716 > 8) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,176 <= 64) AND (h_0,183 > 14)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9647058823529412[(h_0,460 <= 58.359089) AND (h_0,659 <= 104) AND (h_0,211 > 133) AND (h_0,740 > 0) AND (h_0,377 > 7)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9918032786885246[(h_0,567 <= 49) AND (h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,440 > 199) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,321 > 169) AND (h_0,657 <= 5.0613775) AND (h_0,708 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9901960784313726[(h_0,243 <= 20) AND (h_0,379 > 0) AND (h_0,485 > 94) AND (h_0,331 <= 18) AND (h_0,462 <= 2) AND (h_0,349 <= 99) AND (h_0,275 <= 98) AND (h_0,648 <= 8) AND (h_0,429 > 19) AND (h_0,656 <= 11) AND (h_0,601 > 7.1496034) AND (h_0,270 <= 49)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9902912621359223[(h_0,648 <= 23) AND (h_0,375 > 10) AND (h_0,373 <= 0) AND (h_0,353 <= 104) AND (h_0,462 > 2) AND (h_0,638 <= 2) AND (h_0,430 > 134) AND (h_0,528 <= 2) AND (h_0,515 > 7.7229967) AND (h_0,625 <= 186) AND (h_0,434 <= 93) AND (h_0,601 > 48)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9902794653705954[(h_0,243 <= 4) AND (h_0,72 > 0) AND (h_0,237 > 127)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9889655172413793[(h_0,462 > 2) AND (h_0,103 > 1) AND (h_0,429 > 36) AND (h_0,265 > 4.2818413) AND (h_0,535 <= 25) AND (h_0,271 <= 11) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9885361552028219[(h_0,269 <= 79) AND (h_0,243 <= 4) AND (h_0,72 > 0) AND (h_0,295 <= 190.15654)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9859154929577465[(h_0,243 <= 20) AND (h_0,379 > 0) AND (h_0,659 <= 63) AND (h_0,485 > 94) AND (h_0,331 <= 18) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,584 <= 34) AND (h_0,648 <= 8) AND (h_0,429 > 19) AND (h_0,656 <= 11) AND (h_0,601 > 7.1496034) AND (h_0,430 > 65) AND (h_0,487 <= 19) AND (h_0,270 <= 49)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9856115107913669[(h_0,462 > 2) AND (h_0,578 <= 252) AND (h_0,291 > 135) AND (h_0,245 <= 181) AND (h_0,100 > 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9849624060150376[(h_0,379 > 0) AND (h_0,345 > 249) AND (h_0,431 > 4) AND (h_0,242 <= 143) AND (h_0,572 > 1) AND (h_0,462 <= 2) AND (h_0,487 > 19) AND (h_0,228 <= 8) AND (h_0,656 <= 6.68085)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9849624060150376[(h_0,72 <= 0) AND (h_0,66 > 0) AND (h_0,211 <= 9) AND (h_0,185 <= 92) AND (h_0,237 <= 135)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,462 <= 2) AND (h_0,379 <= 0) AND (h_0,707 > 2) AND (h_0,487 > 54)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,379 > 0) AND (h_0,206 > 29) AND (h_0,485 > 94) AND (h_0,462 <= 2) AND (h_0,460 <= 9) AND (h_0,512 <= 49) AND (h_0,427 > 38) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,319 <= 0) AND (h_0,462 > 2) AND (h_0,373 <= 0) AND (h_0,347 > 1.8082929) AND (h_0,304 > 49)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8741721854304636[(h_0,255 <= 34) AND (h_0,324 > 111) AND (h_0,379 <= 0) AND (h_0,430 <= 71.035408) AND (h_0,713 <= 1.0239191) AND (h_0,339 <= 5) AND (h_0,322 > 1) AND (h_0,242 <= 60) AND (h_0,427 <= 36) AND (h_0,464 <= 207) AND (h_0,716 <= 8) AND (h_0,267 <= 51)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,379 > 0) AND (h_0,303 > 7) AND (h_0,572 <= 1) AND (h_0,462 <= 2) AND (h_0,487 > 19) AND (h_0,656 <= 6.68085)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,462 <= 2) AND (h_0,103 > 31) AND (h_0,135 > 126) AND (h_0,406 <= 88)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8461538461538461[(h_0,178 > 2) AND (h_0,514 > 21) AND (h_0,462 <= 2) AND (h_0,408 > 20) AND (h_0,375 > 250.21194) AND (h_0,656 > 6.68085) AND (h_0,459 > 73) AND (h_0,487 > 19) AND (h_0,298 <= 1) AND (h_0,315 <= 14)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7808417997097242[(h_0,515 <= 20.215134) AND (h_0,329 <= 0) AND (h_0,350 > 84) AND (h_0,297 <= 7) AND (h_0,494 > 16) AND (h_0,177 <= 37.80793) AND (h_0,469 <= 1) AND (h_0,553 <= 0) AND (h_0,740 <= 0) AND (h_0,627 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.40476190476190477[(h_0,713 > 1.0239191) AND (h_0,379 <= 0) AND (h_0,377 > 196)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9821428571428571[(h_0,517 <= 229.33624) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,320 <= 88) AND (h_0,370 <= 4.6807737) AND (h_0,376 > 10) AND (h_0,462 > 2) AND (h_0,609 <= 10) AND (h_0,233 > 4) AND (h_0,553 <= 0) AND (h_0,386 <= 16) AND (h_0,499 <= 4) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9807692307692307[(h_0,512 <= 70) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,386 <= 56) AND (h_0,211 > 7.0905542) AND (h_0,248 <= 48) AND (h_0,377 > 34) AND (h_0,543 <= 5) AND (h_0,569 <= 9) AND (h_0,595 > 10.425243) AND (h_0,162 <= 127) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.98[(h_0,686 <= 1) AND (h_0,72 <= 0) AND (h_0,484 <= 6) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,350 <= 84) AND (h_0,154 > 0) AND (h_0,489 <= 29) AND (h_0,406 > 112) AND (h_0,349 <= 67) AND (h_0,514 <= 10) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9787234042553191[(h_0,379 > 0) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,492 <= 63) AND (h_0,210 > 1) AND (h_0,462 <= 2) AND (h_0,201 > 25) AND (h_0,721 <= 16) AND (h_0,316 <= 73)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9782608695652174[(h_0,121 > 97) AND (h_0,406 <= 88) AND (h_0,624 > 135) AND (h_0,462 <= 2) AND (h_0,612 <= 4) AND (h_0,322 > 1) AND (h_0,457 <= 178) AND (h_0,427 <= 36)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9777777777777777[(h_0,372 <= 79) AND (h_0,488 <= 9.4845877) AND (h_0,432 > 112) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,553 > 0) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9765625[(h_0,324 > 111) AND (h_0,246 <= 104) AND (h_0,272 <= 228) AND (h_0,104 <= 163) AND (h_0,339 <= 5) AND (h_0,457 <= 178) AND (h_0,427 <= 36) AND (h_0,431 <= 247.09239) AND (h_0,267 > 18) AND (h_0,433 <= 73) AND (h_0,261 <= 225) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,162 <= 8) AND (h_0,713 <= 1.0239191) AND (h_0,314 <= 174) AND (h_0,255 <= 34) AND (h_0,406 <= 88) AND (h_0,462 <= 2) AND (h_0,264 <= 201) AND (h_0,322 > 1) AND (h_0,716 <= 8)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9746835443037974[(h_0,372 <= 79) AND (h_0,683 > 0.36443651) AND (h_0,373 <= 0) AND (h_0,713 <= 2) AND (h_0,350 <= 84) AND (h_0,349 <= 67) AND (h_0,347 <= 1.8082929) AND (h_0,431 > 169.38765) AND (h_0,632 > 3)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9737704918032787[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,290 <= 170) AND (h_0,300 <= 57) AND (h_0,299 > 75) AND (h_0,462 <= 2) AND (h_0,511 <= 111) AND (h_0,413 <= 24) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9649122807017544[(h_0,155 <= 69) AND (h_0,388 > 131) AND (h_0,332 > 3) AND (h_0,267 <= 133) AND (h_0,211 <= 7.0905542) AND (h_0,371 > 39) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9649122807017544[(h_0,569 > 9) AND (h_0,381 > 12) AND (h_0,353 <= 63) AND (h_0,537 <= 182) AND (h_0,130 > 204) AND (h_0,432 > 24) AND (h_0,150 <= 3) AND (h_0,100 <= 1) AND (h_0,488 > 35) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,102 <= 0) AND (h_0,485 > 40) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,528 <= 2) AND (h_0,347 > 1.8082929) AND (h_0,106 > 62)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,488 > 93) AND (h_0,379 <= 0) AND (h_0,356 <= 34) AND (h_0,577 > 166) AND (h_0,462 <= 2) AND (h_0,354 <= 21) AND (h_0,436 > 4)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9555555555555556[(h_0,379 > 0) AND (h_0,483 > 251) AND (h_0,331 <= 18) AND (h_0,300 <= 57) AND (h_0,296 <= 2.357619) AND (h_0,349 <= 106) AND (h_0,299 <= 75) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9555555555555556[(h_0,176 <= 5) AND (h_0,103 > 31) AND (h_0,379 <= 0) AND (h_0,324 <= 111) AND (h_0,378 <= 92) AND (h_0,597 <= 182) AND (h_0,462 <= 2) AND (h_0,464 <= 181)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9558823529411765[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,244 <= 114) AND (h_0,370 > 4.6807737) AND (h_0,416 > 71) AND (h_0,293 <= 33)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9523809523809523[(h_0,106 > 51) AND (h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.949238578680203[(h_0,567 <= 40) AND (h_0,406 <= 88) AND (h_0,66 <= 0) AND (h_0,379 <= 0) AND (h_0,121 <= 132) AND (h_0,465 > 1) AND (h_0,433 <= 143) AND (h_0,598 <= 4) AND (h_0,97 > 1)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9333333333333333[(h_0,379 > 0) AND (h_0,431 > 4) AND (h_0,106 > 51) AND (h_0,462 <= 2) AND (h_0,487 > 19)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.975609756097561[(h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,373 <= 0) AND (h_0,537 <= 4) AND (h_0,493 > 3.9105239) AND (h_0,105 > 63) AND (h_0,300 <= 3.0214944)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9761904761904762[(h_0,516 <= 127) AND (h_0,100 > 77) AND (h_0,379 <= 0) AND (h_0,324 <= 111) AND (h_0,69 <= 0) AND (h_0,433 <= 0) AND (h_0,627 <= 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.975[(h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,551 <= 2.4634004) AND (h_0,537 <= 4) AND (h_0,233 <= 4) AND (h_0,296 <= 214.45511) AND (h_0,597 <= 62) AND (h_0,75 <= 1) AND (h_0,102 > 139)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9738317757009346[(h_0,379 > 0) AND (h_0,242 <= 143) AND (h_0,431 > 4) AND (h_0,268 <= 154) AND (h_0,572 > 1) AND (h_0,247 <= 5) AND (h_0,462 <= 2) AND (h_0,663 <= 4) AND (h_0,487 > 19) AND (h_0,656 <= 6.68085) AND (h_0,248 <= 24) AND (h_0,244 <= 160)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9714964370546318[(h_0,275 <= 106) AND (h_0,489 > 1) AND (h_0,355 <= 16) AND (h_0,150 <= 75) AND (h_0,379 <= 0) AND (h_0,221 <= 6) AND (h_0,324 <= 111) AND (h_0,433 <= 143) AND (h_0,69 <= 0) AND (h_0,570 > 60) AND (h_0,359 <= 27) AND (h_0,598 > 4) AND (h_0,402 > 11)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9696969696969697[(h_0,294 > 141) AND (h_0,462 > 2) AND (h_0,106 > 25) AND (h_0,381 <= 12) AND (h_0,351 <= 58) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9689922480620154[(h_0,377 <= 214.29868) AND (h_0,430 > 186.32666) AND (h_0,373 <= 0) AND (h_0,595 <= 47) AND (h_0,125 <= 3) AND (h_0,434 > 93) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,481 <= 9) AND (h_0,235 <= 219) AND (h_0,325 <= 41) AND (h_0,465 <= 219)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.967741935483871[(h_0,293 <= 0.30155319) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 > 4.6807737) AND (h_0,416 > 235)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9655172413793104[(h_0,406 <= 88) AND (h_0,324 > 111) AND (h_0,160 <= 105) AND (h_0,379 <= 0) AND (h_0,664 <= 18) AND (h_0,248 <= 18.141539) AND (h_0,430 > 71.035408) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,322 > 1) AND (h_0,242 <= 60) AND (h_0,457 > 178) AND (h_0,267 <= 51)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9649122807017544[(h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,130 > 1) AND (h_0,351 <= 58) AND (h_0,485 > 140) AND (h_0,204 <= 11) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9917355371900827[(h_0,372 <= 79) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,713 <= 2) AND (h_0,716 > 5) AND (h_0,349 <= 67) AND (h_0,340 <= 84) AND (h_0,464 > 124) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9924406047516199[(h_0,713 > 1.0239191) AND (h_0,653 <= 159) AND (h_0,379 <= 0) AND (h_0,575 > 12) AND (h_0,493 > 2) AND (h_0,462 <= 2) AND (h_0,405 <= 5.5510454) AND (h_0,185 <= 194)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9921259842519685[(h_0,740 > 0) AND (h_0,629 > 2) AND (h_0,204 > 55) AND (h_0,543 <= 31)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9890710382513661[(h_0,377 <= 177) AND (h_0,266 > 216) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,103 <= 1) AND (h_0,433 <= 11) AND (h_0,154 <= 1) AND (h_0,487 <= 5) AND (h_0,151 <= 2) AND (h_0,192 <= 12) AND (h_0,543 <= 189) AND (h_0,160 <= 2.5547478)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9875[(h_0,238 <= 7) AND (h_0,740 > 0) AND (h_0,217 <= 30)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9868421052631579[(h_0,606 <= 24) AND (h_0,373 <= 0) AND (h_0,318 > 14) AND (h_0,182 <= 160) AND (h_0,518 > 104) AND (h_0,485 <= 40) AND (h_0,517 <= 77) AND (h_0,515 <= 7.7229967) AND (h_0,465 > 9.0945425) AND (h_0,632 > 0) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9873015873015873[(h_0,404 <= 0.34042352) AND (h_0,431 <= 46) AND (h_0,740 <= 0) AND (h_0,377 <= 84) AND (h_0,737 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9861635220125786[(h_0,683 <= 0.36443651) AND (h_0,372 <= 79) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,635 <= 1) AND (h_0,350 <= 84) AND (h_0,627 <= 11) AND (h_0,349 <= 67) AND (h_0,405 <= 116) AND (h_0,347 <= 1.8082929) AND (h_0,686 > 1)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9858849077090119[(h_0,580 <= 57) AND (h_0,625 <= 30) AND (h_0,372 <= 79) AND (h_0,718 <= 22) AND (h_0,710 <= 1.2304417) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,350 <= 84) AND (h_0,578 <= 120) AND (h_0,713 > 2) AND (h_0,349 <= 67) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9836956521739131[(h_0,485 <= 94) AND (h_0,210 <= 1) AND (h_0,488 <= 0) AND (h_0,653 <= 14) AND (h_0,626 <= 4) AND (h_0,571 <= 6) AND (h_0,737 <= 0) AND (h_0,462 <= 2) AND (h_0,510 <= 93) AND (h_0,266 > 63) AND (h_0,379 <= 139)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4716981132075472[(h_0,379 > 0) AND (h_0,357 <= 110) AND (h_0,408 <= 20) AND (h_0,679 <= 7) AND (h_0,462 <= 2) AND (h_0,359 <= 14) AND (h_0,459 > 73) AND (h_0,487 > 19)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4574468085106383[(h_0,406 > 88) AND (h_0,379 <= 0) AND (h_0,356 > 34) AND (h_0,386 <= 42) AND (h_0,354 <= 21)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4463667820069204[(h_0,233 <= 4) AND (h_0,386 > 26) AND (h_0,372 <= 79) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.4444444444444444[(h_0,331 <= 18) AND (h_0,481 > 129) AND (h_0,485 > 94)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.40685944855413586[(h_0,121 > 6)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9142857142857143[(h_0,72 <= 0) AND (h_0,103 <= 1) AND (h_0,151 <= 218) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,97 <= 3) AND (h_0,93 <= 0) AND (h_0,528 > 1) AND (h_0,638 <= 39) AND (h_0,740 <= 0) AND (h_0,273 <= 77)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9285714285714286[(h_0,379 > 0) AND (h_0,242 <= 143) AND (h_0,431 > 4) AND (h_0,663 > 4) AND (h_0,572 > 1) AND (h_0,580 > 52.300903) AND (h_0,462 <= 2) AND (h_0,487 > 19) AND (h_0,656 <= 6.68085) AND (h_0,345 <= 249)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.926829268292683[(h_0,351 > 58) AND (h_0,471 <= 28) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,314 > 88) AND (h_0,276 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9251968503937008[(h_0,379 > 0) AND (h_0,459 > 110) AND (h_0,357 <= 110) AND (h_0,514 > 21) AND (h_0,375 <= 250.21194) AND (h_0,462 <= 2) AND (h_0,145 <= 6) AND (h_0,408 > 20) AND (h_0,656 > 6.68085) AND (h_0,430 <= 252.49162) AND (h_0,487 > 19)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,210 > 156) AND (h_0,470 > 1) AND (h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,319 > 203) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,528 <= 2) AND (h_0,515 > 7.7229967) AND (h_0,481 <= 9) AND (h_0,99 <= 2)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,357 > 23.428455) AND (h_0,567 > 28) AND (h_0,469 <= 109) AND (h_0,428 <= 16) AND (h_0,462 > 2) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9107142857142857[(h_0,276 > 6) AND (h_0,351 > 58) AND (h_0,66 <= 0) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,321 <= 28) AND (h_0,528 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8981481481481481[(h_0,357 <= 242) AND (h_0,379 > 0) AND (h_0,206 > 29) AND (h_0,485 > 94) AND (h_0,457 > 109) AND (h_0,517 <= 5) AND (h_0,612 <= 107) AND (h_0,350 > 6) AND (h_0,656 > 11) AND (h_0,460 <= 9) AND (h_0,429 > 19) AND (h_0,266 <= 252.43169) AND (h_0,162 <= 8) AND (h_0,487 <= 19) AND (h_0,120 <= 54)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8947368421052632[(h_0,206 > 53.105824) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,154 > 1) AND (h_0,151 <= 2) AND (h_0,629 > 52) AND (h_0,156 <= 0) AND (h_0,469 <= 4) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,379 > 0) AND (h_0,72 <= 0) AND (h_0,455 > 65) AND (h_0,300 > 57) AND (h_0,291 <= 209) AND (h_0,462 <= 2) AND (h_0,499 > 252) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,488 > 93) AND (h_0,103 <= 46) AND (h_0,406 > 88) AND (h_0,379 <= 0) AND (h_0,462 <= 2) AND (h_0,386 <= 42) AND (h_0,577 <= 166) AND (h_0,436 > 4)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9139784946236559[(h_0,243 > 4) AND (h_0,72 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,489 > 1) AND (h_0,379 <= 0) AND (h_0,567 > 40) AND (h_0,465 > 1) AND (h_0,433 <= 143) AND (h_0,598 <= 4) AND (h_0,462 <= 2) AND (h_0,552 <= 20) AND (h_0,359 <= 27)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,406 <= 88) AND (h_0,379 <= 0) AND (h_0,324 <= 111) AND (h_0,648 > 58) AND (h_0,707 <= 2) AND (h_0,464 > 181)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,383 > 20) AND (h_0,381 <= 12) AND (h_0,351 <= 58) AND (h_0,567 > 70)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9090909090909091[(h_0,569 > 9) AND (h_0,103 <= 1) AND (h_0,211 > 7.0905542) AND (h_0,492 > 130) AND (h_0,382 > 120) AND (h_0,434 > 248) AND (h_0,567 > 49) AND (h_0,100 <= 1) AND (h_0,220 <= 3) AND (h_0,657 <= 5.0613775) AND (h_0,708 <= 6) AND (h_0,705 <= 63)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9047619047619048[(h_0,695 <= 148) AND (h_0,381 > 12) AND (h_0,276 <= 2) AND (h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,535 <= 209) AND (h_0,490 > 77) AND (h_0,93 <= 0) AND (h_0,657 <= 5.0613775) AND (h_0,321 <= 169) AND (h_0,705 <= 63) AND (h_0,680 <= 138) AND (h_0,631 <= 227.19165) AND (h_0,688 <= 32) AND (h_0,97 <= 3) AND (h_0,463 > 138) AND (h_0,100 <= 1) AND (h_0,220 <= 3) AND (h_0,373 > 0) AND (h_0,690 <= 10) AND (h_0,103 <= 1) AND (h_0,708 <= 6)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9016393442622951[(h_0,155 <= 69) AND (h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,473 > 8) AND (h_0,295 > 153.31293) AND (h_0,93 <= 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,372 <= 79) AND (h_0,350 > 84) AND (h_0,370 <= 4.6807737) AND (h_0,233 > 4) AND (h_0,360 > 46) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,663 > 127) AND (h_0,404 <= 6.242517) AND (h_0,345 > 24) AND (h_0,151 > 2) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,572 > 15) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5116279069767442[(h_0,427 > 36) AND (h_0,379 <= 0) AND (h_0,267 <= 3) AND (h_0,378 > 29)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9552238805970149[(h_0,206 > 222) AND (h_0,743 > 1) AND (h_0,372 <= 65) AND (h_0,663 <= 119) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9541284403669725[(h_0,510 <= 15) AND (h_0,569 > 9) AND (h_0,737 <= 0) AND (h_0,211 > 7.0905542) AND (h_0,405 <= 28) AND (h_0,708 > 6) AND (h_0,657 <= 5.0613775) AND (h_0,567 <= 156) AND (h_0,705 <= 63)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9518072289156626[(h_0,262 > 100) AND (h_0,379 <= 0) AND (h_0,743 <= 1) AND (h_0,246 <= 94) AND (h_0,719 > 8) AND (h_0,462 <= 2) AND (h_0,543 <= 2)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9354838709677419[(h_0,629 > 2) AND (h_0,489 > 165) AND (h_0,373 <= 6) AND (h_0,221 <= 3) AND (h_0,740 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,210 > 37) AND (h_0,381 > 12) AND (h_0,737 <= 0) AND (h_0,103 <= 1) AND (h_0,211 > 7.0905542) AND (h_0,151 <= 2) AND (h_0,268 > 61) AND (h_0,484 <= 18) AND (h_0,569 <= 9) AND (h_0,543 > 189) AND (h_0,631 <= 72) AND (h_0,659 <= 26) AND (h_0,248 <= 5) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,462 <= 2) AND (h_0,553 > 48) AND (h_0,746 > 4)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9161290322580645[(h_0,176 > 6) AND (h_0,573 > 29) AND (h_0,210 > 37) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,543 <= 189) AND (h_0,151 <= 2) AND (h_0,212 > 0.23029582) AND (h_0,156 <= 0) AND (h_0,470 <= 7) AND (h_0,595 <= 10.425243) AND (h_0,606 <= 53)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9047619047619048[(h_0,376 <= 10) AND (h_0,247 <= 16) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,370 <= 4.6807737) AND (h_0,411 > 186) AND (h_0,462 > 2) AND (h_0,233 > 4) AND (h_0,553 <= 0) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8947368421052632[(h_0,444 > 4) AND (h_0,211 > 7.0905542) AND (h_0,743 <= 1) AND (h_0,151 <= 2) AND (h_0,657 > 247.32208) AND (h_0,156 <= 0) AND (h_0,595 <= 10.425243)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.85[(h_0,350 > 84) AND (h_0,177 > 37.80793) AND (h_0,462 > 2) AND (h_0,609 <= 10) AND (h_0,373 <= 0) AND (h_0,516 <= 142.36966) AND (h_0,264 <= 157) AND (h_0,553 <= 0) AND (h_0,499 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,377 <= 23)] THEN OUTPUT_CLASS=7
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9411764705882353[(h_0,247 > 52) AND (h_0,329 <= 94.390465) AND (h_0,743 > 1)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9333333333333333[(h_0,375 > 10) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,470 <= 1) AND (h_0,515 > 7.7229967) AND (h_0,528 <= 2) AND (h_0,481 <= 9) AND (h_0,434 <= 93) AND (h_0,430 <= 134) AND (h_0,511 > 3)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9285714285714286[(h_0,629 <= 2) AND (h_0,543 <= 31) AND (h_0,740 > 0) AND (h_0,405 > 4.115541) AND (h_0,245 > 55)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,406 <= 88) AND (h_0,489 > 1) AND (h_0,372 > 80) AND (h_0,125 <= 16) AND (h_0,462 <= 2) AND (h_0,572 <= 126) AND (h_0,359 <= 27) AND (h_0,598 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,713 > 1.0239191) AND (h_0,377 <= 196) AND (h_0,379 <= 0) AND (h_0,357 <= 132) AND (h_0,743 <= 1) AND (h_0,463 <= 69) AND (h_0,462 <= 2) AND (h_0,493 <= 2) AND (h_0,740 <= 0) AND (h_0,471 <= 22)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9973684210526316[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,265 <= 171) AND (h_0,294 <= 141) AND (h_0,331 <= 18) AND (h_0,483 <= 251) AND (h_0,266 <= 139.01939) AND (h_0,300 <= 57) AND (h_0,296 <= 2.357619) AND (h_0,120 <= 4) AND (h_0,462 <= 2) AND (h_0,174 <= 151) AND (h_0,298 <= 27) AND (h_0,299 <= 75) AND (h_0,357 <= 214) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9933993399339934[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,331 <= 18) AND (h_0,300 <= 57) AND (h_0,243 <= 86) AND (h_0,296 <= 2.357619) AND (h_0,161 > 6) AND (h_0,357 <= 214) AND (h_0,75 <= 1) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.993103448275862[(h_0,471 <= 28) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,321 > 28) AND (h_0,276 > 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9921259842519685[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,191 > 36) AND (h_0,571 <= 6) AND (h_0,331 <= 18) AND (h_0,210 > 1) AND (h_0,299 <= 47) AND (h_0,462 <= 2)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9444444444444444[(h_0,351 > 58) AND (h_0,217 > 120) AND (h_0,471 <= 28) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,441 <= 24) AND (h_0,317 > 7) AND (h_0,404 <= 47)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9743589743589743[(h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,713 > 2) AND (h_0,347 <= 1.8082929) AND (h_0,580 > 57)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9732142857142857[(h_0,102 <= 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,595 > 1.0170894) AND (h_0,324 > 88) AND (h_0,347 > 1.8082929) AND (h_0,276 <= 0) AND (h_0,99 <= 2) AND (h_0,515 <= 7.7229967) AND (h_0,191 <= 7) AND (h_0,485 <= 40)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9701492537313433[(h_0,290 <= 51) AND (h_0,287 <= 52) AND (h_0,405 > 119) AND (h_0,488 <= 35) AND (h_0,381 > 12) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,569 > 9) AND (h_0,657 > 5.0613775) AND (h_0,483 <= 151.35851) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.96875[(h_0,485 <= 94) AND (h_0,210 <= 1) AND (h_0,626 <= 4) AND (h_0,653 > 14) AND (h_0,462 <= 2) AND (h_0,343 <= 62) AND (h_0,740 <= 0) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9692832764505119[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,297 <= 240.00169) AND (h_0,462 <= 2) AND (h_0,245 <= 79) AND (h_0,162 <= 57) AND (h_0,267 > 64) AND (h_0,711 <= 195) AND (h_0,295 > 191) AND (h_0,329 <= 143) AND (h_0,429 <= 3) AND (h_0,746 <= 4) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9682539682539683[(h_0,372 <= 79) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,578 > 120) AND (h_0,743 <= 1) AND (h_0,713 > 2) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9655172413793104[(h_0,707 <= 1) AND (h_0,316 <= 5) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,737 <= 0) AND (h_0,154 <= 0) AND (h_0,350 <= 84) AND (h_0,653 > 68) AND (h_0,349 <= 67) AND (h_0,238 > 9) AND (h_0,716 <= 5) AND (h_0,347 <= 1.8082929) AND (h_0,517 <= 61)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9661016949152542[(h_0,151 > 2) AND (h_0,381 > 12) AND (h_0,371 <= 171) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,512 <= 104) AND (h_0,569 <= 9) AND (h_0,130 <= 19) AND (h_0,345 <= 24) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9649122807017544[(h_0,372 <= 79) AND (h_0,350 > 84) AND (h_0,685 <= 2) AND (h_0,553 > 0) AND (h_0,144 > 5)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8611111111111112[(h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,430 <= 100) AND (h_0,376 > 19.186138) AND (h_0,355 > 197) AND (h_0,104 <= 8) AND (h_0,481 > 9)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9957805907172996[(h_0,710 <= 60) AND (h_0,102 <= 0) AND (h_0,295 <= 249.3743) AND (h_0,125 <= 252) AND (h_0,402 <= 4) AND (h_0,706 <= 14) AND (h_0,66 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,462 > 2) AND (h_0,319 > 0) AND (h_0,405 > 2) AND (h_0,434 > 93) AND (h_0,515 > 7.7229967) AND (h_0,469 <= 1) AND (h_0,99 <= 2) AND (h_0,376 > 6.2511687) AND (h_0,707 <= 8) AND (h_0,460 > 10)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9951267056530214[(h_0,295 <= 249.3743) AND (h_0,325 > 31) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,638 <= 2) AND (h_0,430 <= 186.32666) AND (h_0,319 > 0) AND (h_0,434 > 93) AND (h_0,515 > 7.7229967) AND (h_0,657 > 16) AND (h_0,469 <= 1) AND (h_0,376 > 6.2511687)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.993006993006993[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,350 > 84) AND (h_0,329 > 0) AND (h_0,293 > 7.3479714) AND (h_0,470 <= 30) AND (h_0,453 <= 99) AND (h_0,233 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,465 <= 253.10309) AND (h_0,486 > 0.045554254)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9833333333333333[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,163 <= 0.033175658) AND (h_0,331 <= 18) AND (h_0,245 > 79) AND (h_0,297 <= 240.00169) AND (h_0,462 <= 2) AND (h_0,299 <= 238.48677) AND (h_0,296 > 2.357619) AND (h_0,329 <= 143) AND (h_0,290 > 122) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9821428571428571[(h_0,155 <= 69) AND (h_0,567 > 18) AND (h_0,462 > 2) AND (h_0,211 <= 7.0905542) AND (h_0,188 <= 252) AND (h_0,295 > 153.31293) AND (h_0,349 > 189) AND (h_0,456 <= 142) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9808306709265175[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,243 > 86) AND (h_0,331 <= 18) AND (h_0,300 <= 57) AND (h_0,296 <= 2.357619) AND (h_0,462 <= 2) AND (h_0,299 <= 75) AND (h_0,357 <= 214) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9807692307692307[(h_0,569 > 9) AND (h_0,381 > 12) AND (h_0,211 > 7.0905542) AND (h_0,355 <= 66) AND (h_0,100 <= 1) AND (h_0,220 > 3) AND (h_0,657 <= 5.0613775) AND (h_0,708 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9795918367346939[(h_0,264 > 201) AND (h_0,406 <= 88) AND (h_0,72 <= 0) AND (h_0,324 > 111) AND (h_0,261 <= 225) AND (h_0,104 <= 163) AND (h_0,272 <= 228) AND (h_0,462 <= 2) AND (h_0,130 > 104) AND (h_0,322 > 1) AND (h_0,457 <= 178) AND (h_0,431 <= 247.09239)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9803149606299213[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,293 <= 194) AND (h_0,207 > 3.2386761) AND (h_0,146 <= 18) AND (h_0,316 > 73) AND (h_0,571 <= 6) AND (h_0,331 <= 18) AND (h_0,492 <= 63) AND (h_0,210 > 1) AND (h_0,462 <= 2) AND (h_0,746 <= 4) AND (h_0,432 <= 73) AND (h_0,297 <= 153) AND (h_0,329 <= 119.46252)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9803921568627451[(h_0,373 <= 0) AND (h_0,191 > 7) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967) AND (h_0,485 <= 40) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9426751592356688[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,571 <= 6) AND (h_0,331 <= 18) AND (h_0,492 <= 63) AND (h_0,210 > 1) AND (h_0,290 > 139) AND (h_0,462 <= 2) AND (h_0,325 <= 164) AND (h_0,346 > 116) AND (h_0,201 <= 25) AND (h_0,329 <= 119.46252) AND (h_0,316 <= 73) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9433962264150944[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,180 <= 3) AND (h_0,656 > 5) AND (h_0,485 <= 40) AND (h_0,516 <= 42) AND (h_0,347 > 1.8082929) AND (h_0,324 <= 43) AND (h_0,276 <= 0) AND (h_0,518 <= 104) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9411764705882353[(h_0,492 > 63) AND (h_0,354 <= 148) AND (h_0,347 > 168) AND (h_0,626 <= 4) AND (h_0,210 > 1) AND (h_0,462 <= 2) AND (h_0,680 > 1)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9982788296041308[(h_0,207 > 152) AND (h_0,69 > 0) AND (h_0,267 <= 59) AND (h_0,321 <= 251) AND (h_0,213 <= 1)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9966666666666667[(h_0,462 > 2) AND (h_0,571 > 217) AND (h_0,103 > 1) AND (h_0,535 <= 25) AND (h_0,100 <= 1) AND (h_0,271 <= 11) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9967105263157895[(h_0,72 <= 0) AND (h_0,69 > 0) AND (h_0,267 <= 59) AND (h_0,537 <= 26) AND (h_0,321 <= 251) AND (h_0,213 <= 1)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9963898916967509[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,99 > 2) AND (h_0,528 <= 2) AND (h_0,347 > 1.8082929) AND (h_0,544 > 26) AND (h_0,597 <= 62) AND (h_0,403 > 121)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.995850622406639[(h_0,373 > 0) AND (h_0,437 <= 38) AND (h_0,462 > 2) AND (h_0,211 <= 7.0905542) AND (h_0,100 <= 1) AND (h_0,96 > 19)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9961479198767335[(h_0,269 <= 91.437836) AND (h_0,572 > 2) AND (h_0,462 > 2) AND (h_0,485 > 1.0629326) AND (h_0,245 <= 150) AND (h_0,271 <= 8) AND (h_0,100 > 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9942857142857143[(h_0,462 > 2) AND (h_0,499 > 105) AND (h_0,267 <= 133) AND (h_0,386 > 101) AND (h_0,211 <= 7.0905542) AND (h_0,425 <= 15)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.993421052631579[(h_0,544 > 15) AND (h_0,462 > 2) AND (h_0,97 > 3) AND (h_0,69 <= 0) AND (h_0,185 <= 15) AND (h_0,100 <= 1) AND (h_0,211 <= 204) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9931856899488927[(h_0,269 <= 91.437836) AND (h_0,572 > 2) AND (h_0,462 > 2) AND (h_0,245 <= 150) AND (h_0,516 > 13) AND (h_0,271 <= 8) AND (h_0,100 > 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9924050632911392[(h_0,155 <= 69) AND (h_0,462 > 2) AND (h_0,266 <= 225) AND (h_0,267 <= 133) AND (h_0,125 > 8) AND (h_0,100 <= 1) AND (h_0,96 > 35) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9785202863961814[(h_0,429 <= 4.0921988) AND (h_0,329 <= 0) AND (h_0,411 <= 4.1304026) AND (h_0,494 <= 16) AND (h_0,156 > 26) AND (h_0,75 <= 1) AND (h_0,150 > 39) AND (h_0,493 <= 3.9105239) AND (h_0,347 <= 1.8082929) AND (h_0,434 > 85)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9771784232365145[(h_0,638 > 2) AND (h_0,656 <= 219) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,737 <= 0) AND (h_0,515 > 7.7229967) AND (h_0,659 <= 62) AND (h_0,104 <= 8)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9770114942528736[(h_0,243 > 4) AND (h_0,289 <= 8) AND (h_0,72 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9626168224299065[(h_0,372 <= 79) AND (h_0,710 <= 1.2304417) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,713 <= 2) AND (h_0,350 <= 84) AND (h_0,291 <= 232) AND (h_0,180 > 3) AND (h_0,349 <= 67) AND (h_0,431 <= 169.38765) AND (h_0,716 <= 5) AND (h_0,544 > 6) AND (h_0,347 <= 1.8082929) AND (h_0,632 > 3)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9629629629629629[(h_0,269 <= 152) AND (h_0,267 > 59) AND (h_0,72 <= 0) AND (h_0,69 > 0) AND (h_0,318 <= 7)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9607843137254902[(h_0,271 <= 8) AND (h_0,245 > 150) AND (h_0,462 > 2) AND (h_0,100 > 1)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.954954954954955[(h_0,271 > 8) AND (h_0,72 <= 0) AND (h_0,318 <= 192) AND (h_0,462 > 2) AND (h_0,100 > 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,295 <= 249.3743) AND (h_0,373 <= 0) AND (h_0,270 > 7) AND (h_0,638 <= 2) AND (h_0,429 <= 5) AND (h_0,319 > 0) AND (h_0,434 > 93) AND (h_0,376 <= 6.2511687) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,710 <= 23) AND (h_0,707 <= 8) AND (h_0,656 <= 181)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9491525423728814[(h_0,72 <= 0) AND (h_0,462 > 2) AND (h_0,269 > 91.437836) AND (h_0,100 > 1) AND (h_0,126 > 105) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9454545454545454[(h_0,129 > 15) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,211 <= 7.0905542) AND (h_0,100 <= 1) AND (h_0,657 <= 4) AND (h_0,155 > 69) AND (h_0,331 <= 77)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9444444444444444[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,376 <= 19.186138) AND (h_0,347 > 1.8082929) AND (h_0,481 > 9)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9444444444444444[(h_0,373 > 0) AND (h_0,72 <= 0) AND (h_0,462 > 2) AND (h_0,201 <= 23.042498) AND (h_0,412 <= 2.0733187) AND (h_0,381 <= 12) AND (h_0,97 <= 3) AND (h_0,380 <= 52) AND (h_0,302 <= 48) AND (h_0,570 <= 64) AND (h_0,471 > 28)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9393939393939394[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,192 <= 10) AND (h_0,709 <= 113) AND (h_0,455 > 65) AND (h_0,331 <= 18) AND (h_0,300 > 57) AND (h_0,296 <= 2.357619) AND (h_0,291 <= 209) AND (h_0,462 <= 2) AND (h_0,499 <= 252) AND (h_0,324 <= 77) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9375[(h_0,118 <= 18) AND (h_0,489 > 1) AND (h_0,379 <= 0) AND (h_0,176 > 69) AND (h_0,382 <= 127) AND (h_0,324 <= 111) AND (h_0,462 <= 2) AND (h_0,465 <= 1) AND (h_0,359 <= 27)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9333333333333333[(h_0,379 > 0) AND (h_0,659 <= 63) AND (h_0,485 > 94) AND (h_0,266 <= 138) AND (h_0,331 <= 18) AND (h_0,743 <= 1) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,648 <= 8) AND (h_0,429 > 19) AND (h_0,246 <= 6) AND (h_0,656 <= 11) AND (h_0,601 > 7.1496034) AND (h_0,487 <= 19) AND (h_0,270 > 49)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9310344827586207[(h_0,379 <= 0) AND (h_0,299 <= 253) AND (h_0,462 <= 2) AND (h_0,387 <= 119) AND (h_0,557 > 22)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9240506329113924[(h_0,379 > 0) AND (h_0,431 > 4) AND (h_0,106 <= 51) AND (h_0,411 <= 110) AND (h_0,572 > 1) AND (h_0,462 <= 2) AND (h_0,681 <= 10) AND (h_0,717 <= 3) AND (h_0,487 > 19) AND (h_0,228 <= 8) AND (h_0,656 <= 6.68085) AND (h_0,242 > 143) AND (h_0,319 <= 145.46494) AND (h_0,248 <= 24)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,372 <= 15) AND (h_0,255 <= 34) AND (h_0,483 <= 20) AND (h_0,324 > 111) AND (h_0,293 <= 23) AND (h_0,379 <= 0) AND (h_0,681 <= 146) AND (h_0,719 <= 8) AND (h_0,743 <= 1) AND (h_0,713 <= 1.0239191) AND (h_0,430 <= 15.375971) AND (h_0,462 <= 2) AND (h_0,322 <= 1) AND (h_0,212 > 11.594625) AND (h_0,710 <= 3) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,210 <= 156) AND (h_0,102 <= 0) AND (h_0,470 > 1) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,638 <= 2) AND (h_0,743 <= 1) AND (h_0,69 <= 0) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,99 <= 2) AND (h_0,324 <= 171)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,567 > 118) AND (h_0,72 <= 0) AND (h_0,462 > 2) AND (h_0,103 > 1) AND (h_0,265 <= 4.2818413) AND (h_0,75 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=2
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9032258064516129[(h_0,232 <= 171) AND (h_0,379 > 0) AND (h_0,485 <= 94) AND (h_0,158 <= 140) AND (h_0,248 <= 0) AND (h_0,329 <= 143) AND (h_0,462 <= 2) AND (h_0,297 > 240.00169) AND (h_0,290 > 122) AND (h_0,624 <= 65) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9[(h_0,638 > 24) AND (h_0,489 > 1) AND (h_0,379 <= 0) AND (h_0,465 > 1) AND (h_0,598 <= 4) AND (h_0,573 <= 236) AND (h_0,462 <= 2) AND (h_0,93 <= 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,716 > 57) AND (h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,657 <= 5.0613775) AND (h_0,708 <= 6) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,156 > 24) AND (h_0,416 <= 37) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,553 <= 23) AND (h_0,211 <= 7.0905542) AND (h_0,97 <= 3) AND (h_0,100 <= 1) AND (h_0,657 <= 4) AND (h_0,155 > 69) AND (h_0,129 <= 15) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8666666666666667[(h_0,406 <= 88) AND (h_0,489 <= 1) AND (h_0,627 <= 8) AND (h_0,324 <= 111) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,183 > 92) AND (h_0,242 > 10.356112) AND (h_0,464 > 181)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,567 <= 40) AND (h_0,489 > 1) AND (h_0,379 <= 0) AND (h_0,465 > 1) AND (h_0,598 <= 4) AND (h_0,573 <= 236) AND (h_0,713 <= 1.0239191) AND (h_0,183 > 131) AND (h_0,462 <= 2) AND (h_0,208 > 98)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8387096774193549[(h_0,706 > 14) AND (h_0,376 > 103.49749) AND (h_0,486 <= 144) AND (h_0,370 <= 4.6807737) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8181818181818182[(h_0,695 > 148) AND (h_0,373 > 0) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8095238095238095[(h_0,464 > 235) AND (h_0,357 <= 59) AND (h_0,569 > 9) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,103 <= 1) AND (h_0,688 > 32) AND (h_0,657 <= 5.0613775) AND (h_0,740 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8[(h_0,606 <= 24) AND (h_0,373 <= 0) AND (h_0,318 > 14) AND (h_0,293 <= 247) AND (h_0,518 > 104) AND (h_0,485 <= 40) AND (h_0,182 > 160) AND (h_0,347 > 1.8082929) AND (h_0,276 <= 0) AND (h_0,515 <= 7.7229967) AND (h_0,162 <= 44) AND (h_0,517 <= 77) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=9
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.98[(h_0,248 > 5) AND (h_0,210 > 37) AND (h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,606 <= 16.405785) AND (h_0,242 <= 94) AND (h_0,569 <= 9) AND (h_0,269 <= 160) AND (h_0,156 <= 0) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,210 > 134) AND (h_0,213 <= 94.04586) AND (h_0,376 <= 235) AND (h_0,288 <= 129) AND (h_0,412 > 2.0733187) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,746 <= 21) AND (h_0,381 <= 12) AND (h_0,678 <= 5) AND (h_0,97 <= 3) AND (h_0,499 <= 191) AND (h_0,100 <= 1) AND (h_0,567 <= 28) AND (h_0,595 <= 32) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9642857142857143[(h_0,462 > 2) AND (h_0,484 > 2) AND (h_0,103 > 1) AND (h_0,100 <= 1) AND (h_0,567 <= 118) AND (h_0,265 <= 4.2818413) AND (h_0,75 <= 1) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9607843137254902[(h_0,570 <= 110.45159) AND (h_0,536 <= 2.4830289) AND (h_0,381 > 12) AND (h_0,103 <= 1) AND (h_0,151 <= 2) AND (h_0,208 <= 31.215437) AND (h_0,156 > 0) AND (h_0,355 <= 208) AND (h_0,569 <= 9) AND (h_0,100 <= 1) AND (h_0,235 <= 95.151604) AND (h_0,595 <= 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9565217391304348[(h_0,714 <= 28) AND (h_0,315 <= 170.28334) AND (h_0,99 <= 2) AND (h_0,212 <= 180) AND (h_0,102 <= 0) AND (h_0,578 <= 111) AND (h_0,499 <= 60) AND (h_0,267 <= 119) AND (h_0,518 <= 104) AND (h_0,177 <= 102.31638) AND (h_0,515 <= 7.7229967) AND (h_0,485 <= 40) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,347 > 1.8082929) AND (h_0,276 <= 0) AND (h_0,517 <= 7) AND (h_0,656 <= 5)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9534883720930233[(h_0,632 <= 0) AND (h_0,212 <= 22) AND (h_0,376 > 1) AND (h_0,373 <= 0) AND (h_0,350 <= 152) AND (h_0,462 > 2) AND (h_0,518 > 104) AND (h_0,69 <= 0) AND (h_0,347 > 1.8082929) AND (h_0,276 <= 0) AND (h_0,99 <= 2) AND (h_0,515 <= 7.7229967) AND (h_0,191 <= 7) AND (h_0,485 <= 40) AND (h_0,740 <= 0) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9534883720930233[(h_0,293 <= 0.30155319) AND (h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,465 > 220) AND (h_0,743 <= 1) AND (h_0,210 <= 3) AND (h_0,370 > 4.6807737)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9523809523809523[(h_0,377 <= 214.29868) AND (h_0,102 <= 0) AND (h_0,430 > 186.32666) AND (h_0,716 <= 27) AND (h_0,325 > 41) AND (h_0,706 <= 14) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,595 <= 47) AND (h_0,125 <= 3) AND (h_0,515 > 7.7229967) AND (h_0,347 > 1.8082929) AND (h_0,99 <= 2) AND (h_0,376 > 6.2511687) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,351 > 58) AND (h_0,177 <= 25) AND (h_0,462 > 2) AND (h_0,350 <= 123.3881) AND (h_0,412 <= 2.0733187) AND (h_0,578 <= 82) AND (h_0,317 <= 7) AND (h_0,381 <= 12) AND (h_0,276 <= 6) AND (h_0,219 <= 8) AND (h_0,740 <= 0) AND (h_0,378 <= 187) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,567 <= 40) AND (h_0,489 > 1) AND (h_0,97 <= 1) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,638 <= 24) AND (h_0,433 <= 143) AND (h_0,573 <= 236) AND (h_0,598 <= 4) AND (h_0,713 <= 1.0239191) AND (h_0,93 <= 0) AND (h_0,710 <= 3) AND (h_0,462 <= 2) AND (h_0,72 <= 0) AND (h_0,465 > 1) AND (h_0,324 <= 111) AND (h_0,183 <= 131) AND (h_0,359 <= 27) AND (h_0,716 <= 8) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=4
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9555555555555556[(h_0,498 <= 47) AND (h_0,433 > 109) AND (h_0,373 <= 0) AND (h_0,349 > 67) AND (h_0,350 <= 84) AND (h_0,462 > 43) AND (h_0,75 <= 1) AND (h_0,347 <= 1.8082929) AND (h_0,380 > 44) AND (h_0,464 <= 246)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9504950495049505[(h_0,379 > 0) AND (h_0,315 > 14) AND (h_0,514 > 21) AND (h_0,408 > 20) AND (h_0,375 > 250.21194) AND (h_0,359 <= 14) AND (h_0,656 > 6.68085) AND (h_0,459 > 73) AND (h_0,487 > 19) AND (h_0,453 <= 15)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.95[(h_0,248 > 5) AND (h_0,606 > 16.405785) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,192 <= 12) AND (h_0,156 <= 0) AND (h_0,595 <= 10.425243)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9469026548672567[(h_0,357 <= 242) AND (h_0,656 > 11) AND (h_0,429 > 19) AND (h_0,565 <= 66) AND (h_0,518 <= 49) AND (h_0,329 <= 158) AND (h_0,487 <= 19) AND (h_0,120 <= 54) AND (h_0,379 > 0) AND (h_0,427 <= 38) AND (h_0,517 <= 5) AND (h_0,612 <= 107) AND (h_0,350 > 6) AND (h_0,462 <= 2) AND (h_0,266 <= 252.43169) AND (h_0,649 <= 8) AND (h_0,485 > 94) AND (h_0,457 > 109) AND (h_0,162 <= 8)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9459459459459459[(h_0,595 <= 10.425243) AND (h_0,345 > 3.1863115) AND (h_0,553 <= 11) AND (h_0,210 > 37) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,287 > 17) AND (h_0,737 <= 0) AND (h_0,437 <= 44) AND (h_0,151 <= 2) AND (h_0,444 <= 4) AND (h_0,433 > 11) AND (h_0,740 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9411764705882353[(h_0,596 <= 82) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,318 > 14) AND (h_0,347 > 17.298803) AND (h_0,517 > 77) AND (h_0,743 <= 1) AND (h_0,293 <= 247) AND (h_0,683 <= 250.30156) AND (h_0,515 <= 7.7229967) AND (h_0,632 > 0) AND (h_0,740 <= 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9411764705882353[(h_0,127 <= 228) AND (h_0,345 > 24) AND (h_0,151 > 2) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,180 > 166) AND (h_0,176 <= 104) AND (h_0,512 <= 104) AND (h_0,182 > 6) AND (h_0,585 <= 22) AND (h_0,683 <= 183) AND (h_0,437 <= 171) AND (h_0,595 <= 10.425243) AND (h_0,681 <= 47) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9375[(h_0,209 > 5.2166777) AND (h_0,517 > 251) AND (h_0,345 > 3.1863115) AND (h_0,437 > 44) AND (h_0,211 > 7.0905542) AND (h_0,687 > 175) AND (h_0,543 <= 189) AND (h_0,743 <= 1) AND (h_0,433 > 11) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9354838709677419[(h_0,429 <= 4.0921988) AND (h_0,329 <= 0) AND (h_0,494 <= 16) AND (h_0,379 <= 249.49927) AND (h_0,350 > 84) AND (h_0,206 <= 1.1256564) AND (h_0,177 <= 37.80793) AND (h_0,410 <= 16) AND (h_0,354 > 19) AND (h_0,347 <= 1.8082929) AND (h_0,434 > 85)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9347826086956522[(h_0,332 > 3) AND (h_0,381 > 12) AND (h_0,66 <= 0) AND (h_0,295 <= 153.31293) AND (h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,371 <= 39) AND (h_0,737 <= 0) AND (h_0,100 <= 1) AND (h_0,740 <= 0) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,379 > 0) AND (h_0,431 > 4) AND (h_0,462 <= 2) AND (h_0,228 > 8) AND (h_0,487 > 19) AND (h_0,656 <= 6.68085)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,103 <= 1) AND (h_0,462 > 2) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,569 <= 9) AND (h_0,512 > 70) AND (h_0,595 > 10.425243) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,596 > 1) AND (h_0,379 > 0) AND (h_0,462 <= 2) AND (h_0,331 > 18) AND (h_0,470 <= 100) AND (h_0,484 > 141) AND (h_0,487 <= 19) AND (h_0,386 <= 28)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8571428571428571[(h_0,379 > 0) AND (h_0,431 > 4) AND (h_0,572 > 1) AND (h_0,462 <= 2) AND (h_0,487 > 19) AND (h_0,656 <= 6.68085) AND (h_0,242 > 143) AND (h_0,319 > 145.46494) AND (h_0,248 <= 24)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8333333333333334[(h_0,485 > 94) AND (h_0,612 <= 14) AND (h_0,462 <= 2) AND (h_0,431 > 221) AND (h_0,429 <= 19) AND (h_0,75 <= 1) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8333333333333334[(h_0,72 <= 0) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 > 4.6807737) AND (h_0,103 <= 3) AND (h_0,598 > 175) AND (h_0,485 > 211)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8181818181818182[(h_0,567 > 28) AND (h_0,412 > 2.0733187) AND (h_0,462 > 2) AND (h_0,687 > 7) AND (h_0,381 <= 12) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7818181818181819[(h_0,607 > 80) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,494 > 16) AND (h_0,177 <= 37.80793) AND (h_0,297 > 7) AND (h_0,553 <= 0) AND (h_0,627 > 4)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7777777777777778[(h_0,379 > 0) AND (h_0,514 > 21) AND (h_0,382 > 8) AND (h_0,408 <= 20) AND (h_0,656 > 6.68085) AND (h_0,359 <= 14) AND (h_0,459 > 73) AND (h_0,487 > 19) AND (h_0,291 <= 25)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7083333333333334[(h_0,210 > 134) AND (h_0,412 > 2.0733187) AND (h_0,737 <= 0) AND (h_0,462 > 2) AND (h_0,381 <= 12) AND (h_0,288 > 129) AND (h_0,522 <= 126) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=8
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,379 > 0) AND (h_0,492 > 63) AND (h_0,626 <= 4) AND (h_0,210 > 1) AND (h_0,347 <= 168) AND (h_0,462 <= 2) AND (h_0,680 > 1) AND (h_0,191 <= 36) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.92[(h_0,373 <= 0) AND (h_0,380 > 91) AND (h_0,370 <= 4.6807737) AND (h_0,350 > 84) AND (h_0,329 > 0) AND (h_0,293 <= 7.3479714) AND (h_0,295 <= 133) AND (h_0,177 <= 37.80793) AND (h_0,553 <= 0) AND (h_0,233 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,514 <= 241)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,572 <= 15) AND (h_0,151 > 2) AND (h_0,462 > 2) AND (h_0,162 <= 3) AND (h_0,569 <= 9) AND (h_0,683 > 183) AND (h_0,681 <= 47) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.6348314606741573[(h_0,372 <= 79) AND (h_0,498 <= 47) AND (h_0,231 > 1) AND (h_0,349 > 67) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.5348837209302325[(h_0,707 > 14) AND (h_0,350 > 93) AND (h_0,381 <= 12)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9861111111111112[(h_0,372 <= 79) AND (h_0,513 <= 9) AND (h_0,154 > 0) AND (h_0,489 > 29) AND (h_0,349 <= 67) AND (h_0,544 <= 0.32325742) AND (h_0,294 <= 56) AND (h_0,405 > 104) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9857142857142858[(h_0,515 <= 20.215134) AND (h_0,219 <= 114.22903) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,607 <= 80) AND (h_0,494 > 16) AND (h_0,297 > 7) AND (h_0,469 <= 1) AND (h_0,233 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,627 > 4)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9848484848484849[(h_0,266 <= 209) AND (h_0,154 > 2.2187531) AND (h_0,373 <= 0) AND (h_0,350 > 84) AND (h_0,320 <= 88) AND (h_0,370 <= 4.6807737) AND (h_0,609 <= 10) AND (h_0,233 > 4) AND (h_0,499 <= 4) AND (h_0,683 > 153) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9836065573770492[(h_0,324 > 111) AND (h_0,246 <= 104) AND (h_0,339 <= 5) AND (h_0,154 <= 254.11928) AND (h_0,457 <= 178) AND (h_0,427 <= 36) AND (h_0,431 <= 247.09239) AND (h_0,464 <= 207) AND (h_0,267 > 18) AND (h_0,433 <= 73) AND (h_0,261 <= 225) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,162 <= 8) AND (h_0,713 <= 1.0239191) AND (h_0,314 <= 174) AND (h_0,255 <= 34) AND (h_0,272 <= 4) AND (h_0,130 <= 104) AND (h_0,322 > 1) AND (h_0,716 <= 8)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9836065573770492[(h_0,429 <= 4.0921988) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,516 <= 43) AND (h_0,105 <= 63) AND (h_0,410 <= 16) AND (h_0,551 <= 2.4634004) AND (h_0,553 <= 0) AND (h_0,493 > 3.9105239) AND (h_0,626 > 8) AND (h_0,296 > 44.231812) AND (h_0,347 <= 1.8082929) AND (h_0,434 > 85) AND (h_0,300 <= 3.0214944)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9842381786339754[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,656 > 5) AND (h_0,485 <= 40) AND (h_0,291 <= 48) AND (h_0,516 <= 42) AND (h_0,180 > 3) AND (h_0,518 <= 104) AND (h_0,191 <= 7) AND (h_0,515 <= 7.7229967)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8985507246376812[(h_0,345 > 24) AND (h_0,293 > 251) AND (h_0,151 > 2) AND (h_0,381 > 12) AND (h_0,211 > 7.0905542) AND (h_0,512 <= 104) AND (h_0,569 <= 9) AND (h_0,97 <= 3) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8936170212765957[(h_0,536 <= 2.4830289) AND (h_0,211 > 7.0905542) AND (h_0,462 > 2) AND (h_0,381 > 12) AND (h_0,679 > 126) AND (h_0,156 > 0) AND (h_0,569 <= 9) AND (h_0,208 > 31.215437) AND (h_0,595 <= 10.425243)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,379 > 0) AND (h_0,514 <= 21) AND (h_0,454 <= 10) AND (h_0,518 > 24) AND (h_0,462 <= 2) AND (h_0,656 > 6.68085) AND (h_0,487 > 19) AND (h_0,516 > 80.167099)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,174 > 28) AND (h_0,528 <= 2) AND (h_0,347 > 1.8082929) AND (h_0,434 <= 93) AND (h_0,386 <= 64)] THEN OUTPUT_CLASS=3
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9487678339818417[(h_0,72 <= 0) AND (h_0,377 <= 196) AND (h_0,357 > 132) AND (h_0,66 <= 0) AND (h_0,379 <= 0) AND (h_0,743 <= 1) AND (h_0,462 <= 2) AND (h_0,493 <= 2) AND (h_0,740 <= 0) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9945615227736234[(h_0,339 <= 5) AND (h_0,146 <= 6) AND (h_0,379 <= 0) AND (h_0,713 <= 1.0239191) AND (h_0,231 <= 226) AND (h_0,707 <= 2) AND (h_0,710 <= 3) AND (h_0,406 <= 88) AND (h_0,516 <= 127) AND (h_0,161 <= 123) AND (h_0,120 <= 2) AND (h_0,256 <= 1) AND (h_0,462 <= 2) AND (h_0,678 <= 82) AND (h_0,464 <= 181) AND (h_0,408 <= 37) AND (h_0,627 > 0) AND (h_0,489 <= 1) AND (h_0,221 <= 6) AND (h_0,378 <= 92) AND (h_0,103 <= 31) AND (h_0,324 <= 77)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9972222222222222[(h_0,412 > 2.0733187) AND (h_0,103 <= 1) AND (h_0,569 > 173) AND (h_0,156 > 1) AND (h_0,381 <= 12) AND (h_0,485 > 106) AND (h_0,100 <= 1) AND (h_0,567 <= 28) AND (h_0,437 <= 190.33414) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.990582191780822[(h_0,567 > 28) AND (h_0,412 > 2.0733187) AND (h_0,72 <= 0) AND (h_0,329 > 36) AND (h_0,103 <= 1) AND (h_0,428 > 16) AND (h_0,381 <= 12) AND (h_0,69 <= 0) AND (h_0,687 <= 7) AND (h_0,293 > 31.21183) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9904336734693877[(h_0,406 <= 88) AND (h_0,737 <= 0) AND (h_0,375 > 3) AND (h_0,379 <= 0) AND (h_0,489 <= 1) AND (h_0,221 <= 6) AND (h_0,324 <= 111) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,93 <= 0) AND (h_0,242 > 10.356112) AND (h_0,627 > 8) AND (h_0,710 <= 3)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9881016765819362[(h_0,409 <= 130) AND (h_0,72 <= 0) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,324 <= 111) AND (h_0,359 > 27) AND (h_0,713 <= 1.0239191) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,707 <= 2) AND (h_0,121 <= 11) AND (h_0,716 <= 8) AND (h_0,710 <= 3)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9872139973082099[(h_0,666 <= 33) AND (h_0,339 <= 5) AND (h_0,146 <= 6) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,690 <= 179) AND (h_0,713 <= 1.0239191) AND (h_0,557 <= 22) AND (h_0,93 <= 0) AND (h_0,707 <= 2) AND (h_0,710 <= 3) AND (h_0,406 <= 88) AND (h_0,256 <= 1) AND (h_0,462 <= 2) AND (h_0,241 > 2.2055037) AND (h_0,464 <= 181) AND (h_0,408 <= 37) AND (h_0,72 <= 0) AND (h_0,489 <= 1) AND (h_0,221 <= 6) AND (h_0,324 <= 111) AND (h_0,378 <= 92) AND (h_0,743 <= 1) AND (h_0,103 <= 31) AND (h_0,716 <= 8)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9872309376140095[(h_0,406 <= 88) AND (h_0,379 <= 0) AND (h_0,351 <= 1) AND (h_0,427 > 36) AND (h_0,462 <= 2) AND (h_0,713 <= 1.0239191) AND (h_0,96 <= 5) AND (h_0,707 <= 2) AND (h_0,627 > 104) AND (h_0,710 <= 3)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9411764705882353[(h_0,267 > 18) AND (h_0,431 > 247.09239) AND (h_0,324 > 111) AND (h_0,379 <= 0) AND (h_0,273 <= 19.057547) AND (h_0,462 <= 2) AND (h_0,457 <= 178) AND (h_0,740 <= 0) AND (h_0,232 <= 24)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,430 > 34.310234) AND (h_0,406 <= 88) AND (h_0,324 > 111) AND (h_0,719 <= 8) AND (h_0,379 <= 0) AND (h_0,743 <= 1) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,322 > 1) AND (h_0,464 > 207) AND (h_0,710 <= 3) AND (h_0,746 <= 3)] THEN OUTPUT_CLASS=0
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.96[(h_0,414 <= 124) AND (h_0,290 > 51) AND (h_0,355 <= 87) AND (h_0,488 <= 35) AND (h_0,211 > 7.0905542) AND (h_0,381 > 12) AND (h_0,462 > 2) AND (h_0,569 > 9) AND (h_0,657 > 5.0613775) AND (h_0,100 <= 1) AND (h_0,325 <= 167) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9583333333333334[(h_0,379 > 0) AND (h_0,459 <= 8) AND (h_0,298 <= 22) AND (h_0,160 > 6) AND (h_0,462 <= 2) AND (h_0,487 > 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9924433249370277[(h_0,383 <= 20) AND (h_0,471 <= 28) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,273 > 4) AND (h_0,381 <= 12) AND (h_0,485 <= 140) AND (h_0,515 <= 173) AND (h_0,351 <= 58) AND (h_0,517 <= 174) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9889570552147239[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,151 <= 119) AND (h_0,294 <= 141) AND (h_0,331 <= 18) AND (h_0,483 <= 251) AND (h_0,300 <= 57) AND (h_0,296 <= 2.357619) AND (h_0,120 <= 4) AND (h_0,462 <= 2) AND (h_0,174 <= 151) AND (h_0,298 <= 27) AND (h_0,299 <= 75) AND (h_0,357 <= 214) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9889196675900277[(h_0,485 <= 94) AND (h_0,379 > 0) AND (h_0,266 <= 3) AND (h_0,331 <= 18) AND (h_0,300 <= 57) AND (h_0,296 <= 2.357619) AND (h_0,462 <= 2) AND (h_0,299 <= 75) AND (h_0,205 > 41) AND (h_0,487 <= 19) AND (h_0,626 > 4)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.988155668358714[(h_0,373 > 0) AND (h_0,462 > 2) AND (h_0,106 <= 25) AND (h_0,412 <= 2.0733187) AND (h_0,743 <= 1) AND (h_0,381 <= 12) AND (h_0,485 <= 140) AND (h_0,515 <= 173) AND (h_0,321 <= 67) AND (h_0,100 <= 1) AND (h_0,517 <= 174) AND (h_0,173 <= 1) AND (h_0,351 <= 58) AND (h_0,740 <= 0) AND (h_0,410 <= 134)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9868995633187773[(h_0,471 <= 28) AND (h_0,462 > 2) AND (h_0,412 <= 2.0733187) AND (h_0,304 > 2) AND (h_0,381 <= 12) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9861751152073732[(h_0,219 > 0.35121116) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,347 > 1.8082929) AND (h_0,515 <= 7.7229967) AND (h_0,485 <= 40) AND (h_0,354 <= 6.4485407)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,379 > 0) AND (h_0,431 <= 221) AND (h_0,485 > 94) AND (h_0,331 <= 18) AND (h_0,201 <= 4) AND (h_0,289 > 77) AND (h_0,69 <= 0) AND (h_0,462 <= 2) AND (h_0,429 <= 19) AND (h_0,487 <= 19)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,596 > 1) AND (h_0,379 > 0) AND (h_0,454 <= 23) AND (h_0,180 <= 87) AND (h_0,484 <= 141) AND (h_0,462 <= 2) AND (h_0,331 > 18) AND (h_0,487 <= 19) AND (h_0,386 <= 28)] THEN OUTPUT_CLASS=5
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8682170542635659[(h_0,427 > 36) AND (h_0,127 <= 126) AND (h_0,96 > 5) AND (h_0,324 > 111)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8481012658227848[(h_0,516 > 127) AND (h_0,103 <= 31) AND (h_0,489 <= 1) AND (h_0,221 <= 6) AND (h_0,324 <= 111) AND (h_0,256 <= 1) AND (h_0,601 > 29) AND (h_0,146 <= 6) AND (h_0,241 <= 2.2055037)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8461538461538461[(h_0,462 > 2) AND (h_0,162 > 252.71898) AND (h_0,381 <= 12) AND (h_0,130 <= 1) AND (h_0,135 > 51) AND (h_0,351 <= 58) AND (h_0,485 > 140) AND (h_0,373 > 0)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8333333333333334[(h_0,370 > 4.6807737) AND (h_0,103 > 3) AND (h_0,462 > 2) AND (h_0,210 > 3)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8181818181818182[(h_0,489 > 1) AND (h_0,379 <= 0) AND (h_0,359 > 27) AND (h_0,713 <= 1.0239191) AND (h_0,462 <= 2) AND (h_0,409 > 130)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7654320987654321[(h_0,324 > 111) AND (h_0,267 <= 18) AND (h_0,359 <= 146) AND (h_0,462 <= 2) AND (h_0,270 <= 12) AND (h_0,322 > 1) AND (h_0,515 > 250.47894)] THEN OUTPUT_CLASS=6
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9818181818181818[(h_0,707 <= 1) AND (h_0,683 <= 0.36443651) AND (h_0,679 > 2) AND (h_0,373 <= 0) AND (h_0,370 <= 4.6807737) AND (h_0,465 <= 124) AND (h_0,210 <= 3) AND (h_0,349 <= 67) AND (h_0,347 <= 1.8082929)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9743863393810032[(h_0,318 <= 93) AND (h_0,290 <= 2.402199) AND (h_0,135 <= 76) AND (h_0,434 > 93) AND (h_0,515 > 7.7229967) AND (h_0,544 > 13) AND (h_0,99 <= 2) AND (h_0,580 <= 32) AND (h_0,149 <= 62) AND (h_0,102 <= 0) AND (h_0,276 <= 60) AND (h_0,295 > 249.3743) AND (h_0,468 <= 195) AND (h_0,528 <= 2) AND (h_0,376 > 5) AND (h_0,708 <= 221) AND (h_0,373 <= 0) AND (h_0,409 <= 253.45735) AND (h_0,351 > 80) AND (h_0,575 <= 254) AND (h_0,462 > 2) AND (h_0,481 <= 9) AND (h_0,104 <= 8)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9644[(h_0,372 <= 79) AND (h_0,296 > 214.45511) AND (h_0,411 <= 4.1304026) AND (h_0,737 <= 0) AND (h_0,350 > 84) AND (h_0,551 <= 2.4634004) AND (h_0,537 <= 4) AND (h_0,329 <= 0) AND (h_0,494 <= 16) AND (h_0,233 <= 4) AND (h_0,373 <= 0) AND (h_0,177 <= 37.80793) AND (h_0,220 <= 0) AND (h_0,347 <= 1.8082929) AND (h_0,75 <= 1) AND (h_0,740 <= 0) AND (h_0,462 > 2) AND (h_0,609 <= 10) AND (h_0,276 <= 3)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9909672563041023[(h_0,163 <= 24) AND (h_0,429 <= 4.0921988) AND (h_0,329 <= 0) AND (h_0,350 > 84) AND (h_0,462 > 2) AND (h_0,635 <= 14) AND (h_0,551 <= 2.4634004) AND (h_0,177 <= 37.80793) AND (h_0,410 <= 16) AND (h_0,712 <= 14) AND (h_0,220 <= 0) AND (h_0,233 <= 4) AND (h_0,493 <= 3.9105239) AND (h_0,300 <= 3.0214944) AND (h_0,276 <= 3) AND (h_0,347 <= 1.8082929) AND (h_0,434 > 85) AND (h_0,158 <= 9)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9906735751295337[(h_0,317 <= 16) AND (h_0,350 > 84) AND (h_0,714 <= 34) AND (h_0,627 <= 4) AND (h_0,329 <= 0) AND (h_0,233 <= 4) AND (h_0,373 <= 0) AND (h_0,66 <= 0) AND (h_0,177 <= 37.80793) AND (h_0,375 <= 31) AND (h_0,469 <= 1) AND (h_0,499 <= 4) AND (h_0,347 <= 1.8082929) AND (h_0,740 <= 0) AND (h_0,515 <= 20.215134) AND (h_0,219 <= 114.22903) AND (h_0,462 > 2) AND (h_0,370 <= 4.6807737) AND (h_0,609 <= 10) AND (h_0,276 <= 3)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9904761904761905[(h_0,297 <= 108) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,293 > 247) AND (h_0,743 <= 1) AND (h_0,518 > 104) AND (h_0,347 > 1.8082929) AND (h_0,187 <= 14.132538) AND (h_0,515 <= 7.7229967) AND (h_0,632 > 0) AND (h_0,547 > 52) AND (h_0,219 <= 0.35121116)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9285714285714286[(h_0,379 > 0) AND (h_0,629 <= 172.21158) AND (h_0,688 <= 42) AND (h_0,72 <= 0) AND (h_0,659 <= 127) AND (h_0,381 <= 32) AND (h_0,517 <= 50) AND (h_0,462 <= 2) AND (h_0,572 <= 1) AND (h_0,487 > 19) AND (h_0,303 <= 7) AND (h_0,350 > 63) AND (h_0,656 <= 6.68085)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,102 <= 0) AND (h_0,578 > 111) AND (h_0,315 <= 170.28334) AND (h_0,373 <= 0) AND (h_0,462 > 2) AND (h_0,516 <= 42) AND (h_0,347 > 1.8082929) AND (h_0,681 <= 164) AND (h_0,518 <= 104) AND (h_0,656 <= 5) AND (h_0,485 <= 40) AND (h_0,219 <= 0.35121116) AND (h_0,291 > 175.05432)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9[(h_0,520 <= 126) AND (h_0,406 <= 88) AND (h_0,489 > 1) AND (h_0,72 <= 0) AND (h_0,379 <= 0) AND (h_0,383 <= 112) AND (h_0,462 <= 2) AND (h_0,359 <= 27) AND (h_0,433 > 143)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,379 > 0) AND (h_0,155 <= 43) AND (h_0,712 <= 76) AND (h_0,408 <= 20) AND (h_0,679 <= 7) AND (h_0,462 <= 2) AND (h_0,656 > 6.68085) AND (h_0,359 <= 14) AND (h_0,487 > 19) AND (h_0,291 <= 25)] THEN OUTPUT_CLASS=1
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:Finished rule extraction alpa
+Took 3544.4515887179996 sec and 4331.94140625 MB of memory.
+DEBUG:rea.extraction.extraction:Saved 573 rules to disc.
+DEBUG:rea.evaluation.evaluation:Created new Evaluation instance. Loading model from model/conv.
+DEBUG:rea.evaluation.evaluation:Loading prediction instance from alpa_rules/conv/rule_classifier.pickle.
+DEBUG:rea.evaluation.evaluation:Loaded rules and metrics from alpa_rules/conv.
+DEBUG:rea.data.data:Created new Data instance.
+DEBUG:rea.evaluation.evaluation:Starting default evaluation.
+2022-03-03 12:07:14.234235: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-03 12:07:15.373067: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+2022-03-03 12:09:40.115852: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 307328000 exceeds 10% of free system memory.
+
+   1/1532 [..............................] - ETA: 41:45 - loss: 1.2033e-06 - accuracy: 1.0000
+  15/1532 [..............................] - ETA: 5s - loss: 0.0093 - accuracy: 0.9958       
+  31/1532 [..............................] - ETA: 5s - loss: 0.0136 - accuracy: 0.9950
+  47/1532 [..............................] - ETA: 4s - loss: 0.0093 - accuracy: 0.9967
+  64/1532 [>.............................] - ETA: 4s - loss: 0.0081 - accuracy: 0.9966
+  81/1532 [>.............................] - ETA: 4s - loss: 0.0079 - accuracy: 0.9965
+  97/1532 [>.............................] - ETA: 4s - loss: 0.0073 - accuracy: 0.9968
+ 113/1532 [=>............................] - ETA: 4s - loss: 0.0067 - accuracy: 0.9972
+ 129/1532 [=>............................] - ETA: 4s - loss: 0.0063 - accuracy: 0.9976
+ 145/1532 [=>............................] - ETA: 4s - loss: 0.0073 - accuracy: 0.9970
+ 161/1532 [==>...........................] - ETA: 4s - loss: 0.0072 - accuracy: 0.9969
+ 178/1532 [==>...........................] - ETA: 4s - loss: 0.0067 - accuracy: 0.9970
+ 194/1532 [==>...........................] - ETA: 4s - loss: 0.0064 - accuracy: 0.9973
+ 210/1532 [===>..........................] - ETA: 4s - loss: 0.0064 - accuracy: 0.9972
+ 226/1532 [===>..........................] - ETA: 4s - loss: 0.0060 - accuracy: 0.9974
+ 241/1532 [===>..........................] - ETA: 4s - loss: 0.0067 - accuracy: 0.9974
+ 258/1532 [====>.........................] - ETA: 4s - loss: 0.0063 - accuracy: 0.9976
+ 275/1532 [====>.........................] - ETA: 3s - loss: 0.0068 - accuracy: 0.9973
+ 292/1532 [====>.........................] - ETA: 3s - loss: 0.0065 - accuracy: 0.9973
+ 309/1532 [=====>........................] - ETA: 3s - loss: 0.0063 - accuracy: 0.9975
+ 325/1532 [=====>........................] - ETA: 3s - loss: 0.0063 - accuracy: 0.9975
+ 342/1532 [=====>........................] - ETA: 3s - loss: 0.0062 - accuracy: 0.9975
+ 359/1532 [======>.......................] - ETA: 3s - loss: 0.0060 - accuracy: 0.9976
+ 376/1532 [======>.......................] - ETA: 3s - loss: 0.0061 - accuracy: 0.9977
+ 392/1532 [======>.......................] - ETA: 3s - loss: 0.0058 - accuracy: 0.9978
+ 409/1532 [=======>......................] - ETA: 3s - loss: 0.0056 - accuracy: 0.9979
+ 426/1532 [=======>......................] - ETA: 3s - loss: 0.0057 - accuracy: 0.9979
+ 443/1532 [=======>......................] - ETA: 3s - loss: 0.0057 - accuracy: 0.9979
+ 460/1532 [========>.....................] - ETA: 3s - loss: 0.0055 - accuracy: 0.9980
+ 477/1532 [========>.....................] - ETA: 3s - loss: 0.0053 - accuracy: 0.9980
+ 494/1532 [========>.....................] - ETA: 3s - loss: 0.0051 - accuracy: 0.9981
+ 511/1532 [=========>....................] - ETA: 3s - loss: 0.0051 - accuracy: 0.9981
+ 528/1532 [=========>....................] - ETA: 3s - loss: 0.0054 - accuracy: 0.9980
+ 545/1532 [=========>....................] - ETA: 3s - loss: 0.0053 - accuracy: 0.9981
+ 562/1532 [==========>...................] - ETA: 3s - loss: 0.0052 - accuracy: 0.9981
+ 579/1532 [==========>...................] - ETA: 2s - loss: 0.0051 - accuracy: 0.9982
+ 596/1532 [==========>...................] - ETA: 2s - loss: 0.0049 - accuracy: 0.9982
+ 613/1532 [===========>..................] - ETA: 2s - loss: 0.0049 - accuracy: 0.9983
+ 630/1532 [===========>..................] - ETA: 2s - loss: 0.0050 - accuracy: 0.9983
+ 647/1532 [===========>..................] - ETA: 2s - loss: 0.0050 - accuracy: 0.9983
+ 664/1532 [============>.................] - ETA: 2s - loss: 0.0049 - accuracy: 0.9983
+ 681/1532 [============>.................] - ETA: 2s - loss: 0.0048 - accuracy: 0.9983
+ 698/1532 [============>.................] - ETA: 2s - loss: 0.0047 - accuracy: 0.9983
+ 714/1532 [============>.................] - ETA: 2s - loss: 0.0048 - accuracy: 0.9983
+ 731/1532 [=============>................] - ETA: 2s - loss: 0.0048 - accuracy: 0.9983
+ 748/1532 [=============>................] - ETA: 2s - loss: 0.0047 - accuracy: 0.9983
+ 765/1532 [=============>................] - ETA: 2s - loss: 0.0048 - accuracy: 0.9983
+ 782/1532 [==============>...............] - ETA: 2s - loss: 0.0051 - accuracy: 0.9982
+ 799/1532 [==============>...............] - ETA: 2s - loss: 0.0050 - accuracy: 0.9982
+ 816/1532 [==============>...............] - ETA: 2s - loss: 0.0050 - accuracy: 0.9982
+ 833/1532 [===============>..............] - ETA: 2s - loss: 0.0050 - accuracy: 0.9982
+ 850/1532 [===============>..............] - ETA: 2s - loss: 0.0049 - accuracy: 0.9982
+ 867/1532 [===============>..............] - ETA: 2s - loss: 0.0053 - accuracy: 0.9981
+ 884/1532 [================>.............] - ETA: 2s - loss: 0.0052 - accuracy: 0.9981
+ 901/1532 [================>.............] - ETA: 1s - loss: 0.0053 - accuracy: 0.9981
+ 919/1532 [================>.............] - ETA: 1s - loss: 0.0052 - accuracy: 0.9981
+ 937/1532 [=================>............] - ETA: 1s - loss: 0.0052 - accuracy: 0.9981
+ 955/1532 [=================>............] - ETA: 1s - loss: 0.0053 - accuracy: 0.9980
+ 972/1532 [==================>...........] - ETA: 1s - loss: 0.0052 - accuracy: 0.9980
+ 989/1532 [==================>...........] - ETA: 1s - loss: 0.0051 - accuracy: 0.9981
+1006/1532 [==================>...........] - ETA: 1s - loss: 0.0051 - accuracy: 0.9981
+1023/1532 [===================>..........] - ETA: 1s - loss: 0.0051 - accuracy: 0.9981
+1040/1532 [===================>..........] - ETA: 1s - loss: 0.0051 - accuracy: 0.9981
+1057/1532 [===================>..........] - ETA: 1s - loss: 0.0057 - accuracy: 0.9981
+1075/1532 [====================>.........] - ETA: 1s - loss: 0.0056 - accuracy: 0.9981
+1092/1532 [====================>.........] - ETA: 1s - loss: 0.0056 - accuracy: 0.9981
+1109/1532 [====================>.........] - ETA: 1s - loss: 0.0055 - accuracy: 0.9981
+1126/1532 [=====================>........] - ETA: 1s - loss: 0.0055 - accuracy: 0.9981
+1143/1532 [=====================>........] - ETA: 1s - loss: 0.0054 - accuracy: 0.9982
+1160/1532 [=====================>........] - ETA: 1s - loss: 0.0054 - accuracy: 0.9982
+1177/1532 [======================>.......] - ETA: 1s - loss: 0.0053 - accuracy: 0.9982
+1195/1532 [======================>.......] - ETA: 1s - loss: 0.0052 - accuracy: 0.9982
+1212/1532 [======================>.......] - ETA: 0s - loss: 0.0051 - accuracy: 0.9983
+1230/1532 [=======================>......] - ETA: 0s - loss: 0.0052 - accuracy: 0.9982
+1248/1532 [=======================>......] - ETA: 0s - loss: 0.0051 - accuracy: 0.9983
+1265/1532 [=======================>......] - ETA: 0s - loss: 0.0050 - accuracy: 0.9983
+1283/1532 [========================>.....] - ETA: 0s - loss: 0.0050 - accuracy: 0.9983
+1300/1532 [========================>.....] - ETA: 0s - loss: 0.0050 - accuracy: 0.9983
+1317/1532 [========================>.....] - ETA: 0s - loss: 0.0062 - accuracy: 0.9981
+1334/1532 [=========================>....] - ETA: 0s - loss: 0.0072 - accuracy: 0.9979
+1351/1532 [=========================>....] - ETA: 0s - loss: 0.0074 - accuracy: 0.9979
+1369/1532 [=========================>....] - ETA: 0s - loss: 0.0082 - accuracy: 0.9978
+1386/1532 [==========================>...] - ETA: 0s - loss: 0.0088 - accuracy: 0.9977
+1404/1532 [==========================>...] - ETA: 0s - loss: 0.0093 - accuracy: 0.9976
+1421/1532 [==========================>...] - ETA: 0s - loss: 0.0098 - accuracy: 0.9976
+1438/1532 [===========================>..] - ETA: 0s - loss: 0.0109 - accuracy: 0.9974
+1455/1532 [===========================>..] - ETA: 0s - loss: 0.0111 - accuracy: 0.9974
+1472/1532 [===========================>..] - ETA: 0s - loss: 0.0122 - accuracy: 0.9973
+1490/1532 [============================>.] - ETA: 0s - loss: 0.0126 - accuracy: 0.9972
+1507/1532 [============================>.] - ETA: 0s - loss: 0.0133 - accuracy: 0.9971
+1524/1532 [============================>.] - ETA: 0s - loss: 0.0137 - accuracy: 0.9971
+1532/1532 [==============================] - 6s 3ms/step - loss: 0.0137 - accuracy: 0.9971
+DEBUG:rea.evaluation.evaluation:Evaluated train.
+
+  1/657 [..............................] - ETA: 12s - loss: 1.6300e-05 - accuracy: 1.0000
+ 19/657 [..............................] - ETA: 1s - loss: 0.0586 - accuracy: 0.9852     
+ 37/657 [>.............................] - ETA: 1s - loss: 0.0533 - accuracy: 0.9865
+ 55/657 [=>............................] - ETA: 1s - loss: 0.0593 - accuracy: 0.9852
+ 73/657 [==>...........................] - ETA: 1s - loss: 0.0616 - accuracy: 0.9846
+ 91/657 [===>..........................] - ETA: 1s - loss: 0.0647 - accuracy: 0.9852
+109/657 [===>..........................] - ETA: 1s - loss: 0.0677 - accuracy: 0.9848
+127/657 [====>.........................] - ETA: 1s - loss: 0.0670 - accuracy: 0.9857
+145/657 [=====>........................] - ETA: 1s - loss: 0.0636 - accuracy: 0.9866
+163/657 [======>.......................] - ETA: 1s - loss: 0.0645 - accuracy: 0.9866
+181/657 [=======>......................] - ETA: 1s - loss: 0.0713 - accuracy: 0.9853
+199/657 [========>.....................] - ETA: 1s - loss: 0.0700 - accuracy: 0.9852
+217/657 [========>.....................] - ETA: 1s - loss: 0.0685 - accuracy: 0.9856
+235/657 [=========>....................] - ETA: 1s - loss: 0.0691 - accuracy: 0.9860
+253/657 [==========>...................] - ETA: 1s - loss: 0.0654 - accuracy: 0.9867
+271/657 [===========>..................] - ETA: 1s - loss: 0.0708 - accuracy: 0.9863
+289/657 [============>.................] - ETA: 1s - loss: 0.0694 - accuracy: 0.9864
+307/657 [=============>................] - ETA: 0s - loss: 0.0694 - accuracy: 0.9866
+325/657 [=============>................] - ETA: 0s - loss: 0.0692 - accuracy: 0.9868
+343/657 [==============>...............] - ETA: 0s - loss: 0.0672 - accuracy: 0.9872
+361/657 [===============>..............] - ETA: 0s - loss: 0.0667 - accuracy: 0.9871
+379/657 [================>.............] - ETA: 0s - loss: 0.0658 - accuracy: 0.9871
+397/657 [=================>............] - ETA: 0s - loss: 0.0642 - accuracy: 0.9873
+415/657 [=================>............] - ETA: 0s - loss: 0.0642 - accuracy: 0.9873
+433/657 [==================>...........] - ETA: 0s - loss: 0.0659 - accuracy: 0.9872
+451/657 [===================>..........] - ETA: 0s - loss: 0.0653 - accuracy: 0.9873
+469/657 [====================>.........] - ETA: 0s - loss: 0.0642 - accuracy: 0.9875
+487/657 [=====================>........] - ETA: 0s - loss: 0.0667 - accuracy: 0.9872
+505/657 [======================>.......] - ETA: 0s - loss: 0.0663 - accuracy: 0.9873
+523/657 [======================>.......] - ETA: 0s - loss: 0.0663 - accuracy: 0.9874
+541/657 [=======================>......] - ETA: 0s - loss: 0.0660 - accuracy: 0.9873
+559/657 [========================>.....] - ETA: 0s - loss: 0.0671 - accuracy: 0.9872
+577/657 [=========================>....] - ETA: 0s - loss: 0.0664 - accuracy: 0.9871
+595/657 [==========================>...] - ETA: 0s - loss: 0.0665 - accuracy: 0.9871
+613/657 [==========================>...] - ETA: 0s - loss: 0.0658 - accuracy: 0.9873
+631/657 [===========================>..] - ETA: 0s - loss: 0.0652 - accuracy: 0.9873
+649/657 [============================>.] - ETA: 0s - loss: 0.0651 - accuracy: 0.9873
+657/657 [==============================] - 2s 3ms/step - loss: 0.0645 - accuracy: 0.9874
+DEBUG:rea.evaluation.evaluation:Evaluated test.

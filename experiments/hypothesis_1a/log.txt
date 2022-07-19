@@ -1,0 +1,1 @@
+C:\Users\User\.virtualenvs\D_ALPAR_ENV\Scripts\python.exe: No module named rea

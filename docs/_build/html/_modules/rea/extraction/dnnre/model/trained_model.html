@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rea.extraction.dnnre.model.trained_model &#8212; REA 2022 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+          <div class="body" role="main">
+
+  <h1>Source code for rea.extraction.dnnre.model.trained_model</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Represent trained Neural Network model</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">tensorflow.keras.models</span> <span class="k">as</span> <span class="nn">models</span>
+
+<span class="kn">from</span> <span class="nn">..dnnre_misc</span> <span class="kn">import</span> <span class="n">DataValues</span><span class="p">,</span> <span class="n">OutputClass</span>
+
+
+<span class="c1"># source code adapted to PEP8 from</span>
+<span class="c1"># https://github.com/sumaiyah/DNN-RE/blob/master/src/model/model.py</span>
+
+<div class="viewcode-block" id="TrainedModel"><a class="viewcode-back" href="../../../../../rea.extraction.dnnre.model.html#rea.extraction.dnnre.model.trained_model.TrainedModel">[docs]</a><span class="k">class</span> <span class="nc">TrainedModel</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represent trained neural network model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_classes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OutputClass</span><span class="p">],</span>
+                 <span class="n">train_data</span><span class="p">:</span> <span class="n">DataValues</span><span class="p">,</span>
+                 <span class="n">test_data</span><span class="p">:</span> <span class="n">DataValues</span><span class="p">,</span>
+                 <span class="n">activations_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activations_path</span> <span class="o">=</span> <span class="n">activations_path</span>
+
+        <span class="c1"># self.col_names = col_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_classes</span> <span class="o">=</span> <span class="n">output_classes</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># DNF rule for each output class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_data</span> <span class="o">=</span> <span class="n">train_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_data</span> <span class="o">=</span> <span class="n">test_data</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__compute_layerwise_activations</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__compute_layerwise_activations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Store sampled activations for each layer in CSV files</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># todo make this method work for func and non func keras models</span>
+        <span class="c1"># Input features of training data</span>
+        <span class="n">data_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_data</span><span class="o">.</span><span class="n">X</span>
+
+        <span class="c1"># Sample network at each layer</span>
+        <span class="k">for</span> <span class="n">layer_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">):</span>
+            <span class="n">partial_model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span>
+                <span class="n">inputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">inputs</span><span class="p">,</span>
+                <span class="n">outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">layer_index</span><span class="p">]</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+            <span class="c1"># if output_shape is a list, use the first element as output_shape</span>
+            <span class="n">output_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">layer_index</span><span class="p">]</span><span class="o">.</span><span class="n">output_shape</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">output_shape</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">output_shape</span> <span class="o">=</span> <span class="n">output_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># e.g. h_1_0, h_1_1, ...</span>
+            <span class="n">neuron_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer_index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">output_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+            <span class="n">this_activations_path</span> <span class="o">=</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">activations_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer_index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+            <span class="c1"># create file if it doesn&#39;t exist</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">activations_path</span><span class="p">)</span>
+                <span class="nb">open</span><span class="p">(</span><span class="n">this_activations_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+                <span class="nb">open</span><span class="p">(</span><span class="n">this_activations_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="n">activation_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">partial_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data_x</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">neuron_labels</span><span class="p">)</span>
+            <span class="n">activation_values</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">this_activations_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed layerwise activations.&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TrainedModel.get_layer_activations"><a class="viewcode-back" href="../../../../../rea.extraction.dnnre.model.html#rea.extraction.dnnre.model.trained_model.TrainedModel.get_layer_activations">[docs]</a>    <span class="k">def</span> <span class="nf">get_layer_activations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return activation values given layer index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activations_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer_index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TrainedModel.get_layer_activations_of_neuron"><a class="viewcode-back" href="../../../../../rea.extraction.dnnre.model.html#rea.extraction.dnnre.model.trained_model.TrainedModel.get_layer_activations_of_neuron">[docs]</a>    <span class="k">def</span> <span class="nf">get_layer_activations_of_neuron</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                        <span class="n">neuron_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return activation values given layer index,</span>
+<span class="sd">         only return the column for a given neuron index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activations_path</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer_index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span>
+            <span class="s1">&#39;h_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer_index</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">neuron_index</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="TrainedModel.set_rules"><a class="viewcode-back" href="../../../../../rea.extraction.dnnre.model.html#rea.extraction.dnnre.model.trained_model.TrainedModel.set_rules">[docs]</a>    <span class="k">def</span> <span class="nf">set_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="n">rules</span></div>
+
+<div class="viewcode-block" id="TrainedModel.print_rules"><a class="viewcode-back" href="../../../../../rea.extraction.dnnre.model.html#rea.extraction.dnnre.model.trained_model.TrainedModel.print_rules">[docs]</a>    <span class="k">def</span> <span class="nf">print_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../../index.html">REA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+
+    </div>
+
+
+
+
+  </body>
+</html>

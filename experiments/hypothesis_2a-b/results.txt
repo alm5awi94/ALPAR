@@ -1,0 +1,10 @@
+dnnre: test data (training data)
+	nn accuracy 0.98 (0.99)
+	rule accuracy 0.96 (0.97)
+	fidelity 0.94 (0.96)
+	nrules 3
+alpa: test data (training data)
+	nn accuracy 0.98 (0.99)
+	rule accuracy 0.96 (0.98)
+	fidelity 0.94 (0.99)
+	nrules 14

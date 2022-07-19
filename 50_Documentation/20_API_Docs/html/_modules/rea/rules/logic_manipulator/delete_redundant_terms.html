@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rea.rules.logic_manipulator.delete_redundant_terms &#8212; REA 2022 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+
+  <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+          <div class="body" role="main">
+
+  <h1>Source code for rea.rules.logic_manipulator.delete_redundant_terms</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="kn">from</span> <span class="nn">.helpers</span> <span class="kn">import</span> <span class="n">terms_set_to_neuron_dict</span>
+<span class="kn">from</span> <span class="nn">..term</span> <span class="kn">import</span> <span class="n">Term</span><span class="p">,</span> <span class="n">TermOperator</span>
+
+
+<span class="c1"># source code adapted to PEP8 from</span>
+<span class="c1"># https://github.com/sumaiyah/DNN-RE/tree/master/src/logic_manipulator</span>
+<div class="viewcode-block" id="remove_redundant_terms"><a class="viewcode-back" href="../../../../rea.rules.logic_manipulator.html#rea.rules.logic_manipulator.delete_redundant_terms.remove_redundant_terms">[docs]</a><span class="k">def</span> <span class="nf">remove_redundant_terms</span><span class="p">(</span><span class="n">terms</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Term</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Term</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove redundant terms from a clause, returning only the necessary terms</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">neuron_conditions</span> <span class="o">=</span> <span class="n">terms_set_to_neuron_dict</span><span class="p">(</span>
+        <span class="n">terms</span><span class="p">)</span>  <span class="c1"># {Neuron: {TermOperator: [Float]}}</span>
+    <span class="n">necessary_terms</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="c1"># Find most general neuron thresholds, range as general as possible,</span>
+    <span class="c1"># for &#39;&gt;&#39; keep min, for &#39;&lt;=&#39; keep max</span>
+    <span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">neuron_conditions</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">TermOp</span> <span class="ow">in</span> <span class="n">TermOperator</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">neuron_conditions</span><span class="p">[</span><span class="n">neuron</span><span class="p">][</span><span class="n">TermOp</span><span class="p">]:</span>  <span class="c1"># if non-empty list</span>
+                <span class="n">necessary_terms</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                    <span class="n">Term</span><span class="p">(</span><span class="n">neuron</span><span class="p">,</span> <span class="n">TermOp</span><span class="p">,</span> <span class="n">TermOp</span><span class="o">.</span><span class="n">most_general_value</span><span class="p">(</span>
+                        <span class="n">neuron_conditions</span><span class="p">[</span><span class="n">neuron</span><span class="p">][</span><span class="n">TermOp</span><span class="p">])))</span>
+
+    <span class="k">return</span> <span class="n">necessary_terms</span></div>
+</pre></div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../index.html">REA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+
+    </div>
+
+
+
+
+  </body>
+</html>

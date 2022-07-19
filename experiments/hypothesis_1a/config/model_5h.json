@@ -1,0 +1,27 @@
+{
+    "model": {
+        "data_path": "data/",
+        "nwtype": "ff",
+        "hidden_layer_units": [
+            64,
+            65,
+            66,
+            65,
+            64
+        ],
+        "hidden_layer_activations": [
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu"
+        ],
+        "use_class_weights": true,
+        "batch_size": 1,
+        "dropout": 0.2,
+        "val_split": 0.25,
+        "learning_rate": 0.0002,
+        "epochs": 200,
+        "output_path": "model/model_5h"
+    }
+}

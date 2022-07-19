@@ -1,0 +1,29 @@
+{
+  "data": {
+    "input_path": "../datasets/mnist.csv",
+    "output_path": "data/ff",
+    "test_size": 0.3,
+    "dataset_name": "MNIST",
+    "label_col": 0
+  },
+  "model": {
+    "nwtype": "ff",
+    "data_path": "data/ff",
+    "hidden_layer_units": [
+      392,
+      100
+    ],
+    "hidden_layer_activations": [
+      "relu",
+      "relu"
+    ],
+    "dropout": 0.2,
+    "use_class_weights": true,
+    "batch_size": 4,
+    "learning_rate": 0.0001,
+    "use_decay": false,
+    "epochs": 15,
+    "val_split": 0.15,
+    "output_path": "model/ff"
+  }
+}

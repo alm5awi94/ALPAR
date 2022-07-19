@@ -1,0 +1,314 @@
+2022-03-05 13:05:58.524453: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-03-05 13:05:58.524475: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+DEBUG:rea.configuration:Validating configuration for rule extraction.
+DEBUG:rea.configuration:Validating configuration for evaluation.
+DEBUG:rea.data.data:Created new Data instance.
+DEBUG:rea.extraction.extraction:Starting rule extraction alpa
+2022-03-05 13:06:02.313374: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-03-05 13:06:02.314261: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cublas64_11.dll'; dlerror: cublas64_11.dll not found
+2022-03-05 13:06:02.315127: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cublasLt64_11.dll'; dlerror: cublasLt64_11.dll not found
+2022-03-05 13:06:02.315982: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cufft64_10.dll'; dlerror: cufft64_10.dll not found
+2022-03-05 13:06:02.316991: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'curand64_10.dll'; dlerror: curand64_10.dll not found
+2022-03-05 13:06:02.317905: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cusolver64_11.dll'; dlerror: cusolver64_11.dll not found
+2022-03-05 13:06:02.318762: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cusparse64_11.dll'; dlerror: cusparse64_11.dll not found
+2022-03-05 13:06:02.319613: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2022-03-05 13:06:02.319629: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2022-03-05 13:06:02.319854: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+ 1/13 [=>............................] - ETA: 0s
+13/13 [==============================] - 0s 417us/step
+DEBUG:rea.extraction.alpa.alpa:Found nearest points to 100 valleypoints.
+DEBUG:rea.extraction.alpa.alpa:Generated 40 points (rho=0.1) - fid: 0.96575
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 40 (rho=0.1) new samples (0.96575 > -inf)
+DEBUG:rea.extraction.alpa.alpa:Generated 80 points (rho=0.2) - fid: 0.9728
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 80 (rho=0.2) new samples (0.9728 > 0.96575)
+DEBUG:rea.extraction.alpa.alpa:Generated 119 points (rho=0.3) - fid: 0.97292
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 119 (rho=0.3) new samples (0.97292 > 0.9728)
+DEBUG:rea.extraction.alpa.alpa:Generated 159 points (rho=0.4) - fid: 0.97487
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 159 (rho=0.4) new samples (0.97487 > 0.97292)
+DEBUG:rea.extraction.alpa.alpa:Generated 199 points (rho=0.5) - fid: 0.98325
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 199 (rho=0.5) new samples (0.98325 > 0.97487)
+DEBUG:rea.extraction.alpa.alpa:Generated 239 points (rho=0.6) - fid: 0.96546
+DEBUG:rea.extraction.alpa.alpa:Generated 279 points (rho=0.7) - fid: 0.97637
+DEBUG:rea.extraction.alpa.alpa:Generated 318 points (rho=0.8) - fid: 0.99302
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 318 (rho=0.8) new samples (0.99302 > 0.98325)
+DEBUG:rea.extraction.alpa.alpa:Generated 358 points (rho=0.9) - fid: 0.97619
+DEBUG:rea.extraction.alpa.alpa:Generated 398 points (rho=1.0) - fid: 0.99497
+DEBUG:rea.extraction.alpa.alpa:Found better ruleset for 398 (rho=1.0) new samples (0.99497 > 0.99302)
+DEBUG:rea.extraction.alpa.alpa:Generated 438 points (rho=1.1) - fid: 0.98923
+DEBUG:rea.extraction.alpa.alpa:Generated 478 points (rho=1.2) - fid: 0.97374
+DEBUG:rea.extraction.alpa.alpa:Generated 517 points (rho=1.3) - fid: 0.9847
+DEBUG:rea.extraction.alpa.alpa:Generated 557 points (rho=1.4) - fid: 0.99162
+DEBUG:rea.extraction.alpa.alpa:Generated 597 points (rho=1.5) - fid: 0.98794
+DEBUG:rea.extraction.alpa.alpa:Generated 637 points (rho=1.6) - fid: 0.97874
+DEBUG:rea.extraction.alpa.alpa:Generated 677 points (rho=1.7) - fid: 0.97581
+DEBUG:rea.extraction.alpa.alpa:Generated 716 points (rho=1.8) - fid: 0.99461
+DEBUG:rea.extraction.alpa.alpa:Generated 756 points (rho=1.9) - fid: 0.9922
+DEBUG:rea.extraction.alpa.alpa:Generated 796 points (rho=2.0) - fid: 0.98744
+DEBUG:rea.extraction.alpa.alpa:Generated 836 points (rho=2.1) - fid: 0.98703
+DEBUG:rea.extraction.alpa.alpa:Generated 876 points (rho=2.2) - fid: 0.9843
+DEBUG:rea.extraction.alpa.alpa:Generated 915 points (rho=2.3) - fid: 0.98477
+DEBUG:rea.extraction.alpa.alpa:Generated 955 points (rho=2.4) - fid: 0.98817
+DEBUG:rea.extraction.alpa.alpa:Generated 995 points (rho=2.5) - fid: 0.9921
+DEBUG:rea.extraction.extraction:IF 0.9911504424778761[(h_0,23 > 977.99597)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.991304347826087[(h_0,21 > 26.519758) AND (h_0,23 > 793.70001)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9900990099009901[(h_0,21 > 19.799999) AND (h_0,13 > 46.752827)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9893617021276596[(h_0,13 > 46.081497) AND (h_0,23 > 804.95831)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9814814814814815[(h_0,23 > 823.86981) AND (h_0,25 > 0.39489999)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9795918367346939[(h_0,21 > 26.519758) AND (h_0,27 > 0.1329) AND (h_0,27 <= 0.16875669) AND (h_0,25 > 0.1866) AND (h_0,23 > 720.91199)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9761904761904762[(h_0,21 > 31.59) AND (h_0,25 > 0.33197734)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9473684210526315[(h_0,13 > 25.452349) AND (h_0,23 > 720.91199) AND (h_0,14 <= 0.0046423469)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9230769230769231[(h_0,14 <= 0.0055029425) AND (h_0,21 > 26.34) AND (h_0,18 > 0.03156)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9166666666666666[(h_0,23 > 720.91199) AND (h_0,25 > 0.1866) AND (h_0,15 <= 0.015880547) AND (h_0,21 > 26.519758)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.7510917030567685[(h_0,23 <= 977.99597)] THEN OUTPUT_CLASS=B
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9850746268656716[(h_0,23 <= 804.95831) AND (h_0,21 <= 19.799999)] THEN OUTPUT_CLASS=B
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8888888888888888[(h_0,21 <= 26.519758) AND (h_0,12 > 1.973) AND (h_0,23 > 720.91199) AND (h_0,23 <= 741.59998)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.875[(h_0,21 > 31.59) AND (h_0,27 > 0.091399997) AND (h_0,12 <= 1.646153)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.9917355371900827[(h_0,27 > 0.17394769)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:IF 0.8[(h_0,12 > 1.973) AND (h_0,23 > 720.91199) AND (h_0,21 <= 17.16)] THEN OUTPUT_CLASS=M
+Number of clauses: 1
+DEBUG:rea.extraction.extraction:Finished rule extraction alpa
+Took 9.328125 sec and 149.89453125 MB of memory.
+DEBUG:rea.extraction.extraction:Saved 16 rules to disc.
+DEBUG:rea.evaluation.evaluation:Created new Evaluation instance. Loading model from model.
+DEBUG:rea.evaluation.evaluation:Loading prediction instance from rules/alpa\rule_classifier.pickle.
+DEBUG:rea.evaluation.evaluation:Loaded rules and metrics from rules/alpa.
+DEBUG:rea.data.data:Created new Data instance.
+DEBUG:rea.evaluation.evaluation:Starting default evaluation.
+
+ 1/13 [=>............................] - ETA: 1s - loss: 0.1284 - accuracy: 0.9375
+13/13 [==============================] - 0s 500us/step - loss: 0.1471 - accuracy: 0.9548
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 374
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 286
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 263
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 387
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 436
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 351
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 364
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 374
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 286
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 263
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 387
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 436
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 351
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 364
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 374
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 286
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 263
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 387
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 436
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 351
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 364
+DEBUG:rea.evaluation.evaluation:Evaluated train.
+
+1/6 [====>.........................] - ETA: 0s - loss: 0.0472 - accuracy: 1.0000
+6/6 [==============================] - 0s 400us/step - loss: 0.1240 - accuracy: 0.9825
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 374
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 286
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 263
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 387
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 436
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 351
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 364
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 374
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 286
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 263
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 387
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 436
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 351
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 364
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 374
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 286
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 263
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 387
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 436
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 351
+DEBUG:PIL.PngImagePlugin:STREAM b'IHDR' 16 13
+DEBUG:PIL.PngImagePlugin:STREAM b'sBIT' 41 4
+DEBUG:PIL.PngImagePlugin:b'sBIT' 41 4 (unknown)
+DEBUG:PIL.PngImagePlugin:STREAM b'pHYs' 57 9
+DEBUG:PIL.PngImagePlugin:STREAM b'IDAT' 78 364
+DEBUG:rea.evaluation.evaluation:Evaluated test.
+During startup - Warning message:
+Setting LC_CTYPE=de_DE.UTF-8 failed

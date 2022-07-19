@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rea.extraction.extraction &mdash; REA 2022 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> REA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">REA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>rea.extraction.extraction</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <h1>Source code for rea.extraction.extraction</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">process_time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">memory_profiler</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="kn">from</span> <span class="nn">rea.data.data</span> <span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">from</span> <span class="nn">.alpa.alpa</span> <span class="kn">import</span> <span class="n">Alpa</span>
+<span class="kn">from</span> <span class="nn">.alpa.alpa_c5</span> <span class="kn">import</span> <span class="n">get_c5_rules</span>
+<span class="kn">from</span> <span class="nn">.dnnre.dnnre_misc</span> <span class="kn">import</span> <span class="n">DataValues</span><span class="p">,</span> <span class="n">get_output_classes</span>
+<span class="kn">from</span> <span class="nn">.dnnre.extract_rules.modified_deep_red_C5</span> <span class="kn">import</span> <span class="n">extract_rules</span> <span class="k">as</span> <span class="n">deep_red</span>
+<span class="kn">from</span> <span class="nn">.dnnre.model.trained_model</span> <span class="kn">import</span> <span class="n">TrainedModel</span>
+<span class="kn">from</span> <span class="nn">..configuration</span> <span class="kn">import</span> <span class="n">FileNames</span>
+<span class="kn">from</span> <span class="nn">..processing_module</span> <span class="kn">import</span> <span class="n">ProcessingModule</span>
+<span class="kn">from</span> <span class="nn">..rules.rule</span> <span class="kn">import</span> <span class="n">Rule</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Extraction"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction">[docs]</a><span class="k">class</span> <span class="nc">Extraction</span><span class="p">(</span><span class="n">ProcessingModule</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Module for extracting rules from a trained feed forward neural network.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Extraction.__init__"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">trained_model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">data_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">rules_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract rules from a trained tensorflow model.</span>
+
+<span class="sd">        :param trained_model_path: path where to load the model from</span>
+<span class="sd">        :param data_path: path to the `Data` output folder</span>
+<span class="sd">        :param algorithm: extraction algorithm to use</span>
+<span class="sd">        :param rules_dir: path of folder to save rules and metrics</span>
+<span class="sd">        :param seed: random seed for rule extraction algorithms</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">rules_dir</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trained_model_path</span> <span class="o">=</span> <span class="n">trained_model_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span> <span class="o">=</span> <span class="n">algorithm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;memory&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">:</span> <span class="n">Set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;temp&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Extraction.run"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute the primary module function.</span>
+
+<span class="sd">        :param data: (Optional) Can be provided when using the API mode.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">process_time</span><span class="p">()</span>
+        <span class="n">start_memory</span> <span class="o">=</span> <span class="n">memory_profiler</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting rule extraction </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;dnnre&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_dnnre</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;alpa&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_alpa</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unknown rule extraction algorithm </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">process_time</span><span class="p">()</span>
+        <span class="n">end_memory</span> <span class="o">=</span> <span class="n">memory_profiler</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;algo&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;memory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_memory</span> <span class="o">-</span> <span class="n">start_memory</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished rule extraction </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot;Took </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> sec &quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;memory&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> MB of memory.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_metrics</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_write_rules</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clean_up</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Extraction._write_metrics"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction._write_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">_write_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">metrics_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">FileNames</span><span class="o">.</span><span class="n">METRICS</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">metrics_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Extraction._write_rules"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction._write_rules">[docs]</a>    <span class="k">def</span> <span class="nf">_write_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rules_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">FileNames</span><span class="o">.</span><span class="n">RULES</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">rules_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rules</span><span class="p">)</span><span class="si">}</span><span class="s2"> rules to disc.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Extraction._run_dnnre"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction._run_dnnre">[docs]</a>    <span class="k">def</span> <span class="nf">_run_dnnre</span><span class="p">(</span>
+            <span class="bp">self</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Rule</span><span class="p">]:</span>
+
+        <span class="n">train_data</span> <span class="o">=</span> <span class="n">DataValues</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y_train</span><span class="p">)</span>
+        <span class="n">test_data</span> <span class="o">=</span> <span class="n">DataValues</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">y_test</span><span class="p">)</span>
+        <span class="n">output_classes</span> <span class="o">=</span> <span class="n">get_output_classes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">class_names</span><span class="p">)</span>
+        <span class="n">activations_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_path</span><span class="p">,</span> <span class="s2">&quot;activations&quot;</span><span class="p">)</span>
+        <span class="n">trained_model</span> <span class="o">=</span> <span class="n">TrainedModel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trained_model_path</span><span class="p">,</span> <span class="n">output_classes</span><span class="p">,</span>
+                                     <span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">activations_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">deep_red</span><span class="p">(</span><span class="n">trained_model</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Extraction._run_alpa"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction._run_alpa">[docs]</a>    <span class="k">def</span> <span class="nf">_run_alpa</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="n">Rule</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+        <span class="n">whitebox</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="n">Alpa</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">alpa</span><span class="p">(</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trained_model_path</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+
+        <span class="n">predict_instance_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span>
+                                             <span class="n">FileNames</span><span class="o">.</span><span class="n">PREDICT_INSTANCE</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">predict_instance_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">whitebox</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">rules</span> <span class="o">=</span> <span class="n">get_c5_rules</span><span class="p">(</span><span class="n">whitebox</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rules</span><span class="p">,</span> <span class="n">metrics</span></div>
+
+<div class="viewcode-block" id="Extraction._clean_up"><a class="viewcode-back" href="../../../rea.extraction.html#rea.extraction.extraction.Extraction._clean_up">[docs]</a>    <span class="k">def</span> <span class="nf">_clean_up</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temp_path</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

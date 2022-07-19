@@ -1,0 +1,428 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage[a4paper, top=0.75in, left=0.50cm, right=0.50cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+	
+\setcounter{page}{28}
+
+\hypertarget{user-documentation}{%
+\section{A.4   User Documentation}\label{user-documentation}}
+
+This document describes the installation and usage of the Rule
+Extraction Assistant (REA).
+
+\hypertarget{required-software}{%
+\subsection{Required Software}\label{required-software}}
+
+This project is based on Python and requires \texttt{python3.9}.
+
+In order to install and run REA, the following python packages are
+needed: - \texttt{pandas} - \texttt{numpy} - \texttt{scikit-learn} -
+\texttt{tensorflow} - \texttt{rpy2}
+
+They can be installed using \texttt{pip}, \texttt{venv},
+\texttt{virtualenv}, etc. and the provided \texttt{Pifile} or
+\texttt{requirements.txt}.
+
+The following non-python software is needed for the rule extraction with
+ALPA or DNNRE: - \texttt{R} (programming language/interpreter) - R
+\texttt{C50} package
+
+\hypertarget{example-setup}{%
+\subsubsection{Example Setup}\label{example-setup}}
+
+\begin{itemize}
+\tightlist
+\item
+  Install python using your Linux distributions package manager or from
+  the \href{https://www.python.org/}{official website}
+\item
+  Install R with the C50 library
+
+  \begin{itemize}
+  \tightlist
+  \item
+    intsall \texttt{R} using your Linux distributions package manager or
+    download it from the
+    \href{https://www.r-project.org/about.html}{official website}
+  \item
+    to install \texttt{C5.0}, invoke the \texttt{R} REPL on a command
+    prompt (root privileges might be necessary to write to
+    \texttt{usr/lib})
+  \item
+    type \texttt{install.packages("C50")}
+  \item
+    for this, you may need \texttt{build-essentials} (debian) or at
+    least \texttt{gcc} and \texttt{gfortran}
+  \end{itemize}
+\item
+  Set up the virtual environment
+
+  \begin{itemize}
+  \tightlist
+  \item
+    run \texttt{pipenv\ install\ -\/-python\ 3.9} in the source folder
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{usage}{%
+\subsection{Usage}\label{usage}}
+
+You can use the tool either through its API or through its CLI.
+
+\hypertarget{api}{%
+\subsubsection{API}\label{api}}
+
+The api is documented in the \href{../20_API_Docs/html/index.html}{API
+Documentation}, which is also contained in the \texttt{docs} folder of
+the implementation.
+
+\hypertarget{cli}{%
+\subsubsection{CLI}\label{cli}}
+
+We provide a CLI, which accepts a list of configuration files and
+executes the specified pipeline run. Different runs can be achieved by
+executing the CLI multiple times with different configuration file(s).
+The generated output files of each module can then also be used by other
+programs (provided that they can read the format). Some (advanced)
+examples for the usage of the CLI can be found in the experiments folder
+and the \texttt{run.sh} scripts in the hypothesis folders.
+
+The next section provides you with an overview of all the configuration
+parameters, their data-type, restrictions and also whether they are
+required.
+
+Execute the CLI by running \texttt{python\ -m\ rea\ -h} (in the source
+folder or after installing). This will provide you with some help.
+
+\hypertarget{configuration-format}{%
+\subsection{Configuration Format}\label{configuration-format}}
+
+\hypertarget{global-keys}{%
+\subsubsection{Global Keys}\label{global-keys}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.10}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Key name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Name in Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+optional/required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+description
+\end{minipage} \\
+\midrule
+\endhead
+logging & GlobalKeys.LOGGING & optional & output verbosity. One of the
+python logging modules log levels \\
+seed & GlobalKeys.SEED & optional & seed used by all modules for
+reproducibility \\
+metrics\_filename & GlobalKeys.METRICS\_FILENAME & optional & filename
+for the metrics generated by the extraction module \\
+rules\_filename & GlobalKeys.RULES\_FILENAME & optional & filename for
+the rules generated by the extraction module \\
+predict\_instance\_filename & PREDICT\_INSTANCE\_FILENAME &
+optional & name of the output pickle instance, is being used in
+extraction and evaluation \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{keys-and-outputs-of-the-data-module}{%
+\paragraph{Keys and Outputs of the
+Data-Module}\label{keys-and-outputs-of-the-data-module}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Key name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Name in Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+optional/required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+description
+\end{minipage} \\
+\midrule
+\endhead
+input\_path & DataKeys.INPUT\_PATH & optional & path to the dataset from
+which rules are to be extracted \\
+output\_path & DataKeys.OUTPUT\_PATH & optional & Path to the folder to
+fill with output. If directory doesn't exist, one will be created. \\
+label\_col & DataKeys.LABEL\_COL & optional & index or name of the
+column containing the labels, i.e.~the feature to be predicted \\
+orig\_shape & DataKeys.ORIG\_SHAPE & optional & specifies the original
+shape of the dataset before any conversion \\
+test\_size & DataKeys.TEST\_SIZE & optional & percentage of the data
+used for testing \\
+dataset\_name & DataKeys.DATASET\_NAME & optional & friendly name to
+give to the dataset \\
+cat\_conv\_method & DataKeys.CAT\_CONV\_METHOD & optional & Method for
+categorical conversion \\
+categorical\_columns & DataKeys.CATEGORICAL\_COLUMNS & optional & List
+of categorical columns to be converted in the dataset \\
+scale\_data & DataKeys.SCALE\_DATA & optional & flag to MinMaxScale the
+input data \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+File
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule
+\endhead
+\texttt{x\_train.npy} & Training data in numpy format \\
+\texttt{y\_train.npy} & Trainin labels in numpy format \\
+\texttt{x\_test.npy} & Test data in numpy format \\
+\texttt{y\_test.npy} & Test labels in numpy format \\
+\texttt{encoder.pickle} & Lable encoder, instance of the scikit
+\texttt{LabelEncoder} serialized with pickle \\
+\texttt{metadata.json} & Remaining important fields, like
+\texttt{original\_size} \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{keys-and-output-for-the-model-module}{%
+\subsubsection{Keys and Output for the
+Model-Module}\label{keys-and-output-for-the-model-module}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Key name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Name in Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+optional/required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+description
+\end{minipage} \\
+\midrule
+\endhead
+nwtype & ModelKeys.TYPE & required & The type of network to use (``ff''
+or ``conv'') \\
+hidden\_layer\_units & ModelKeys.HIDDEN\_LAYERS & required & the number
+layers and number of units for each hidden layer \\
+hidden\_layer\_activations & ModelKeys.HIDDEN\_LAYER\_ACTIVATIONS &
+required & specifies the activation function used for each hidden
+layer \\
+conv\_layer\_kernels & ModelKeys.CONV\_LAYER\_KERNELS & required &
+kernel to be used in each layer of a convolutional network \\
+use\_class\_weights & ModelKeys.USE\_CLASS\_WEIGHTS & optional & flag
+that enables or disables precomputed class\_weights \\
+batch\_size & ModelKeys.BATCH\_SIZE & optional & number of samples per
+gradient update \\
+epochs & ModelKeys.EPOCHS & optional & number of epochs to train the
+model \\
+output\_path & ModelKeys.OUTPUT\_PATH & required & path where to save
+the model \\
+learning\_rate & ModelKeys.LEARNING\_RATE & optional & Learning rate for
+adam optimizer or initial learning rate for exponential decay \\
+use\_decay & ModelKeys.USE\_DECAY & optional & flag that enables use of
+adam with exponential decay \\
+dropout & ModelKeys.DROPOUT & optional & Rate for keras \texttt{Dropout}
+layer \\
+val\_split & ModelKeys.VAL\_SPLIT & optional & percentage of the
+training data used for validation \\
+data\_path & ModelKeys.DATA\_PATH & required & path to the \texttt{Data}
+output folder \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1977}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8023}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+File
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule
+\endhead
+\texttt{history.png} & Visualization of training-process measures
+(validation loss/accuracy) \\
+Keras Model Files & The trained tensorflow model \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{keys-and-output-for-the-extraction-module}{%
+\subsubsection{Keys and Output for the
+Extraction-Module}\label{keys-and-output-for-the-extraction-module}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Key name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Name in Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+optional/required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+description
+\end{minipage} \\
+\midrule
+\endhead
+trained\_model\_path & ExtractionKeys.MODEL\_PATH & required & path
+where to load the model from \\
+data\_path & ExtractionKeys.DATA\_PATH & required & path to the
+\texttt{Data} output folder \\
+algorithm & ExtractionKeys.ALGORITHM & required & extraction algorithm
+to use, either ``alpa'' or ``dnnre'' \\
+rules\_dir & ExtractionKeys.OUTPUT\_PATH & required & path of folder to
+save rules and metrics \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2553}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7447}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+File
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Description
+\end{minipage} \\
+\midrule
+\endhead
+\texttt{eval\_metrics.json} & Contains metrics, such as execution time,
+memory and best rho for ALPA \\
+\texttt{rule\_classifier.pickle} & R C5.0 prediction instance serialized
+with pickle \\
+\texttt{rules.bin} & Extracted rules, serialized with pickle from the
+internal format \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{keys-and-output-for-the-evaluation-module}{%
+\subsubsection{Keys and Output for the
+Evaluation-Module}\label{keys-and-output-for-the-evaluation-module}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.4}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Key name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Name in Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+optional/required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+description
+\end{minipage} \\
+\midrule
+\endhead
+trained\_model\_path & EvaluationKeys.MODEL\_PATH & required & path to
+the trained tensorflow model \\
+rules\_dir & EvaluationKeys.RULES\_DIR & required & path to the rules
+folder \\
+data\_path & EvaluationKeys.DATA\_PATH & required & path to the
+\texttt{Data} output folder \\
+evaluation\_dir & EvaluationKeys.OUTPUT\_PATH & required & path of
+folder to save results of evaluation \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}[]{@{}rc@{}}
+\toprule
+File & Description \\
+\midrule
+\endhead
+\texttt{test\_eval.json} & Raw data produced by the evaluation on test
+set \\
+\texttt{test\_eval.md} & Evaluation report (based on raw data) for test
+set \\
+\texttt{train\_eval.json} & Raw data produced by the evaluation on train
+set \\
+\texttt{train\_eval.md} & Evaluation report (based on raw data) for
+train set \\
+confusion matrices & pngs of the confusion matrices \\
+\bottomrule
+\end{longtable}
+
+\end{document}

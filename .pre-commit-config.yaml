@@ -1,0 +1,31 @@
+files: ^40_Realisation/99_Final_System/
+repos:
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.5.7
+    hooks:
+      - id: autopep8
+    # style consistency
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        exclude: "rea/rules/helpers.py"
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      # prevent files over 1MB from being committed
+      - id: check-added-large-files
+        args: [ --maxkb=1024 ]
+      # prevent debug statements from being committed
+      - id: debug-statements
+      - id: detect-private-key
+      # files must end in new line
+      - id: end-of-file-fixer
+        exclude_types: [ xml, jupyter ]
+        # replaces/checks mixed line endings
+      - id: mixed-line-ending
+      # trims trailing whitespace
+      - id: trailing-whitespace
+      # unit test must be named test_*
+      - id: name-tests-test
+        args: [ "--django" ]

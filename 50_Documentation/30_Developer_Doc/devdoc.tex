@@ -1,0 +1,509 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage[a4paper, top=0.75in, left=0.5cm, right=0.50cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\setcounter{page}{31}
+
+
+\hypertarget{developer-documentation}{%
+\section{A.5  Developer Documentation}\label{developer-documentation}}
+
+This is the developer documentation of the Rule Extraction Assistant
+(REA), contained in this repository. It includes: - What are the
+modules? - How do they interact? - Which software patterns have been
+used? - What software-design choices have been made - and why?
+
+\hypertarget{project-structure}{%
+\subsection{Project Structure}\label{project-structure}}
+
+\begin{itemize}
+\tightlist
+\item
+  the source code can be found in
+  \href{../../40_Realisation/99_Final_System/}{\texttt{40\_Realisation/99\_Final\_System}}
+\item
+  The content of the folder is structured as follows:
+\end{itemize}
+
+\hypertarget{root}{%
+\subsubsection{Root}\label{root}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.400}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6000}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule
+\endhead
+\texttt{Pipfile} & Pipfile to be used with pipenv to create the venv
+necessary for development \\
+\texttt{requirements.txt} & List of required python packages. Can be
+used with the venv module \\
+\texttt{.pre-commit-config.yaml} & Configuration for pre-commit hooks \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{experiments-folder}{%
+\subsubsection{Experiments folder}\label{experiments-folder}}
+
+\begin{longtable}[]{@{}rl@{}}
+\toprule
+Name & Purpose \\
+\midrule
+\endhead
+\texttt{experiments} & All experiments/studies conducted using the rea
+tool \\
+\texttt{experiments/datasets} & Datasets used for experiments \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{units-tests}{%
+\subsubsection{Units Tests}\label{units-tests}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule
+\endhead
+\texttt{test} & Unit tests for the rea python module \\
+\texttt{test/resources} & some resources (data, configuration files,
+\ldots) used for the unit tests \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{rea-program}{%
+\subsubsection{REA Program}\label{rea-program}}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7}}@{}}
+\toprule
+\begin{minipage}[b]{\linewidth}\raggedleft
+Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule
+\endhead
+\texttt{rea} & The python code of rea \\
+\texttt{rea/rea.py} & Main python class and cli \\
+\texttt{rea/configuration.py} & Json configuration reader/validator \\
+\texttt{rea/data} & Data loading and preprocessing module \\
+\texttt{rea/model} & Neural network training module \\
+\texttt{rea/extraction} & Rule extraction module \\
+\texttt{rea/extraction/alpa} & ALPA rule extraction algorithm \\
+\texttt{rea/extraction/dnnre} & DNNRE rule extraction algorithm
+(implemented by \href{https://github.com/sumaiyah/DNN-RE/}{sumaiyah}) \\
+\texttt{rea/rules} & DNF rule representation in python (implemented by
+\href{https://github.com/sumaiyah/DNN-RE/}{sumaiyah}) \\
+\texttt{rea/evaluation} & Module and functions for the evaluation of
+extracted rules (fidelity, comprehensibility, accuracy, \ldots) \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{dependencies}{%
+\subsection{Dependencies}\label{dependencies}}
+
+For the execution/building of the project, \texttt{Python\ 3.9} is
+required.
+
+The following python packages are dependencies of rea: - \texttt{pandas}
+- \texttt{numpy} - \texttt{scikit-learn} - \texttt{category\_encoders} -
+\texttt{tensorflow} - \texttt{rpy2} - \texttt{Jinja2}
+
+The following non-python software is needed: - \texttt{R} (programming
+language/interpreter) - R \texttt{C50} package
+
+The following are dependencies only necessary for development: -
+\texttt{pre-commit} - \texttt{flake8} - \texttt{jupyter}
+
+\hypertarget{rd-party-code}{%
+\subsection{3rd Party Code}\label{rd-party-code}}
+
+The code for rea was based on a previous NEidI project implementation of
+Dnnre. However, except for the general pipeline structure and style of
+configuration, there is not much left from this implementation.
+
+The code for dnnre, the rule representation and the rule evaluation is
+taken from \href{https://github.com/sumaiyah/DNN-RE/}{sumaiyah}. Some
+modifications were made, especially the evaluation code was heavily
+modified. The files were also moved to the proper modules. The
+documentation of the modifications can be found at the top of the
+respective files. We note that the repository of sumaiyah has no license
+attached, which prohibits the use of his code for non-private purposes
+in a legal sense. If this project was to be made public, the affected
+part would need to be replaced or the aforementioned author contacted to
+provide an (open-source) license (like Apache-2.0).
+
+\hypertarget{software-design}{%
+\subsection{Software Design}\label{software-design}}
+
+REA follows a modular structure, where each module works independently
+to produce certain output files from given input files (which usually
+are ouputs of other modules), forming a pipeline-like data-flow. The
+pipleine can be configured using a file in \texttt{json} format
+following a certain structure/schema.
+
+This will explain the software design, for information on how to use the
+modules/configuration, refer to the \href{../40_User_Doc/README.md}{user
+documentation}.
+
+\hypertarget{pipeline-structure}{%
+\subsubsection{Pipeline Structure}\label{pipeline-structure}}
+
+The following modules are available: - \texttt{data} - \texttt{model} -
+\texttt{extraction} - \texttt{evaluation}
+
+The \textbf{data} module is the foundation of the pipeline. It will load
+a provided dataset into a pandas dataframe and apply pre-processing
+steps, such as one-hot encoding for labels and weight of evidence
+encoding for categorical features. At the moment, only
+csv(\texttt{.csv}) or hdf5 (\texttt{.hdf5}, \texttt{.h5}) formats are
+supported. It is however easy to add support for another
+pandas-supported format by modifying the loading procedure in
+\texttt{data.py}.
+
+The \textbf{model} module uses \texttt{tensorflow}s \texttt{keras} API
+to construct and train feed-forward or convolutional neural networks on
+a provided dataset. The constructed neural networks are general purpose
+and thus the ability to tailor them to a specific problem is limited.
+Basic parameters, like the number of hidden layers, kernel size, but
+also the learning rate, exponential decay confifguration and also
+dropout factor are exposed in the configuration file. For cases that
+need very well constructed and trained networks, it is recommended to
+supply a pre-trained model to the pipeline. This module can however be
+used for experimenting with the tool, wehere automatic creation of
+networks is advantageous.
+
+The \textbf{extraction} module uses either the dnnre or alpa algorithm
+to extract rules from a trained tensorflow model and the provided data.
+It also collects some metrics, for example the execution time and memory
+consumption, on this process for later evaluation.
+
+The \textbf{evaluation} module calculates some metrics on generated
+rules, the neural network and the extraction algorithm metrics and
+compiles them into markdown reports for the training and test datasets
+respectively.
+
+\hypertarget{pipeline-configuration}{%
+\subsubsection{Pipeline Configuration}\label{pipeline-configuration}}
+
+To describe a (reproducible) pipeline run, configuration file(s) need to
+be supplied for each run. The minimal configuration accepted is the
+global section with the seed and logging level. A minimal \emph{useful}
+configuration additonally contains at least of invoking the data module
+and possibly one of the three other modules. Each module has its own
+section in the configuration file, which follows the json format. In
+each section, the input and output paths are specified. The contents of
+the configuration file can be split into multiple files, allowing the
+combination and re-use of different module configurations. For example,
+one might want to only execute the data module once and then train two
+different networks on the pre-processed dataset.
+
+\hypertarget{api-vs-cli}{%
+\subsubsection{API vs CLI}\label{api-vs-cli}}
+
+We provide a CLI, which accepts a list of configuration files and
+executes the specified pipeline run. Different runs can be achieved by
+executing the CLI multiple times with different configuration file(s).
+The generated output files of each module can then also be used by other
+programs (provided that they can read the format). Some (advanced)
+examples for the usage of the CLI can be found in the experiments
+folder.
+
+Additionally, it is also possible to use the tool through its API by
+importing the rea module in other python projects. It is also possible
+to replace existing modules with custom implementations by inheriting
+from on of the module superclasses.
+
+\hypertarget{development}{%
+\subsection{Development}\label{development}}
+
+\hypertarget{prerequisites}{%
+\subsubsection{Prerequisites}\label{prerequisites}}
+
+\begin{itemize}
+\tightlist
+\item
+  Python 3.9
+\item
+  R with the C50 library
+
+  \begin{itemize}
+  \tightlist
+  \item
+    to install, invoke the \texttt{R} REPL (root privileges might be
+    necessary to write to \texttt{usr/lib})
+  \item
+    type \texttt{install.packages("C50")}
+  \item
+    for this, you may need \texttt{build-essentials} (debian) or
+    \texttt{gcc} and \texttt{gfortran}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{contributing}{%
+\subsubsection{Contributing}\label{contributing}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  create a virtual python environment, for example
+  \texttt{pipenv\ install\ -\/-python\ 3.9}
+\item
+  activate the environment, for example \texttt{pipenv\ shell}
+\item
+  run \texttt{pre-commit\ install} to add the commit hooks to your git
+  hooks
+\item
+  run \texttt{pre-commit\ run\ -\/-all-files} once to apply all hooks
+  for the first time
+\item
+  develop, develop, develop
+\item
+  stage and commit your changes; if you get an error during pre-commit,
+  you need to stage the changes by pre-commit and commit again
+\item
+  push to the remote
+\item
+  goto (4)
+\end{enumerate}
+
+\hypertarget{tests}{%
+\subsubsection{Tests}\label{tests}}
+
+Unit tests for the source code are provided in the \texttt{tests}
+folder. You can use the \texttt{run\_all.sh} script to run them all. We
+use the standard \texttt{unittest} API provided by Python.
+
+\hypertarget{api-documentation}{%
+\subsection{API Documentation}\label{api-documentation}}
+
+Docstrings are provided in the source code, so you can use
+\texttt{pydoc} or the tools of your IDE to read their documentation.
+Beyond that, for developers or other very interested individuals, a lot
+of source-code comments are provided for potentially unclear/complex
+sections.
+
+\hypertarget{in-depth-information}{%
+\subsection{In-Depth Information}\label{in-depth-information}}
+
+\hypertarget{data-folder}{%
+\subsubsection{\texorpdfstring{\texttt{data}
+Folder}{data Folder}}\label{data-folder}}
+
+The \texttt{Data} class implements the preprocessing. Modules which use
+\texttt{Data} for data preprocessing inherit the
+\texttt{ProcessingModule} base class. Data uses \texttt{scikit-learn} to
+split input data into test and training sets and
+\texttt{sklearn.preprocessing.LabelEncoder} for one hot encoding of the
+class labels. To handle nominal or ordinal input data we added an
+interface to scikit-learns \texttt{category\_encoders} package. This
+allows the use of numerous encodings, such as One Hot, Helmert, Leave
+One Out or ordinal. More encoding functions can be easily added
+(dictionary \texttt{Data.cat\_encoder\_methods}). As default encoding
+method for nominal attributes we implemented a custom, Numpy-based
+version of Weight Of Evidence encoding which can even handle non-binary
+classes. The implementation follows \emph{Transformation of nominal
+features into numeric in supervised multi-class problems based on the
+weight of evidence parameter} (http://dx.doi.org/10.15439/2015F90).
+
+\hypertarget{model-folder}{%
+\subsubsection{\texorpdfstring{\texttt{model}
+Folder}{model Folder}}\label{model-folder}}
+
+The \texttt{Model}class uses Tensorflow and Keras to generate an
+artificial neural network. There is support for Feed-Forward and
+Convolutional networks with associated parameters. The module adds a
+\texttt{keras.layers.Dropout} layer before the output layer per default
+to avoid overfitting. Convolutional networks contain of a series of
+\texttt{Conv2D} and \texttt{MaxPool2D(2,\ 2)} layers. Some learning
+parameters (learning rate, exponential decay, \ldots) are also exposed
+for configuration. Generally, the default parameters are chose to
+support common use-cases and need to be adapted using the configuration
+if necessary. When training the model, a callback is used to always only
+store (and potentially overwrite) the most accurate model in terms of
+validation accuracy. For this, a validation split is made on the fly by
+using the \texttt{validation\_split} property of the \texttt{model.fit}
+function. Finally, some reports over the training history are generated
+to support an iterative training process.
+
+\hypertarget{extraction-folder}{%
+\subsubsection{\texorpdfstring{\texttt{extraction}
+Folder}{extraction Folder}}\label{extraction-folder}}
+
+The \texttt{Extraction} class wraps rule extraction methods. It assures
+that time and memory usage of the algorithms are recorded in a
+comparable manner (\texttt{Extraction.metrics}). We support DNNRE and
+ALPA. More algorithms can be added by a corresponding folder and another
+\texttt{Extraction} instance method. The present rule representation in
+the \texttt{rules} folder should be used for a comparable evaluation.
+Memory measurements might exhibit some strange behaviour that could not
+be explained. Most likely, this occurs when using a GPU with tensorflow.
+
+\hypertarget{dnnre}{%
+\paragraph{\texorpdfstring{\texttt{DNNRE}}{DNNRE}}\label{dnnre}}
+
+The DNNRE implementation was completely taken over from the previous
+group, which in turn took over the code from
+\href{https://github.com/sumaiyah/DNN-RE/}{sumaiyah}. This is why the
+current DNNRE code only supports Feed-Forward neural networks.
+
+\hypertarget{alpa}{%
+\paragraph{\texorpdfstring{\texttt{ALPA}}{ALPA}}\label{alpa}}
+
+Our Alpa implementation grew out of a review of the
+\href{https://www.uantwerpen.be/en/research-groups/applied-data-mining/software/\#ALPA}{Java
+code for Weka} . The program flow in the loop of the \texttt{alpa}
+method as well as the auxiliary methods are based on it. We eliminated
+some inefficiencies and peculiarities of the original implementation
+(like redundant network predictions). Since a pure Python implementation
+would produce a high computational overhead, we decided to implement the
+computationally intensive operations using the Numpy library. This was
+especially necessary for the nearest neighbor calculation in
+\texttt{Alpa.get\_nearest} to match the quadratic effort. As a whitebox,
+we used the C5.0 decision tree, since it is also used in DNNRE and is
+considered one of the best. We use the same
+\href{https://cran.r-project.org/web/packages/C50/vignettes/C5.0.html}{R
+interface} to train the decision tree and generate rules from it. The
+\texttt{R} interface in turn uses a single threaded
+\href{https://www.rulequest.com/see5-unix.html}{C implementation}, which
+is freely available under the GNU General Public License. The
+computational effort within the Alpa loop mainly originates from
+training, and classifying with, the whitebox instances. To make the best
+whitebox instance reusable in the \texttt{Evaluation}, we save it with
+\texttt{pickle}. Other whiteboxes could be added analogously to
+\texttt{alpa\_c5.py}. A function for model generation and a function for
+classifying new data would have to be implemented.
+
+\hypertarget{rules-folder}{%
+\subsubsection{\texorpdfstring{\texttt{rules}
+Folder}{rules Folder}}\label{rules-folder}}
+
+This folder contains the parts of the code of the
+\href{https://github.com/sumaiyah/DNN-RE/}{sumaiyah} DNNRE
+implementation which we use for a common basis of evaluation and rule
+extraction. The intention is to create rules with different extraction
+algorithms in the same format, so that the evaluation is not dependent
+on the method used.
+
+\hypertarget{evaluation-folder}{%
+\subsubsection{\texorpdfstring{\texttt{evaluation}
+Folder}{evaluation Folder}}\label{evaluation-folder}}
+
+The \texttt{evaluate\_rules} folder contains the parts of the code of
+the \href{https://github.com/sumaiyah/DNN-RE/}{sumaiyah} DNNRE
+implementation which we use for a common evaluation of the extracted
+rules. We have made some parts more efficient by using Numpy operations
+and fixed bugs. Furthermore, we added functions for pretty printing of
+rules and attribute counting for evaluation purposes. The latter is
+especially intended for creating heatmaps when evaluating image data.
+The DNNRE \texttt{predict} function in \texttt{evalue\_rules/predict.py}
+has a high Python overhead and takes a long time to predict high
+dimensional data such as images. This is why we added the possibility of
+using a prediction instance in
+\texttt{Evaluation.load\_predict\_instance}. We advise to use this
+feature for evaluation rules that are extracted with the alpa algorithm.
+For instance, only with the help of the \texttt{R\ C5.0} prediction
+instance we were able to predict the MNIST dataset with rules in
+reasonable time. The \texttt{Evaluation} class uses a \texttt{Jinja2}
+template to generate Markdown files with the evaluation output. The
+template is stored in \texttt{template/eval\_templ.md}.
+
+\hypertarget{configuration.py}{%
+\subsubsection{\texorpdfstring{\texttt{configuration.py}}{configuration.py}}\label{configuration.py}}
+
+This file contains classes for easy access to and renaming of dictionary
+keys. This is useful for autocompletion and also for preventing
+KeyErrors. The \texttt{Configuration} class has validation methods for
+each of the REA modules. They are intended to be used before the modules
+are run. This is to catch as many usage errors as possible before the
+pipeline is actually executed.
+
+\hypertarget{rea.py}{%
+\subsubsection{\texorpdfstring{\texttt{rea.py}}{rea.py}}\label{rea.py}}
+
+The \texttt{REA} class combines the modules into the pipeline. It also
+implements the two user interfaces (Cli and API). The CLI flags are
+generated in \texttt{\_\_main\_\_.py}, so that the \texttt{rea} module
+can be used with \texttt{python\ -m\ rea} command.
+
+\hypertarget{pre-commit}{%
+\subsubsection{Pre-Commit}\label{pre-commit}}
+
+Pre-Commit is used for consistent collaboration. It ensures a unified
+code-style and enforces other constraints, like a filesize limit.
+
+\end{document}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rea.evaluation.evaluate_rules.overlapping_features &mdash; REA 2022 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> REA
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">REA</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      <li>rea.evaluation.evaluate_rules.overlapping_features</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <h1>Source code for rea.evaluation.evaluate_rules.overlapping_features</h1><div class="highlight"><pre>
+<span></span><span class="c1"># source code adapted to PEP8 from</span>
+<span class="c1"># https://github.com/sumaiyah/DNN-RE/tree/master/src/evaluate_rules</span>
+<span class="c1"># added type-hints</span>
+<span class="c1"># added support for more than one rule per class</span>
+<span class="c1"># actually changed so much that this is not even close to the original anymore</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">from</span> <span class="nn">rea.rules.rule</span> <span class="kn">import</span> <span class="n">Rule</span>
+
+
+<div class="viewcode-block" id="overlapping_features"><a class="viewcode-back" href="../../../../rea.evaluation.evaluate_rules.html#rea.evaluation.evaluate_rules.overlapping_features.overlapping_features">[docs]</a><span class="k">def</span> <span class="nf">overlapping_features</span><span class="p">(</span><span class="n">rules</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Rule</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">OrderedDict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the number of overlapping (common) features considered in output</span>
+<span class="sd">    class rulesets.</span>
+
+<span class="sd">    This computes the overall intersection of used features</span>
+<span class="sd">    (i.e. features used in *every* rule) and per class intersection (i.e.</span>
+<span class="sd">    features used in *every* rule that concludes to a certain class) and union</span>
+<span class="sd">    (i.e. set of features used in rules concluding to the same class) of</span>
+<span class="sd">    features.</span>
+
+<span class="sd">    :example:</span>
+
+<span class="sd">    .. code-block:: text</span>
+
+<span class="sd">        h_0,1 &gt; 0 AND h_0,1 &lt; 1 -&gt; class 0</span>
+<span class="sd">        h_0,1 &gt; 1 AND h_0,2 &lt; 1 -&gt; class 1</span>
+<span class="sd">        h_0,2 &lt; 1 AND h_0,3 &lt; 0 --&gt; class 1</span>
+
+<span class="sd">        overall intersection: []</span>
+<span class="sd">        per class intersection:</span>
+<span class="sd">            class 0: [h_0,1]</span>
+<span class="sd">            class 1: [h_0,2]</span>
+<span class="sd">        per class union:</span>
+<span class="sd">            class 0: [h_0,1]</span>
+<span class="sd">            class 1: [h_0,1; h_0,2; h_0,3]</span>
+
+<span class="sd">    :param rules: The ruleset to analyse</span>
+
+<span class="sd">    :return: #common_features, common_features, features used in each class</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># list of sets of features used in each rule indexed by class names</span>
+    <span class="n">features_per_class</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="n">rule_features</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># set of features used in this rule</span>
+        <span class="c1"># if the cls is not already present in the dict, initialise its value</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">get_conclusion</span><span class="p">()</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">features_per_class</span><span class="p">:</span>
+            <span class="n">features_per_class</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="c1"># get features used by the terms present in the current rule</span>
+        <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="n">rule</span><span class="o">.</span><span class="n">get_premise</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">clause</span><span class="o">.</span><span class="n">get_terms</span><span class="p">():</span>
+                <span class="c1"># add features to set</span>
+                <span class="n">rule_features</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">term</span><span class="o">.</span><span class="n">get_neuron</span><span class="p">())</span>
+        <span class="c1"># add all features from this rule as a separate set for the current cls</span>
+        <span class="n">features_per_class</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule_features</span><span class="p">)</span>
+    <span class="c1"># calculate the union of features used for each class, i.e. all the</span>
+    <span class="c1"># features that are used somewhere to conclude this class</span>
+    <span class="n">feature_union_per_class</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="bp">cls</span><span class="p">:</span> <span class="nb">set</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="o">*</span><span class="n">features_per_class</span><span class="p">[</span><span class="bp">cls</span><span class="p">])</span>
+        <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">features_per_class</span>
+    <span class="p">}</span>
+    <span class="c1"># calculate the intersection of features used for each class, i.e. all the</span>
+    <span class="c1"># features used in *every* rule concluding to this class</span>
+    <span class="n">feature_intersection_per_class</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="bp">cls</span><span class="p">:</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">features_per_class</span><span class="p">[</span><span class="bp">cls</span><span class="p">])</span>
+        <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">features_per_class</span>
+    <span class="p">}</span>
+    <span class="c1"># get the overall common features (intersection of the union per class),</span>
+    <span class="c1"># i.e. the features used in the rules of every class</span>
+    <span class="n">feature_intersection</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">feature_union_per_class</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span>
+        <span class="n">feature_intersec_len</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_intersection</span><span class="p">),</span>
+        <span class="n">feature_intersec</span><span class="o">=</span><span class="n">feature_intersection</span><span class="p">,</span>
+        <span class="n">feature_union_per_class</span><span class="o">=</span><span class="n">feature_union_per_class</span><span class="p">,</span>
+        <span class="n">feature_intersection_per_class</span><span class="o">=</span><span class="n">feature_intersection_per_class</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

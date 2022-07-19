@@ -1,0 +1,33 @@
+{
+    "model": {
+        "data_path": "data/",
+        "nwtype": "ff",
+        "hidden_layer_units": [
+            64,
+            67,
+            69,
+            70,
+            70,
+            69,
+            67,
+            64
+        ],
+        "hidden_layer_activations": [
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu",
+            "relu"
+        ],
+        "use_class_weights": true,
+        "batch_size": 1,
+        "dropout": 0.2,
+        "val_split": 0.25,
+        "learning_rate": 0.000125,
+        "epochs": 200,
+        "output_path": "model/model_8h"
+    }
+}

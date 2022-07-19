@@ -1,0 +1,8 @@
+{
+    "extraction": {
+        "data_path": "data/",
+        "trained_model_path": "model/model_10h",
+        "algorithm": "dnnre",
+        "rules_dir": "rules\\model_10h_dnnre"
+    }
+}

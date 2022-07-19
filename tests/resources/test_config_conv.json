@@ -1,0 +1,50 @@
+{
+  "global": {
+    "logging": "DEBUG",
+    "seed": 42
+  },
+  "data": {
+    "input_path": "resources/mnist_30.csv",
+    "output_path": "temp/conv/data",
+    "original_shape": [
+      28,
+      28,
+      1
+    ],
+    "test_size": 0.3,
+    "dataset_name": "MNIST",
+    "label_col": 0
+  },
+  "model": {
+    "data_path": "temp/conv/data",
+    "nwtype": "conv",
+    "hidden_layer_units": [
+      10
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "conv_layer_kernels": [
+      [
+        3,
+        3
+      ]
+    ],
+    "use_class_weights": true,
+    "batch_size": 2,
+    "epochs": 5,
+    "output_path": "temp/conv/model"
+  },
+  "extraction": {
+    "data_path": "temp/conv/data",
+    "trained_model_path": "temp/conv/model",
+    "algorithm": "alpa",
+    "rules_dir": "temp/conv/rules"
+  },
+  "evaluation": {
+    "data_path": "temp/conv/data",
+    "trained_model_path": "temp/conv/model",
+    "rules_dir": "temp/conv/rules",
+    "evaluation_dir": "temp/conv/eval"
+  }
+}

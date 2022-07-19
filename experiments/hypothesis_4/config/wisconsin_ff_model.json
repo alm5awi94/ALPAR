@@ -1,0 +1,31 @@
+{
+  "data": {
+    "input_path": "../datasets/breast_cancer_wisconsin.csv",
+    "test_size": 0.3,
+    "dataset_name": "Breast_Cancer_Wisconsin",
+    "label_col": "diagnosis",
+    "output_path": "data"
+  },
+  "model": {
+    "nwtype": "ff",
+    "data_path": "data/ff",
+    "hidden_layer_units": [
+      30,
+      60,
+      2
+    ],
+    "hidden_layer_activations": [
+      "relu",
+      "relu",
+      "relu"
+    ],
+    "dropout": 0.2,
+    "use_class_weights": true,
+    "batch_size": 1,
+    "learning_rate": 0.0005,
+    "use_decay": false,
+    "epochs": 1000,
+    "val_split": 0.4,
+    "output_path": "model"
+  }
+}

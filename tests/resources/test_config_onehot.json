@@ -1,0 +1,46 @@
+{
+  "global": {
+    "logging": "DEBUG",
+    "seed": 42
+  },
+  "data": {
+    "input_path": "resources/uci_test.csv",
+    "output_path": "temp/uci_hot/data",
+    "test_size": 0.3,
+    "dataset_name": "Uci",
+    "label_col": "default.payment.next.month",
+    "cat_conv_method": "onehot",
+    "categorical_columns": [
+      1
+    ]
+  },
+  "model": {
+    "data_path": "temp/uci_hot/data",
+    "nwtype": "ff",
+    "hidden_layer_units": [
+      20
+    ],
+    "hidden_layer_activations": [
+      "relu"
+    ],
+    "use_class_weights": true,
+    "batch_size": 5,
+    "epochs": 1,
+    "val_split": 0.1,
+    "dropout": 0.1,
+    "learning_rate": 0.01,
+    "output_path": "temp/uci_hot/model"
+  },
+  "extraction": {
+    "data_path": "temp/uci_hot/data",
+    "trained_model_path": "temp/uci_hot/model",
+    "algorithm": "alpa",
+    "rules_dir": "temp/uci_hot/rules"
+  },
+  "evaluation": {
+    "data_path": "temp/uci_hot/data",
+    "trained_model_path": "temp/uci_hot/model",
+    "rules_dir": "temp/uci_hot/rules",
+    "evaluation_dir": "temp/uci_hot/eval"
+  }
+}

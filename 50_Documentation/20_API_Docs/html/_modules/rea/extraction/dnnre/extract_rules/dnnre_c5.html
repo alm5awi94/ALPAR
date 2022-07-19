@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rea.extraction.dnnre.extract_rules.dnnre_c5 &#8212; REA 2022 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/alabaster.css" />
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+
+  <link rel="stylesheet" href="../../../../../_static/custom.css" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+
+
+          <div class="body" role="main">
+
+  <h1>Source code for rea.extraction.dnnre.extract_rules.dnnre_c5</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">rpy2</span> <span class="kn">import</span> <span class="n">robjects</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">pandas2ri</span>
+<span class="c1"># Interface to R running embedded in a Python process</span>
+<span class="kn">from</span> <span class="nn">rpy2.robjects.packages</span> <span class="kn">import</span> <span class="n">importr</span>
+
+<span class="kn">from</span> <span class="nn">rea.rules.helpers</span> <span class="kn">import</span> <span class="n">parse_variable_str_to_dict</span>
+<span class="kn">from</span> <span class="nn">rea.rules.rule</span> <span class="kn">import</span> <span class="n">Rule</span>
+<span class="kn">from</span> <span class="nn">rea.rules.term</span> <span class="kn">import</span> <span class="n">Neuron</span><span class="p">,</span> <span class="n">Term</span>
+
+<span class="c1"># source code adapted to PEP8 from</span>
+<span class="c1"># https://github.com/sumaiyah/DNN-RE/tree/master/src/rules</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># activate Pandas conversion between R objects and Python objects</span>
+<span class="n">pandas2ri</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+
+<span class="c1"># C50 R package is interface to C5.0 classification model</span>
+<span class="n">C50</span> <span class="o">=</span> <span class="n">importr</span><span class="p">(</span><span class="s1">&#39;C50&#39;</span><span class="p">)</span>
+<span class="n">C5_0</span> <span class="o">=</span> <span class="n">robjects</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="s1">&#39;C5.0&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_C5_rule_str</span><span class="p">(</span><span class="n">rule_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">rule_conclusion_map</span><span class="p">,</span>
+                       <span class="n">prior_rule_confidence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Rule</span><span class="p">]:</span>
+    <span class="n">rules_set</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Rule</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="n">rule_str_lines</span> <span class="o">=</span> <span class="n">rule_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1"># if there are no more elements, no rule were generated</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rule_str_lines</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No rules were generated. Returning empty set.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">line_index</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="n">metadata_variables</span> <span class="o">=</span> <span class="n">parse_variable_str_to_dict</span><span class="p">(</span><span class="n">rule_str_lines</span><span class="p">[</span><span class="n">line_index</span><span class="p">])</span>
+    <span class="n">n_rules</span> <span class="o">=</span> <span class="n">metadata_variables</span><span class="p">[</span><span class="s1">&#39;rules&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_rules</span><span class="p">):</span>
+        <span class="n">line_index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">rule_data_variables</span> <span class="o">=</span> <span class="n">parse_variable_str_to_dict</span><span class="p">(</span>
+            <span class="n">rule_str_lines</span><span class="p">[</span><span class="n">line_index</span><span class="p">])</span>
+        <span class="n">n_rule_terms</span> <span class="o">=</span> <span class="n">rule_data_variables</span><span class="p">[</span><span class="s1">&#39;conds&#39;</span><span class="p">]</span>
+        <span class="n">rule_conclusion</span> <span class="o">=</span> <span class="n">rule_conclusion_map</span><span class="p">[(</span><span class="n">rule_data_variables</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">])]</span>
+
+        <span class="c1"># C5 rule confidence=</span>
+        <span class="c1"># (number of training cases correctly classified + 1)</span>
+        <span class="c1"># / (total training cases covered  + 2)</span>
+        <span class="n">rule_confidence</span> <span class="o">=</span> <span class="p">(</span><span class="n">rule_data_variables</span><span class="p">[</span><span class="s1">&#39;ok&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+            <span class="n">rule_data_variables</span><span class="p">[</span><span class="s1">&#39;cover&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="c1"># Weight rule confidence by confidence of previous rule</span>
+        <span class="n">rule_confidence</span> <span class="o">=</span> <span class="n">rule_confidence</span> <span class="o">*</span> <span class="n">prior_rule_confidence</span>
+
+        <span class="n">rule_terms</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Term</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_rule_terms</span><span class="p">):</span>
+            <span class="n">line_index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="n">term_variables</span> <span class="o">=</span> <span class="n">parse_variable_str_to_dict</span><span class="p">(</span>
+                <span class="n">rule_str_lines</span><span class="p">[</span><span class="n">line_index</span><span class="p">])</span>
+            <span class="n">term_neuron_str</span> <span class="o">=</span> <span class="n">term_variables</span><span class="p">[</span><span class="s1">&#39;att&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+            <span class="n">term_neuron</span> <span class="o">=</span> <span class="n">Neuron</span><span class="p">(</span><span class="n">layer</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">term_neuron_str</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                                 <span class="n">index</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">term_neuron_str</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="c1"># In C5, &lt; -&gt; &lt;=, &gt; -&gt; &gt;</span>
+            <span class="n">term_operator</span> <span class="o">=</span> <span class="s1">&#39;&lt;=&#39;</span> <span class="k">if</span> <span class="n">term_variables</span><span class="p">[</span>
+                <span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&lt;&#39;</span> <span class="k">else</span> <span class="s1">&#39;&gt;&#39;</span>
+            <span class="n">term_operand</span> <span class="o">=</span> <span class="n">term_variables</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span>
+
+            <span class="n">rule_terms</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Term</span><span class="p">(</span><span class="n">neuron</span><span class="o">=</span><span class="n">term_neuron</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="n">term_operator</span><span class="p">,</span>
+                                <span class="n">threshold</span><span class="o">=</span><span class="n">term_operand</span><span class="p">))</span>
+
+        <span class="n">rules_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+            <span class="n">Rule</span><span class="o">.</span><span class="n">from_term_set</span><span class="p">(</span><span class="n">premise</span><span class="o">=</span><span class="n">rule_terms</span><span class="p">,</span> <span class="n">conclusion</span><span class="o">=</span><span class="n">rule_conclusion</span><span class="p">,</span>
+                               <span class="n">confidence</span><span class="o">=</span><span class="n">rule_confidence</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">rules_set</span>
+
+
+<div class="viewcode-block" id="C5"><a class="viewcode-back" href="../../../../../rea.extraction.dnnre.extract_rules.html#rea.extraction.dnnre.extract_rules.dnnre_c5.C5">[docs]</a><span class="k">def</span> <span class="nf">C5</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">rule_conclusion_map</span><span class="p">,</span>
+       <span class="n">prior_rule_confidence</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Rule</span><span class="p">]:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">robjects</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">FactorVector</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">y</span><span class="p">)))</span>
+
+    <span class="c1"># Default = C5.0Control(subset = TRUE, bands = 0, winnow = FALSE,</span>
+    <span class="c1"># noGlobalPruning = FALSE, CF = 0.25, minCases = 2,</span>
+    <span class="c1"># fuzzyThreshold=FALSE, sample = 0, seed = sample.int(4096, size = 1) -1L,</span>
+    <span class="c1"># earlyStopping = TRUE, label = &quot;outcome&quot;)</span>
+    <span class="c1"># C5_model = C50.C5_0(x=x, y=y, rules=True,</span>
+    <span class="c1"># control=C50.C5_0Control(winnow=True, minCases=(0.02*len(x))))</span>
+    <span class="n">C5_model</span> <span class="o">=</span> <span class="n">C50</span><span class="o">.</span><span class="n">C5_0</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">control</span><span class="o">=</span><span class="n">C50</span><span class="o">.</span><span class="n">C5_0Control</span><span class="p">(</span><span class="n">winnow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">))</span>
+
+    <span class="n">C5_rules_str</span> <span class="o">=</span> <span class="n">C5_model</span><span class="o">.</span><span class="n">rx2</span><span class="p">(</span><span class="s1">&#39;rules&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">C5_rules</span> <span class="o">=</span> <span class="n">_parse_C5_rule_str</span><span class="p">(</span><span class="n">C5_rules_str</span><span class="p">,</span> <span class="n">rule_conclusion_map</span><span class="p">,</span>
+                                  <span class="n">prior_rule_confidence</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">C5_rules</span></div>
+</pre></div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../../../index.html">REA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Tom Krüger, Lukas Zech, Erik Endlicher, Justin Kreikemeyer.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+
+    </div>
+
+
+
+
+  </body>
+</html>

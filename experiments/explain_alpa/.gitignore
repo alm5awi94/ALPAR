@@ -1,0 +1,4 @@
+*.data-*
+*.pb
+*.index
+.ipynb_checkpoints

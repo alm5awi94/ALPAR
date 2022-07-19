@@ -1,0 +1,9 @@
+{
+  "data": {
+    "input_path": "resources/iris.csv",
+    "output_path": "temp/batch/data",
+    "test_size": 0.3,
+    "dataset_name": "Iris",
+    "label_col": "Species"
+  }
+}
